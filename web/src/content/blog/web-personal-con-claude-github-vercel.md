@@ -47,7 +47,7 @@ Nada más. Sin plantillas pagas, sin constructores visuales, sin hosting.
 
 ### 1. Decidir qué contar y para quién
 
-Antes de diseñar nada definí tres cosas: el objetivo (marca personal, no vender servicios), a quién le hablo (gente de ventas que quiere trabajar distinto) y una sola oferta: **te muestro mi setup** en una llamada de 30 minutos.
+Antes de diseñar nada definí tres cosas: el objetivo (contar cómo trabajo, no vender servicios), a quién le hablo (founders, directivos y perfiles tech que están dando sus primeros pasos con IA) y qué quería que pasara después: una conversación.
 
 Esa fue la parte difícil. La técnica vino después.
 
@@ -81,6 +81,12 @@ Varias cosas, y conviene contarlas.
 
 Ninguno de esos problemas requirió saber programar. Requirió mirar con atención y pedir el cambio.
 
+## ¿Por qué esto le importa a alguien que no quiere hacerse una web?
+
+Porque la web es lo de menos. Lo que muestra es un patrón que sirve para casi cualquier proceso de una empresa: vos ponés el criterio (qué se hace, para quién, qué queda y qué se va) y la IA ejecuta.
+
+Para un founder o un directivo, eso significa poder probar una idea (una landing, una herramienta interna, un flujo de trabajo) sin esperar turno del equipo técnico, y llegar a esa conversación con algo concreto en la mano. No reemplaza a nadie: cambia desde dónde arranca la conversación.
+
 ## ¿Qué aprendí?
 
 1. **El criterio es tuyo, la ejecución puede no serlo.** Claude escribe el código; decidir qué se queda y qué se va es trabajo mío.
@@ -89,3 +95,5 @@ Ninguno de esos problemas requirió saber programar. Requirió mirar con atenci�
 4. **Gratis no significa precario.** El stack gratuito alcanza de sobra para una web personal con blog.
 
 Es el mismo principio que aplico en ventas: [las herramientas se adaptan a las personas](/#detras), no al revés.
+
+Si estás probando cosas parecidas en tu empresa, escribime. Me interesa conocer a quien está en lo mismo.

@@ -16,7 +16,7 @@ const mins = readingMinutes(post.body ?? '');
 const related = posts.filter((p) => p.id !== post.id).slice(0, 3);
 const person = { "@type": "Person", "@id": new URL('/#person', Astro.site).href, "name": "Emiliano Moretti", "url": Astro.site?.href, "jobTitle": "Director comercial", "worksFor": { "@type": "Organization", "name": "Modulor Studios" }, "sameAs": ["https://www.linkedin.com/in/emiliano-moretti/", "https://x.com/EmilianoMorett5"] };
 const lds: object[] = [
-  { "@context": "https://schema.org", "@type": "BlogPosting", "headline": d.title, "description": d.description, "datePublished": d.pubDate.toISOString(), "dateModified": (d.updatedDate ?? d.pubDate).toISOString(), "inLanguage": "es", "mainEntityOfPage": url, "url": url, "image": new URL(d.image ?? '/og.png', Astro.site).href, "author": person, "publisher": person, "keywords": d.tags.join(', ') },
+  { "@context": "https://schema.org", "@type": "BlogPosting", "headline": d.title, "description": d.description, "datePublished": d.pubDate.toISOString(), "dateModified": (d.updatedDate ?? d.pubDate).toISOString(), "inLanguage": "es", "mainEntityOfPage": url, "url": url, "image": new URL(d.image ?? '/og.jpg', Astro.site).href, "author": person, "publisher": person, "keywords": d.tags.join(', ') },
   { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Inicio", "item": Astro.site?.href },
     { "@type": "ListItem", "position": 2, "name": "Blog", "item": new URL('/blog/', Astro.site).href },
@@ -78,7 +78,7 @@ const toc = headings.filter((h) => h.depth === 2);
     </div>
 
     <div class="post-cta">
-      <p class="statement">¿Te muestro mi setup? <span class="g">Treinta minutos, mi pantalla real.</span></p>
+      <p class="statement">¿Estás en lo mismo? <span class="g">Charlemos 30 minutos, en Madrid o por videollamada, y comparamos notas.</span></p>
       <a class="pill pill-ink" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1_ERerY_SFciQLYK3iSLs8HwhEUT9XIO7E2XoCS4mqluKSFbzKchy6JSY0dDStcfYEp8gJYGx-" target="_blank" rel="noopener">Agendemos 30 minutos <svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
     </div>
 

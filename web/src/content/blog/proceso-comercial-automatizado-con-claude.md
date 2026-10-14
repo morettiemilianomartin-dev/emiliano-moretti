@@ -137,4 +137,4 @@ No hace falta armarlo todo de una vez. Yo tampoco lo hice así: empecé por una 
 4. **Definí dónde vive la memoria.** Una ficha por cliente, siempre en el mismo lugar.
 5. **Decidí qué no vas a automatizar.** Ese límite es lo que hace que confíes en el resto.
 
-Siempre usé el stack que me dieron. Hoy creo el mío. Y lo voy a seguir contando acá, pieza por pieza. Si querés ver cómo se ve en mi pantalla real, [te muestro mi setup en 30 minutos](/#contacto).
+Siempre usé el stack que me dieron. Hoy creo el mío. Y lo voy a seguir contando acá, pieza por pieza. Si estás en lo mismo, [escribime y comparamos notas](/#contacto).

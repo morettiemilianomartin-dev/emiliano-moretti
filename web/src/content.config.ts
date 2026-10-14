@@ -14,7 +14,7 @@ const blog = defineCollection({
     faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
     linkedin: z.string().url().optional(),   // Link al post de LinkedIn relacionado
     x: z.string().url().optional(),          // Link al post de X relacionado
-    image: z.string().optional(),            // Imagen para redes (por defecto /og.png)
+    image: z.string().optional(),            // Imagen para redes (por defecto /og.jpg)
     draft: z.boolean().default(false),       // true = no se publica
   }),
 });
