@@ -20,15 +20,15 @@ faq:
     a: "Por vos mismo. Usala unas semanas en tu propio trabajo, elegí un proceso que mueva mucha información y poco criterio, y escribí qué no se va a automatizar antes de sumar al equipo."
 ---
 
-**Desde 2011 trabajo entre medios y ventas, y desde principios de 2026 hago mi proceso comercial con Claude.** Le dejo a la IA lo que mueve información: investigar, tomar notas, validar y armar documentos. Me quedo con lo que es vender: escuchar, generar confianza y acompañar una decisión. Y no, no tengo miedo de que me reemplace. Lo resumo en una frase: la IA nos da esteroides.
+**Desde 2011 trabajo entre medios y ventas, y desde principios de 2026 hago mi proceso comercial con Claude.** Le dejo a la IA lo que mueve información: investigar, tomar notas, validar y armar documentos. Me quedo con lo que es vender: escuchar al cliente y acompañarlo hasta que decide. Y no, no tengo miedo de que me reemplace. Lo resumo en una frase: la IA nos da esteroides.
 
-No hablo de lo que podría pasar. Hablo de [cómo trabajo hoy](/blog/proceso-comercial-automatizado-con-claude/).
+Lo que cuento acá es [cómo trabajo hoy](/blog/proceso-comercial-automatizado-con-claude/), con lo que ya funciona y lo que todavía estoy probando.
 
 ## ¿La IA va a reemplazar a los comerciales?
 
-No lo creo, porque vender nunca fue solo mover información. En la publicidad, de donde vengo, no golpeás puertas: construís relaciones. Y una relación no se automatiza.
+No lo creo, porque vender nunca fue solo mover información. Vengo de la publicidad, donde el trabajo era construir relaciones, y eso no lo automatiza ninguna herramienta.
 
-La IA es muy buena preparando. Me deja llegar a una llamada sabiendo con quién hablo, con la ficha completa y el historial a mano. Pero la llamada la hago yo. La lectura de lo que el cliente no dice, el momento de insistir o de esperar, la confianza que se construye en varias conversaciones: eso sigue siendo humano.
+La IA es muy buena preparando. Me deja llegar a una llamada sabiendo con quién hablo, con la ficha completa y el historial a mano. Pero la llamada la hago yo. La lectura de lo que el cliente no dice, el momento de insistir o de esperar, la confianza que se construye en varias conversaciones siguen dependiendo de mí.
 
 ## ¿Qué delego en la IA?
 
@@ -46,10 +46,10 @@ Todo lo que antes me sacaba tiempo de estar con clientes y no requería criterio
 
 No comparto cifras, porque son de la empresa y de sus clientes. Pero el cambio se nota en cuatro cosas:
 
-- **Llego a cada llamada con el contexto completo del lead.** Quién es, qué pidió, qué hablamos antes. La primera pregunta ya no es "¿me recordás en qué estaban?".
-- **Las propuestas salen más rápido y sin errores de marca ni de alcance.** La validación ya no depende de mi memoria.
-- **El CRM está al día sin que le dedique tiempo a cargarlo.** Se actualiza con el trabajo, no después.
-- **Paso más tiempo con clientes y menos con herramientas.** Que es, al final, para lo que me pagan.
+- Llego a cada llamada con el contexto completo del lead: quién es, qué pidió y qué hablamos antes. La primera pregunta ya no es "¿me recordás en qué estaban?".
+- Las propuestas salen más rápido y sin errores de marca ni de alcance, porque la validación ya no depende de mi memoria.
+- El CRM está al día sin que le dedique tiempo a cargarlo. Se actualiza mientras trabajo.
+- Paso más tiempo con clientes y menos con herramientas, que es, al final, para lo que me pagan.
 
 ## ¿Qué no delego?
 
@@ -66,23 +66,23 @@ El último es el más importante. Si la IA te ahorra horas y las usás para mand
 
 Cambia el reparto del tiempo: menos copiar y pegar entre herramientas, más conversaciones de calidad.
 
-Y creo que cambia algo más grande. Con IA se van a crear y vender cada vez más cosas: productos, servicios y proyectos que antes no se hacían porque eran caros o lentos de armar. Alguien va a tener que entender a cada cliente y acompañarlo. Ese alguien es el comercial.
+Y creo que cambia algo más grande. Con IA se van a crear y vender cada vez más cosas: productos, servicios y proyectos que antes no se hacían porque eran caros o lentos de armar. Va a hacer falta alguien que entienda a cada cliente y lo acompañe, y ese es el trabajo del comercial.
 
 También creo que los comerciales vamos a tener más voz. Cada vez va a haber más vendedores contando lo que hacen y cómo lo hacen. Este blog es mi intento.
 
 ## ¿Cómo empezar si liderás un equipo?
 
-1. **Empezá por vos, antes que por el equipo.** Usala unas semanas en tu propio trabajo. Vas a saber qué pedirle al equipo y qué no.
-2. **Elegí un proceso que mueva mucha información y requiera poco criterio.** Preparar llamadas, ordenar notas o mantener el CRM son buenos candidatos.
-3. **Dale contexto, no solo prompts.** Conectala a donde vive la información: el mail, el CRM, los documentos. Esa es la diferencia entre una demo y una herramienta de trabajo.
-4. **Escribí qué no se automatiza.** Ese límite protege a tus clientes y le da tranquilidad al equipo.
-5. **Decidí a dónde va el tiempo que liberás.** Si vuelve a los clientes, funcionó. Si se convierte en más mails genéricos, no.
+1. Empezá por vos. Usala unas semanas en tu propio trabajo y vas a saber qué pedirle al equipo y qué no.
+2. Elegí un proceso que mueva mucha información y requiera poco criterio, como preparar llamadas, ordenar notas o mantener el CRM.
+3. Conectala a donde vive la información: el mail, el CRM y los documentos. Con ese contexto deja de ser una demo y pasa a ser una herramienta de trabajo.
+4. Escribí qué no se automatiza. Ese límite protege a tus clientes y le da tranquilidad al equipo.
+5. Decidí a dónde va el tiempo que liberás. Si vuelve a los clientes, funcionó. Si se convierte en más mails genéricos, no.
 
 Si querés ver cómo se ve todo esto por dentro, con conectores, skills y Notion como memoria, está en [Detrás del proceso](/#detras).
 
 ## La IA nos da esteroides
 
-No veo el futuro de las ventas con miedo. Lo veo con esperanza. La IA no le quita trabajo al comercial que entiende a sus clientes: le saca de encima lo que no era vender.
+Veo el futuro de las ventas con esperanza. Al comercial que entiende a sus clientes, la IA le saca de encima lo que no era vender.
 
 Agradezco haber elegido ser comercial al inicio de mi carrera. Hoy, con IA, este trabajo me gusta más que nunca.
 

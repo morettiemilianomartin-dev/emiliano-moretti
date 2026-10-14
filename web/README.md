@@ -48,6 +48,21 @@ No borrar nunca `public/googleffb23e07d95d9c73.html`: es la verificación de Goo
 - Fecha visible; si se actualiza, sumar `updatedDate`.
 - Preguntas frecuentes al final con respuestas autosuficientes.
 
+## Reglas de escritura (que no suene a IA)
+
+Todo texto de la web, del blog y de redes pasa este filtro antes de publicarse (basado en el plugin Humanizer):
+
+- Sin contrastes de relleno del tipo "no es X, es Y" o "No hablo de X. Hablo de Y". Decir la idea directo.
+- Sin frases de remate sueltas que repiten lo anterior ("Ningún lead espera.", "Eso es todo.").
+- Sin guiones largos (— o –) como conector: usar punto, coma, dos puntos o paréntesis.
+- Sin listas de tres por inercia: solo cuando hay tres cosas de verdad.
+- Sin negritas decorativas ni listas con título en negrita en cada punto (la excepción son los cuatro criterios de "Lo que no automatizo").
+- Sin palabras infladas ni de venta ("crucial", "clave", "potenciar", "revolucionario", "sin precedentes").
+- Cada artículo cierra distinto; no repetir la misma frase de despedida.
+- No inventar datos, citas ni detalles: si falta algo, se pregunta.
+- Mantener la voz de Emi: voseo, frases cortas y largas alternadas, opiniones propias. Nunca usar "che".
+- Frases propias que se respetan: "Soy de ventas, no de código", "La IA nos da esteroides", "Siempre usé el stack que me dieron. Hoy creo el mío", "Las herramientas se adaptan a las personas".
+
 ## Cambiar a dominio propio
 
 Editá `site` en `astro.config.mjs` y la línea `Sitemap:` de `public/robots.txt`.

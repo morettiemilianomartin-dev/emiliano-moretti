@@ -54,8 +54,6 @@ Mi stack no tiene nada exótico. Son herramientas que cualquier equipo comercial
 | WhatsApp (vía Instinct) | Donde me llega lo urgente |
 | [Claude](https://claude.ai) | El que conecta todo lo anterior |
 
-Ninguna de estas herramientas es nueva. Lo nuevo es que ya no soy yo el que copia y pega entre ellas.
-
 ## ¿Cómo es el flujo, paso a paso?
 
 Son cinco pasos, del primer contacto al seguimiento. En cada uno, lo que antes hacía a mano hoy lo prepara Claude y yo lo reviso.
@@ -64,7 +62,7 @@ Son cinco pasos, del primer contacto al seguimiento. En cada uno, lo que antes h
 
 **Antes:** un "te escribo pronto" y a investigar quién era.
 
-**Hoy:** el formulario llega a mi correo y abro el caso en Claude. En minutos sé quién escribe, qué hace su empresa y si ya hablamos antes. Ningún lead espera.
+**Hoy:** el formulario llega a mi correo y abro el caso en Claude. En minutos sé quién escribe, qué hace su empresa y si ya hablamos antes, así que ningún lead queda esperando.
 
 ### 2. La llamada
 
@@ -90,7 +88,7 @@ Algo que todavía no resolví: al pasar de la landing al PDF perdí la analític
 
 **Antes:** un CRM que se actualizaba el viernes, si se actualizaba.
 
-**Hoy:** cada paso actualiza el deal en HubSpot y lo urgente me llega por WhatsApp, esté donde esté. El pipeline dice la verdad.
+**Hoy:** cada paso actualiza el deal en HubSpot y lo urgente me llega por WhatsApp, esté donde esté. Lo que muestra el pipeline es lo que está pasando.
 
 ## ¿Qué hace posible que funcione?
 
@@ -98,11 +96,11 @@ Lo que se ve son los pasos. Lo que hace que funcione está [detrás del proceso]
 
 ### Conectores: Claude trabaja dentro de mis herramientas
 
-Un conector es la conexión que le permite a Claude leer y escribir en una herramienta. Claude no reemplaza mis herramientas: trabaja dentro de ellas. Lee el mail, consulta la ficha en Notion, revisa la transcripción de Granola y actualiza el deal en HubSpot. Se acabó copiar y pegar entre pestañas.
+Un conector es la conexión que le permite a Claude leer y escribir en una herramienta. Con ellos, Claude lee el mail, consulta la ficha en Notion, revisa la transcripción de Granola y actualiza el deal en HubSpot, y yo dejo de copiar y pegar entre pestañas.
 
 ### Skills: lo que repito, lo estandarizo
 
-Una skill es un conjunto de instrucciones guardado para una tarea que repito. Cada tarea que hago más de dos veces se convierte en una: preparar una llamada, reconstruir el historial de una cuenta, armar una propuesta, cargar un deal completo, revisar qué está frenado en el pipeline o arrancar un proyecto cuando el cliente dice que sí. Mismo proceso y mismo nivel, cada vez.
+Una skill es un conjunto de instrucciones guardado para una tarea que repito. Cada tarea que hago más de dos veces se convierte en una: preparar una llamada, reconstruir el historial de una cuenta, armar una propuesta, cargar un deal completo, revisar qué está frenado en el pipeline o arrancar un proyecto cuando el cliente dice que sí. Así cada tarea sale con el mismo proceso y el mismo nivel.
 
 ### Notion: la memoria del sistema
 
@@ -131,10 +129,10 @@ La IA nos da esteroides, pero el comercial no va a ser reemplazado. La parte hum
 
 No hace falta armarlo todo de una vez. Yo tampoco lo hice así: empecé por una sola tarea y fui sumando piezas.
 
-1. **Elegí la tarea que más odiás repetir.** Para mí eran las propuestas estándar.
-2. **Conectá una sola herramienta.** La que más usás: el mail, el CRM o tus notas.
-3. **Escribí tu proceso como se lo explicarías a alguien nuevo.** Esa explicación es tu primera skill.
-4. **Definí dónde vive la memoria.** Una ficha por cliente, siempre en el mismo lugar.
-5. **Decidí qué no vas a automatizar.** Ese límite es lo que hace que confíes en el resto.
+1. Elegí la tarea que más odiás repetir. Para mí eran las propuestas estándar.
+2. Conectá una sola herramienta, la que más usás: el mail, el CRM o tus notas.
+3. Escribí tu proceso como se lo explicarías a alguien nuevo. Esa explicación es tu primera skill.
+4. Definí dónde vive la memoria: una ficha por cliente, siempre en el mismo lugar.
+5. Decidí qué no vas a automatizar. Con ese límite claro, confiás en el resto.
 
 Siempre usé el stack que me dieron. Hoy creo el mío. Y lo voy a seguir contando acá, pieza por pieza. Si estás en lo mismo, [escribime y comparamos notas](/#contacto).

@@ -41,7 +41,7 @@ LinkedIn y X son buenos para conversar, pero el contenido dura poco y el alcance
 | [Vercel](https://vercel.com) | Publica la web cada vez que algo cambia | Gratis (plan Hobby, uso personal) |
 | [Astro](https://astro.build) | Arma la web y el blog | Gratis (código abierto) |
 
-Nada más. Sin plantillas pagas, sin constructores visuales, sin hosting.
+No usé plantillas pagas, constructores visuales ni hosting.
 
 ## ¿Cómo fue el proceso, paso a paso?
 
@@ -79,21 +79,21 @@ Varias cosas, y conviene contarlas.
 - **Una foto que desapareció.** En una versión, la imagen de la tarjeta de contacto dependía de un archivo aparte que no estaba donde debía. Terminé incrustándola en la página.
 - **Diseños que no funcionaban.** Hubo un diagrama que me parecía bien y no explicaba nada. Lo cambiamos por algo más simple: las herramientas fijas que se van pintando a medida que bajás.
 
-Ninguno de esos problemas requirió saber programar. Requirió mirar con atención y pedir el cambio.
+Para resolverlos no hizo falta programar. Alcanzó con mirar con atención y pedir el cambio.
 
 ## ¿Por qué esto le importa a alguien que no quiere hacerse una web?
 
 Porque la web es lo de menos. Lo que muestra es un patrón que sirve para casi cualquier proceso de una empresa: vos ponés el criterio (qué se hace, para quién, qué queda y qué se va) y la IA ejecuta.
 
-Para un founder o un directivo, eso significa poder probar una idea (una landing, una herramienta interna, un flujo de trabajo) sin esperar turno del equipo técnico, y llegar a esa conversación con algo concreto en la mano. No reemplaza a nadie: cambia desde dónde arranca la conversación.
+Para un founder o un directivo, eso significa poder probar una idea (una landing, una herramienta interna, un flujo de trabajo) sin esperar turno del equipo técnico, y llegar a la conversación con el equipo con algo concreto en la mano.
 
 ## ¿Qué aprendí?
 
-1. **El criterio es tuyo, la ejecución puede no serlo.** Claude escribe el código; decidir qué se queda y qué se va es trabajo mío.
-2. **Iterar en privado es barato.** Diez versiones en una vista previa cuestan menos que una mala versión publicada.
-3. **Pedir revisiones con un rol concreto mejora el resultado.** "Revisalo como un director de ventas" da mejores observaciones que "¿qué te parece?".
-4. **Gratis no significa precario.** El stack gratuito alcanza de sobra para una web personal con blog.
+1. El criterio es tuyo y la ejecución la podés delegar. Claude escribe el código; decidir qué se queda y qué se va es trabajo mío.
+2. Iterar en privado es barato. Diez versiones en una vista previa cuestan menos que una mala versión publicada.
+3. Pedir revisiones con un rol concreto mejora el resultado. "Revisalo como un director de ventas" da mejores observaciones que "¿qué te parece?".
+4. El stack gratuito alcanza de sobra para una web personal con blog.
 
 Es el mismo principio que aplico en ventas: [las herramientas se adaptan a las personas](/#detras), no al revés.
 
-Si estás probando cosas parecidas en tu empresa, escribime. Me interesa conocer a quien está en lo mismo.
+Si estás probando algo parecido en tu empresa, escribime y te cuento cómo lo hice.
