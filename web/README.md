@@ -30,6 +30,14 @@ draft: false                                       # true = no se publica
 3. Debajo, el texto en Markdown. Subtítulos `##` formulados como preguntas.
 4. Subí el archivo a GitHub: el índice del blog, el sitemap, el RSS y `llms.txt` se actualizan solos.
 
+## Después de publicar (2 minutos)
+
+1. **Google Search Console** → Inspección de URLs → pegar la URL del artículo → Solicitar indexación.
+2. **Bing Webmaster Tools** → URL Submission → pegar la URL → Submit.
+3. Compartirlo en LinkedIn y X con el enlace.
+
+No borrar nunca `public/googleffb23e07d95d9c73.html`: es la verificación de Google Search Console.
+
 ## Reglas SEO / GEO de cada artículo
 
 - Respuesta directa en las primeras 40–60 palabras (definición "X es…").
