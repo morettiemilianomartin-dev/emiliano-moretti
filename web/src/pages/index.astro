@@ -1,0 +1,346 @@
+---
+import Base from '../layouts/Base.astro';
+const personLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Person", "@id": "https://emiliano-moretti.vercel.app/#person", "name": "Emiliano Moretti", "jobTitle": "Director comercial", "worksFor": { "@type": "Organization", "name": "Modulor Studios" }, "address": { "@type": "PostalAddress", "addressLocality": "Madrid", "addressCountry": "ES" }, "url": "https://emiliano-moretti.vercel.app/", "image": "https://emiliano-moretti.vercel.app/avatar.jpg", "description": "Director comercial en Modulor Studios. Vende desde 2011 y su proceso comercial corre sobre Claude.", "sameAs": ["https://www.linkedin.com/in/emiliano-moretti/", "https://x.com/EmilianoMorett5"], "knowsAbout": ["Ventas B2B", "Inteligencia artificial aplicada a ventas", "Claude", "Automatización comercial", "Notion", "HubSpot"] },
+    { "@type": "WebSite", "@id": "https://emiliano-moretti.vercel.app/#website", "url": "https://emiliano-moretti.vercel.app/", "name": "Emiliano Moretti", "inLanguage": "es", "publisher": { "@id": "https://emiliano-moretti.vercel.app/#person" } }
+  ]
+};
+---
+<Base title="Emiliano Moretti · Ventas con Claude" description="Soy de ventas, no de código. Pero mi proceso está todo automatizado: del primer mail de un lead a la propuesta, sin cargar nada a mano." jsonld={personLd} home>
+<main id="top">
+  <!-- 1. Tesis -->
+  <section class="hero">
+    <canvas id="grid" aria-hidden="true"></canvas><canvas id="tags" aria-hidden="true"></canvas>
+    <div class="hero-in">
+      <h1 class="fadein" style="--d:.1s"><span class="l1">Soy de ventas, no de código.</span> <span class="g">Mi proceso comercial corre sobre Claude.</span></h1>
+      <p class="sub fadein" style="--d:.3s">Del primer mail de un lead al CRM, sin cargar nada a mano. Más tiempo con clientes, menos copiando y pegando.</p>
+      <div class="ctas fadein" style="--d:.45s">
+        <a class="pill pill-ink" href="#contacto">Te muestro mi setup<svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="pill pill-soft" href="#como">Ver cómo funciona<svg class="arr arr-d" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></a>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">Scroll<i></i></div>
+  </section>
+
+  <!-- 3. El problema -->
+  <section id="problema">
+    <div class="narrow center stack">
+      <p class="eyebrow rv"><span class="num">01</span>El problema</p>
+      <h2 class="statement rv">Un comercial pasa más tiempo moviendo información que vendiendo. <span class="g">Cada salto entre herramientas es trabajo manual y contexto que se pierde.</span></h2>
+    </div>
+    <div class="wrap">
+      <div class="pieces" id="pieces" aria-label="Las piezas del proceso comercial, conectadas">
+        <span class="rail" aria-hidden="true"></span>
+        <span class="piece" style="--sx:-18px;--sy:-34px;--r:-7deg;--dl:0s">El mail del lead</span>
+        <span class="piece" style="--sx:10px;--sy:30px;--r:5deg;--dl:.08s">Las notas</span>
+        <span class="piece" style="--sx:-6px;--sy:-26px;--r:-4deg;--dl:.16s">La estimación</span>
+        <span class="piece" style="--sx:14px;--sy:34px;--r:6deg;--dl:.24s">El deck</span>
+        <span class="piece end" style="--sx:-12px;--sy:-30px;--r:-5deg;--dl:.32s">El CRM</span>
+      </div>
+      <p class="pieces-caption center rv">Así que las conecté.</p>
+    </div>
+  </section>
+
+  <!-- 4. Cómo funciona -->
+  <section id="como">
+    <div class="how-track" id="howTrack">
+      <div class="how-pin">
+        <div class="how-stage">
+        <div class="wrap how-grid">
+          <div class="how-text">
+            <p class="eyebrow"><span class="num">02</span>Cómo funciona</p>
+            <h2 class="how-title">Mi stack, paso a paso. <span class="g">Cada herramienta entra cuando el lead la necesita.</span></h2>
+            <div class="how-prog" aria-hidden="true"><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span></div>
+            <div class="how-steps" aria-live="polite">
+              <div class="how-step on" id="how-0"><p class="k">Paso 01 / 05</p><h3>El lead</h3><p class="how-say"><b>Ningún lead espera.</b> El formulario llega a mi correo y abro el caso en Claude: en minutos sé quién escribe, qué hace su empresa y si ya hablamos.</p><p class="before"><b>Antes</b><s>Un “te escribo pronto” y a investigar quién era.</s></p></div>
+              <div class="how-step" id="how-1" aria-hidden="true"><p class="k">Paso 02 / 05</p><h3>La llamada</h3><p class="how-say"><b>Llego sabiendo con quién hablo.</b> La ficha nace en Notion, Granola graba el discovery y Claude la completa con lo que dijo el cliente.</p><p class="before"><b>Antes</b><s>Notas en una libreta que nadie pasaba a limpio.</s></p></div>
+              <div class="how-step" id="how-2" aria-hidden="true"><p class="k">Paso 03 / 05</p><h3>La estimación</h3><p class="how-say"><b>El equipo estima con todo el contexto.</b> El pedido sale por Slack con el resumen de la llamada y el link a la ficha.</p><p class="before"><b>Antes</b><s>Días persiguiendo al equipo por Slack.</s></p></div>
+              <div class="how-step" id="how-3" aria-hidden="true"><p class="k">Paso 04 / 05</p><h3>La propuesta</h3><p class="how-say"><b>Sale con la marca correcta a la primera.</b> Se arma en Claude Design con el sistema de cada boutique y la reviso con el cliente en una llamada grabada.</p><p class="before"><b>Antes</b><s>Slides armadas a mano, una por una.</s></p></div>
+              <div class="how-step" id="how-4" aria-hidden="true"><p class="k">Paso 05 / 05</p><h3>El seguimiento</h3><p class="how-say"><b>El pipeline dice la verdad.</b> Cada paso actualiza el deal en HubSpot y lo urgente me llega por WhatsApp, esté donde esté.</p><p class="before"><b>Antes</b><s>Un CRM que se actualizaba el viernes, si se actualizaba.</s></p></div>
+            </div>
+            <div class="how-nav"><button type="button" id="howPrev" aria-label="Paso anterior"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 11V3M3.5 6.5L7 3l3.5 3.5"/></svg></button><button type="button" id="howNext" aria-label="Paso siguiente"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 3v8M3.5 7.5L7 11l3.5-3.5"/></svg></button></div>
+          </div>
+          <div class="stack-grid" id="stackGrid" aria-label="Las herramientas del proceso">
+              <div class="tool" data-tool="Gmail" data-step="0"><span class="tag"><span>01</span></span><span><strong>Gmail</strong><small>Entra el lead</small></span></div>
+              <div class="tool" data-tool="Calendar" data-step="1"><span class="tag"><span>02</span></span><span><strong>Calendar</strong><small>Agenda la llamada</small></span></div>
+              <div class="tool" data-tool="Granola" data-step="1"><span class="tag"><span>02</span></span><span><strong>Granola</strong><small>Graba y resume</small></span></div>
+              <div class="tool" data-tool="Instinct" data-step="4"><span class="tag"><span>05</span></span><span><strong>Instinct</strong><small>Avisos por WhatsApp</small></span></div>
+              <div class="tool core" data-tool="Claude"><span class="tag"><span>hub</span><span>01–05</span></span><span><strong>claude<span class="cur" aria-hidden="true"></span></strong><small>Conecta cada paso</small></span></div>
+              <div class="tool" data-tool="Notion" data-step="1"><span class="tag"><span>02</span></span><span><strong>Notion</strong><small>La ficha del cliente</small></span></div>
+              <div class="tool" data-tool="HubSpot" data-step="4"><span class="tag"><span>05</span></span><span><strong>HubSpot</strong><small>El pipeline al día</small></span></div>
+              <div class="tool" data-tool="Claude Design" data-step="3"><span class="tag"><span>04</span></span><span><strong>Claude Design</strong><small>Arma la propuesta</small></span></div>
+              <div class="tool" data-tool="Slack" data-step="2"><span class="tag"><span>03</span></span><span><strong>Slack</strong><small>Pide la estimación</small></span></div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4b. Detrás del proceso -->
+  <section id="detras">
+    <div class="wrap">
+      <div class="narrow center stack" style="padding-inline:0">
+        <p class="eyebrow rv"><span class="num">03</span>Detrás del proceso</p>
+        <h2 class="statement rv">Lo que no se ve es lo que hace que funcione. <span class="g">Conectores para que Claude trabaje dentro de mis herramientas, skills para no improvisar y Notion como memoria.</span></h2>
+      </div>
+      <div class="back-grid" id="backGrid">
+        <article class="bk rv">
+          <p class="lbl">Conectores</p>
+          <h3>Dentro de mis herramientas.</h3>
+          <p class="d">Claude no las reemplaza: lee y escribe en ellas. Se acabó copiar y pegar entre pestañas.</p>
+          <div class="vis"><ul class="conn" id="conn">
+            <li><i></i><span>Gmail</span><span>lee y redacta</span></li>
+            <li><i></i><span>Calendar</span><span>agenda</span></li>
+            <li><i></i><span>Granola</span><span>transcripciones</span></li>
+            <li><i></i><span>Notion</span><span>lee y escribe</span></li>
+            <li><i></i><span>Slack</span><span>envía pedidos</span></li>
+            <li><i></i><span>HubSpot</span><span>actualiza deals</span></li>
+          </ul></div>
+        </article>
+        <article class="bk rv" style="--d:.08s">
+          <p class="lbl">Skills</p>
+          <h3>Lo que repito, lo estandarizo.</h3>
+          <p class="d">Cada tarea que hago más de dos veces se convierte en una skill: mismo proceso y mismo nivel, cada vez.</p>
+          <div class="vis term"><div class="prompt"><span class="pr">&gt; </span><span id="termTxt">/prep-llamada</span><span class="cur" aria-hidden="true"></span></div><p class="out" id="termOut">→ contexto antes de cada call</p><ul id="skills">
+            <li data-d="contexto antes de cada call">/prep-llamada</li>
+            <li data-d="todo lo hablado con un cliente">/historial-cuenta</li>
+            <li data-d="de la ficha al documento">/propuesta</li>
+            <li data-d="el deal, completo, en HubSpot">/cargar-deal</li>
+            <li data-d="qué está frenado y por qué">/higiene-pipeline</li>
+            <li data-d="del sí al arranque del proyecto">/kickoff</li>
+          </ul></div>
+        </article>
+        <article class="bk rv" style="--d:.16s">
+          <p class="lbl">Notion</p>
+          <h3>La memoria del sistema.</h3>
+          <p class="d">Se da por sentado y es la base: todo lo que Claude sabe de un cliente sale de ahí. Sin Notion, empieza de cero en cada conversación.</p>
+          <div class="vis nt"><ul id="notion">
+            <li><b>▾</b>Ventas</li>
+            <li class="sub"><b>·</b>Clientes y cuentas</li>
+            <li class="sub"><b>·</b>Notas de llamadas</li>
+            <li class="sub"><b>·</b>Propuestas</li>
+            <li class="sub"><b>·</b>Playbooks por boutique</li>
+          </ul><p class="foot">claude lee → decide → escribe</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Criterio -->
+  <section id="criterio">
+    <div class="narrow center">
+      <h2 class="eyebrow rv"><span class="num">04</span>Lo que no automatizo</h2>
+      <div class="lines" id="lines">
+        <p class="statement"><b>La IA prepara, yo decido.</b> Nada llega a un cliente sin que yo lo lea.</p>
+        <p class="statement"><b>Las llamadas son mías.</b> Granola toma las notas para que yo pueda escuchar.</p>
+        <p class="statement"><b>El contexto vale más que el prompt.</b> El resultado mejora cuando le enseñás dónde buscar.</p>
+        <p class="statement"><b>Las relaciones no se automatizan.</b> El tiempo que libero va a ver clientes, no a mandar más mails.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Esta web + trayectoria -->
+  <section id="quien">
+    <div class="build rv">
+      <div>
+        <p class="k">Esta web</p>
+        <p class="t"><b>Tampoco la programé yo.</b> La armé con Claude: el código vive en GitHub y cada cambio se publica solo en Vercel.</p>
+        <p class="chain"><span>Claude</span>→<span>GitHub</span>→<span>Vercel</span></p>
+      </div>
+      <a class="pill pill-soft pill-sm" href="https://github.com/morettiemilianomartin-dev/emiliano-moretti" target="_blank" rel="noopener">Ver el código<svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+    </div>
+    <div class="narrow center career rv">
+      <p class="eyebrow">Quince años en medios y ventas</p>
+      <div class="logos"><span>GroupM</span><span>MEDIAMAX</span><span>Infobae</span><span>Seedtag</span><span>Modulor Studios</span></div>
+    </div>
+  </section>
+
+  <!-- 7. Contacto -->
+  <section id="contacto" class="contact" style="padding-top: 24px">
+    <div class="wrap">
+      <div class="contact-box center stack rv">
+        <p class="eyebrow"><span class="num">05</span>Contacto</p>
+        <h2 class="statement">¿Te muestro mi setup? <span class="g">Treinta minutos, mi pantalla real, y te llevás lo que le sirva a tu equipo.</span></h2>
+        <div class="ctas">
+          <a class="pill pill-ink" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1_ERerY_SFciQLYK3iSLs8HwhEUT9XIO7E2XoCS4mqluKSFbzKchy6JSY0dDStcfYEp8gJYGx-" target="_blank" rel="noopener">Agendemos 30 minutos<svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+          <a class="pill pill-soft" href="https://www.linkedin.com/in/emiliano-moretti/" target="_blank" rel="noopener">LinkedIn<svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+          <a class="pill pill-soft" href="https://x.com/EmilianoMorett5" target="_blank" rel="noopener">X<svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+        </div>
+        <p class="contact-note">O copiá mi email: <button type="button" class="link-btn" data-copy="emiliano@modulorstudios.com">emiliano@modulorstudios.com</button>. En LinkedIn y X cuento cada pieza.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<aside class="float" id="float" aria-label="Contacto directo">
+  <div class="top">
+    <div class="av"><img alt="Emiliano Moretti" src="/avatar.jpg" width="40" height="40"></div>
+    <div><strong>Emiliano Moretti</strong><small>Director comercial · Modulor Studios</small></div>
+    <button class="x" type="button" id="floatClose" aria-label="Cerrar"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 2l8 8M10 2l-8 8"/></svg></button>
+  </div>
+  <a class="pill pill-sm" href="#contacto">Te muestro mi setup<svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+</aside>
+<script is:inline>
+
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('js');
+  var css = function(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); };
+
+  /* Reveal */
+  var rv = [].slice.call(document.querySelectorAll('.rv'));
+  if (!reduce && 'IntersectionObserver' in window) {
+    rv.forEach(function(el){ if (el.getBoundingClientRect().top > innerHeight) el.classList.add('pre'); });
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.remove('pre'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' });
+    rv.forEach(function(el){ if (el.classList.contains('pre')) io.observe(el); });
+  }
+
+  /* HERO: matriz de puntos; una señal recorre el pipeline y enciende cada herramienta al pasar */
+  var cv = document.getElementById('grid'), ctx = cv.getContext('2d'), tg = document.getElementById('tags'), tctx = tg.getContext('2d');
+  var S = 10, G = 3, cols, rows, heat, dpr, W, H, mouse = { x: -999, y: -999 };
+  var stops = [['Web',.06,.82],['Gmail',.09,.26],['Claude',.28,.10],['Notion',.72,.10],['Slack',.91,.24],['Claude Design',.93,.64],['HubSpot',.80,.90]];
+  var path = [], glow = stops.map(function(){ return 0; });
+  function resize(){
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); tg.width = W * dpr; tg.height = H * dpr; tctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cols = Math.ceil(W / S); rows = Math.ceil(H / S);
+    heat = new Float32Array(cols * rows);
+    path = stops.map(function(p){ return [p[1] * W, p[2] * H]; });
+  }
+  function lerp(a,b,t){ return a + (b - a) * t; }
+  function pointAt(t){
+    var n = path.length - 1, f = Math.max(0, Math.min(.9999, t)) * n, i = Math.floor(f), k = f - i;
+    return [lerp(path[i][0], path[i+1][0], k), lerp(path[i][1], path[i+1][1], k)];
+  }
+  function bump(x, y, r, v){
+    var cx = Math.floor(x / S), cy = Math.floor(y / S);
+    for (var j = -r; j <= r; j++) for (var i = -r; i <= r; i++) {
+      var X = cx + i, Y = cy + j; if (X < 0 || Y < 0 || X >= cols || Y >= rows) continue;
+      var d = Math.sqrt(i*i + j*j); if (d > r) continue;
+      var idx = Y * cols + X; heat[idx] = Math.max(heat[idx], v * (1 - d / (r + 1)));
+    }
+  }
+  function label(txt, x, y, a, cInk, cBg){
+    tctx.font = '500 12px "Inter Tight", Arial, sans-serif';
+    var w = tctx.measureText(txt).width + 20, h = 26, lx = Math.max(8, Math.min(W - w - 8, x - w / 2)), ly = Math.max(8, Math.min(H - h - 8, y - 40));
+    tctx.globalAlpha = a; tctx.fillStyle = cInk;
+    tctx.beginPath(); if (tctx.roundRect) tctx.roundRect(lx, ly, w, h, 13); else tctx.rect(lx, ly, w, h); tctx.fill();
+    tctx.fillStyle = cBg; tctx.textBaseline = 'middle'; tctx.fillText(txt, lx + 10, ly + h / 2 + .5);
+  }
+  var t0 = performance.now(), LOOP = 9000;
+  function frame(now){
+    var cDot = css('--dot'), cOn = css('--dot-on'), cBg = css('--bg');
+    var t = (Math.max(0, now - t0) % LOOP) / LOOP;
+    var p = pointAt(t); bump(p[0], p[1], 1, 1);
+    path.forEach(function(q, i){ var k = i / (path.length - 1); if (Math.abs(t - k) < .015) { bump(q[0], q[1], 3, .9); glow[i] = 1; } });
+    if (mouse.x > -900) bump(mouse.x, mouse.y, 4, .6);
+    ctx.clearRect(0, 0, W, H);
+    for (var y = 0; y < rows; y++) for (var x = 0; x < cols; x++) {
+      var idx = y * cols + x, h = heat[idx];
+      ctx.globalAlpha = 1; ctx.fillStyle = cDot; ctx.fillRect(x * S, y * S, S - G, S - G);
+      if (h > .02) { ctx.fillStyle = cOn; ctx.globalAlpha = h; ctx.fillRect(x * S, y * S, S - G, S - G); heat[idx] = h * .965; }
+    }
+    tctx.clearRect(0, 0, W, H);
+    if (W > 700) path.forEach(function(q, i){ if (glow[i] > .02) { label(stops[i][0], q[0], q[1], Math.min(1, glow[i] / .4), cOn, cBg); glow[i] *= .978; } });
+    tctx.globalAlpha = 1;
+    ctx.globalAlpha = 1;
+    if (!reduce) requestAnimationFrame(frame);
+  }
+  resize(); addEventListener('resize', resize);
+  var heroEl = cv.parentElement;
+  heroEl.addEventListener('pointermove', function(e){ var r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
+  heroEl.addEventListener('pointerleave', function(){ mouse.x = mouse.y = -999; });
+  if (reduce) { for (var k = 0; k <= 80; k++) { var q = pointAt(k / 80); bump(q[0], q[1], 1, .4); } glow = glow.map(function(){ return .8; }); frame(t0); } else requestAnimationFrame(frame);
+
+  /* PROBLEMA: las piezas se conectan al entrar en pantalla */
+  var pieces = document.getElementById('pieces');
+  if (reduce || !('IntersectionObserver' in window)) pieces.classList.add('joined');
+  else new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting) { setTimeout(function(){ pieces.classList.add('joined'); }, 250); ob.disconnect(); } }, { threshold: .6 }).observe(pieces);
+
+  /* CÓMO FUNCIONA: el scroll avanza los pasos y va pintando el stack. Cada herramienta se pinta en el paso en que entra; las del paso actual quedan en blanco */
+  var use = [['Gmail'], ['Calendar', 'Granola', 'Notion'], ['Notion', 'Slack'], ['Granola', 'Claude Design'], ['HubSpot', 'Instinct']];
+  var track = document.getElementById('howTrack'), pinEl = track.firstElementChild;
+  var tools = [].slice.call(document.querySelectorAll('.tool[data-step]'));
+  var stepEls = [].slice.call(document.querySelectorAll('.how-step')), fills = [].slice.call(document.querySelectorAll('.how-prog i'));
+  var prevB = document.getElementById('howPrev'), nextB = document.getElementById('howNext');
+  var N = stepEls.length, cur = -1;
+  var pinMQ = window.matchMedia ? matchMedia('(min-height: 541px)') : { matches: true };
+  function pinTop(){ return parseFloat(getComputedStyle(pinEl).top) || 0; }
+  function runLen(){ return track.offsetHeight - pinEl.offsetHeight; }
+  function pinned(){ return pinMQ.matches && runLen() > 40; }
+  function show(i){
+    if (i === cur) return; cur = i;
+    stepEls.forEach(function(s, k){ var on = k === i; s.classList.toggle('on', on); s.setAttribute('aria-hidden', on ? 'false' : 'true'); });
+    prevB.disabled = i === 0; nextB.disabled = i === N - 1;
+  }
+  function paint(x){
+    var i = Math.min(N - 1, Math.floor(x));
+    show(i);
+    fills.forEach(function(f, k){ f.style.setProperty('--p', k < i ? 1 : k > i ? 0 : Math.min(1, x - i)); });
+    tools.forEach(function(t){
+      var s = +t.getAttribute('data-step'), v = s < i ? 1 : s > i ? 0 : Math.max(0, Math.min(1, (x - i) / .35));
+      t.style.setProperty('--paint', v.toFixed(3));
+      t.classList.toggle('painted', v > .5);
+      t.classList.toggle('on', use[i].indexOf(t.getAttribute('data-tool')) > -1 && v > 0);
+    });
+  }
+  function howScroll(){
+    if (!pinned()) { paint(cur < 0 ? 0.999 : cur + 0.999); return; }
+    var p = Math.max(0, Math.min(1, (pinTop() - track.getBoundingClientRect().top) / runLen()));
+    paint(Math.max(p * N, .02));
+  }
+  function go(i){
+    i = Math.max(0, Math.min(N - 1, i));
+    if (pinned()) {
+      var y = track.getBoundingClientRect().top + scrollY - pinTop() + (i + .5) / N * runLen();
+      scrollTo({ top: Math.round(y), behavior: reduce ? 'auto' : 'smooth' });
+    } else { cur = -1; paint(i + .999); }
+  }
+  prevB.addEventListener('click', function(){ go(cur - 1); });
+  nextB.addEventListener('click', function(){ go(cur + 1); });
+  howScroll();
+  addEventListener('resize', howScroll);
+  if (pinMQ.addEventListener) pinMQ.addEventListener('change', howScroll);
+
+  /* DETRÁS: conectores que se encienden, terminal que recorre las skills, Notion que se ilumina */
+  var connL = [].slice.call(document.querySelectorAll('#conn li')), skL = [].slice.call(document.querySelectorAll('#skills li')), ntL = [].slice.call(document.querySelectorAll('#notion li')), termTxt = document.getElementById('termTxt'), termOut = document.getElementById('termOut');
+  function backStatic(){ connL.forEach(function(l){ l.classList.add('on'); }); skL[0].classList.add('on'); ntL[1].classList.add('on'); }
+  function backRun(){
+    connL.forEach(function(l, k){ setTimeout(function(){ l.classList.add('on'); }, 250 + k * 220); });
+    var si = 0, ni = 1;
+    function typeTo(txt, done){ var i = 1; (function tick(){ termTxt.textContent = txt.slice(0, i); if (i++ < txt.length) setTimeout(tick, 45); else done(); })(); }
+    function nextSkill(){
+      skL.forEach(function(l, k){ l.classList.toggle('on', k === si); });
+      ntL.forEach(function(l, k){ l.classList.toggle('on', k === ni); });
+      termOut.style.opacity = 0; typeTo(skL[si].textContent, function(){ termOut.textContent = '→ ' + skL[si].getAttribute('data-d'); termOut.style.opacity = 1; setTimeout(function(){ si = (si + 1) % skL.length; ni = ni >= ntL.length - 1 ? 1 : ni + 1; nextSkill(); }, 1900); });
+    }
+    nextSkill();
+  }
+  if (reduce || !('IntersectionObserver' in window)) backStatic();
+  else new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting) { backRun(); ob.disconnect(); } }, { threshold: .35 }).observe(document.getElementById('backGrid'));
+
+  /* Criterio, nav, tarjeta flotante */
+  var lines = [].slice.call(document.querySelectorAll('#lines .statement'));
+  var nav = document.getElementById('nav'), fl = document.getElementById('float'), hero = document.querySelector('.hero'), contact = document.getElementById('contacto'), closed = false;
+  try { closed = sessionStorage.getItem('em-float') === '1'; } catch (e) {}
+  document.getElementById('floatClose').addEventListener('click', function(){ closed = true; fl.classList.remove('show'); try { sessionStorage.setItem('em-float', '1'); } catch (e) {} });
+  function onScroll(){
+    var vh = innerHeight;
+    nav.classList.toggle('solid', scrollY > 8);
+    lines.forEach(function(l){ l.classList.toggle('lit', l.getBoundingClientRect().top < vh * .62); });
+    var past = hero.getBoundingClientRect().bottom < vh * .3, atEnd = contact.getBoundingClientRect().top < vh * .85;
+    var hr = track.getBoundingClientRect(), inHow = hr.top < vh * .8 && hr.bottom > vh * .4;
+    fl.classList.toggle('show', !closed && past && !atEnd && !inHow);
+    howScroll();
+  }
+  if (reduce) lines.forEach(function(l){ l.classList.add('lit'); });
+  addEventListener('scroll', function(){ requestAnimationFrame(onScroll); }, { passive: true });
+  onScroll();
+
+})();
+
+</script>
+</Base>
