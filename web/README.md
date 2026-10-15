@@ -21,6 +21,7 @@ tldr:
 faq:
   - q: "Pregunta real que haría alguien"
     a: "Respuesta corta y autosuficiente."
+image: "/og/notion-como-memoria.jpg"           # imagen para redes de este artículo
 linkedin: "https://www.linkedin.com/posts/..."   # opcional
 x: "https://x.com/EmilianoMorett5/status/..."      # opcional
 draft: false                                       # true = no se publica
@@ -30,11 +31,21 @@ draft: false                                       # true = no se publica
 3. Debajo, el texto en Markdown. Subtítulos `##` formulados como preguntas.
 4. Subí el archivo a GitHub: el índice del blog, el sitemap, el RSS y `llms.txt` se actualizan solos.
 
+## Imagen para redes de cada artículo
+
+Cada artículo nuevo lleva su propia imagen al compartirse, para que no sea siempre la misma. La home y los artículos publicados antes de octubre de 2026 siguen con `public/og.jpg` (no se cambian).
+
+1. Pedile a Claude la imagen junto con el artículo. La genera con la plantilla de `og-plantilla/` y la deja en `public/og/<nombre-del-link>.jpg`.
+2. En el frontmatter del artículo, la línea `image:` apunta a esa imagen.
+3. Subí las dos cosas juntas: el `.md` en `src/content/blog/` y la imagen en `public/og/`.
+
+El diseño: fondo negro con puntos. Arriba, una línea de comando propia de cada artículo y `blog / categoría`; en el centro, el título (o una versión más corta); abajo, tu foto chica con tu nombre y la frase de la web. Detalle en `og-plantilla/README.md`.
+
 ## Después de publicar (2 minutos)
 
 1. **Google Search Console** → Inspección de URLs → pegar la URL del artículo → Solicitar indexación.
 2. **Bing Webmaster Tools** → URL Submission → pegar la URL → Submit.
-3. Compartirlo en LinkedIn y X con el enlace.
+3. Compartirlo en LinkedIn y X con el enlace. Si la vista previa muestra una imagen o un título viejo, pasá la URL por el [Post Inspector de LinkedIn](https://www.linkedin.com/post-inspector/) para que la actualice.
 
 No borrar nunca `public/googleffb23e07d95d9c73.html`: es la verificación de Google Search Console.
 
