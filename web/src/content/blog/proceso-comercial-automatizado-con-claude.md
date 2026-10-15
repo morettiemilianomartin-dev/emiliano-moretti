@@ -11,7 +11,7 @@ tldr:
   - "Las llamadas, la relación y la decisión final siguen siendo mías. La IA prepara, yo decido."
 faq:
   - q: "¿Necesito saber programar para automatizar mi proceso comercial con Claude?"
-    a: "No. Soy de ventas, no de código. Todo lo que uso son conectores y skills que se configuran en lenguaje natural. Lo técnico es menos importante que tener claro tu proceso y enseñarle a Claude dónde buscar."
+    a: "No. Todo lo que uso son conectores y skills que se configuran en lenguaje natural. Lo técnico es menos importante que tener claro tu proceso y enseñarle a Claude dónde buscar."
   - q: "¿Qué es un conector en Claude?"
     a: "Es la conexión que le permite a Claude leer y escribir en tus herramientas, como Gmail, Notion o HubSpot. Sin conectores, Claude solo ve lo que le pegás en el chat; con conectores, trabaja con tu información real."
   - q: "¿Qué es una skill?"

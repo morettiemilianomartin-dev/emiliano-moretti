@@ -22,7 +22,7 @@ faq:
     a: "Mientras era una sola página, un HTML alcanzaba. Para tener un blog, Astro genera solo el índice, el mapa del sitio y el RSS: publicar un artículo es subir un archivo de texto."
 ---
 
-**Esta web la armé con Claude, sin saber programar y sin pagar hosting.** Claude escribe el código a partir de lo que le pido, GitHub lo guarda y Vercel lo publica. Soy de ventas, no de código, y quería que la web misma fuera la prueba de lo que cuento.
+**Esta web la armé con Claude, sin saber programar y sin pagar hosting.** Claude escribe el código a partir de lo que le pido, GitHub lo guarda y Vercel lo publica. Vengo de ventas y quería que la web misma fuera la prueba de lo que cuento.
 
 Acá va el proceso real, con lo que funcionó y con lo que se rompió en el camino.
 

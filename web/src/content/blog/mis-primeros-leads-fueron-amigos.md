@@ -26,7 +26,7 @@ Las dos cosas me dejaron pensando en algo que escribí en este mismo blog sobre 
 
 ## ¿Por qué me eligieron a mí?
 
-No fue por la complejidad técnica. Seguro que hay gente que puede armar flujos mucho más sofisticados que el mío: conectar más herramientas, programar integraciones a medida, automatizar pasos que yo todavía hago a mano. Yo soy de ventas, no de código, y [mi proceso](/#como) lo armé con criterio y con Claude, no con años de ingeniería.
+No fue por la complejidad técnica. Seguro que hay gente que puede armar flujos mucho más sofisticados que el mío: conectar más herramientas, programar integraciones a medida, automatizar pasos que yo todavía hago a mano. Yo vengo de ventas, y [mi proceso](/#como) lo armé con criterio y con Claude, sin años de ingeniería detrás.
 
 Me eligieron porque me conocen. Saben cómo trabajo, saben que si digo algo lo cumplo y saben que no les voy a vender algo que no necesitan. Esa confianza ya existía antes de la web.
 
@@ -42,15 +42,13 @@ Hoy cualquiera puede acceder a las mismas herramientas que uso yo. Lo que no se 
 
 Me lo pregunté. Si los que escribieron ya me conocían, ¿la web hizo algo? Creo que sí, y es lo más interesante de esta semana.
 
-Mis amigos ya confiaban en mí, pero no sabían que yo trabajaba así. Fijate el recorrido del segundo: LinkedIn, un like y un WhatsApp. El post lo hizo enterarse; la confianza lo hizo escribir. La web les dio un motivo concreto para escribirme: les mostró algo que les servía, hecho por alguien en quien ya confiaban. La tecnología abrió la puerta. La relación es la que hizo que la cruzaran.
+Mis amigos ya confiaban en mí, pero no sabían que yo trabajaba así. Fijate el recorrido del segundo: LinkedIn, un like y un WhatsApp. El post hizo que se enterara, pero me escribió porque ya confiaba en mí. La web les dio un motivo concreto para escribirme: les mostró algo que les servía, hecho por alguien en quien ya confiaban.
 
 Eso cambia cómo pienso lo que publico. Escribo para que la gente que ya me conoce, y la que todavía no, sepa en qué ando y pueda decir "esto me interesa, charlemos". Si de paso me encuentra alguien que busca "automatizar ventas con IA", bienvenido.
 
 ## ¿Qué cambia en la forma de vender con IA?
 
-Lo mismo que vengo diciendo, ahora con un ejemplo propio. La IA hace que el trabajo sea más rápido: llego a cada conversación con contexto y sin perder tiempo cargando datos. Pero sin confianza no hay conversación que preparar, y por eso el tiempo que libera la IA tiene que volver a las personas.
-
-Si la IA nos da esteroides, la confianza sigue siendo el músculo.
+Lo mismo que vengo diciendo, ahora con un ejemplo propio. La IA hace que el trabajo sea más rápido: llego a cada conversación con contexto y sin perder tiempo cargando datos. Pero sin confianza no hay conversación que preparar, y por eso el tiempo que libera la IA tiene que volver a las personas. Como suelo decir, la IA nos da esteroides, pero la confianza sigue siendo el músculo.
 
 ## Lo que me llevo
 

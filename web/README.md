@@ -61,7 +61,11 @@ Todo texto de la web, del blog y de redes pasa este filtro antes de publicarse (
 - Cada artículo cierra distinto; no repetir la misma frase de despedida.
 - No inventar datos, citas ni detalles: si falta algo, se pregunta.
 - Mantener la voz de Emi: voseo, frases cortas y largas alternadas, opiniones propias. Nunca usar "che".
-- Frases propias que se respetan: "Soy de ventas, no de código", "La IA nos da esteroides", "Siempre usé el stack que me dieron. Hoy creo el mío", "Las herramientas se adaptan a las personas".
+- Sin remates en paralelo del tipo "El post hizo esto. La confianza hizo aquello." ni frases sueltas de una línea para dar efecto.
+- No cerrar por defecto con una frase de firma ("La IA nos da esteroides"): usarla solo cuando suma.
+- "Soy de ventas, no de código" es el lema de la web: no repetirlo en artículos ni posts.
+- Clientes y personas del equipo, siempre anónimos salvo que haya un ok explícito.
+- Frases propias que se respetan cuando suman: "La IA nos da esteroides", "Siempre usé el stack que me dieron. Hoy creo el mío", "Las herramientas se adaptan a las personas".
 
 ## Cambiar a dominio propio
 
