@@ -1,5 +1,6 @@
 ---
 import '../styles/site.css';
+import Analytics from '@vercel/analytics/astro';
 interface Props { title: string; description: string; image?: string; type?: string; jsonld?: object | object[]; home?: boolean; }
 const { title, description, image = '/og.jpg', type = 'website', jsonld, home = false } = Astro.props;
 const site = Astro.site ?? new URL('https://emiliano-moretti.vercel.app');
@@ -42,6 +43,7 @@ const lds = jsonld ? (Array.isArray(jsonld) ? jsonld : [jsonld]) : [];
 <link rel="preload" href="/fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
 {lds.map((ld) => <script type="application/ld+json" set:html={JSON.stringify(ld)} />)}
 <slot name="head" />
+<Analytics />
 </head>
 <body>
 <nav class="nav" id="nav" aria-label="Principal">
