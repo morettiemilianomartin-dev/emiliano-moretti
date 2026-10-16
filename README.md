@@ -1,11 +1,11 @@
-# Emiliano Moretti — web personal
+# Emiliano Moretti · web personal
 
 **Soy de ventas, no de código. Mi proceso comercial corre sobre Claude.**
 
-Este es el código de [emiliano-moretti.vercel.app](https://emiliano-moretti.vercel.app): la landing y el blog donde cuento cómo automaticé mi flujo comercial con IA, del primer mail de un lead a la propuesta.
+Este es el código de [emilianomoretti.com](https://www.emilianomoretti.com): la landing y el blog donde cuento cómo automaticé mi flujo comercial con IA, del primer mail de un lead a la propuesta.
 
-- Web: [emiliano-moretti.vercel.app](https://emiliano-moretti.vercel.app)
-- Blog: [emiliano-moretti.vercel.app/blog](https://emiliano-moretti.vercel.app/blog/)
+- Web: [emilianomoretti.com](https://www.emilianomoretti.com)
+- Blog: [emilianomoretti.com/blog](https://www.emilianomoretti.com/blog/)
 - LinkedIn: [linkedin.com/in/emiliano-moretti](https://www.linkedin.com/in/emiliano-moretti/)
 - X: [@EmilianoMorett5](https://x.com/EmilianoMorett5)
 
@@ -16,8 +16,8 @@ Este es el código de [emiliano-moretti.vercel.app](https://emiliano-moretti.ver
 
 ## Cómo está hecho
 
-No programé ni una línea: la web la diseñé y la armé con Claude. Usa GitHub para el código y Vercel para publicarla, todo en planes gratuitos.
-Cuento el proceso completo en este artículo: [Cómo armé mi web personal con Claude, GitHub y Vercel](https://emiliano-moretti.vercel.app/blog/web-personal-con-claude-github-vercel/).
+No programé ni una línea: la web la diseñé y la armé con Claude. Usa GitHub para el código y Vercel para publicarla, los dos en planes gratuitos. Lo único que pago es el dominio.
+Cuento el proceso completo en este artículo: [Cómo armé mi web personal con Claude, GitHub y Vercel](https://www.emilianomoretti.com/blog/web-personal-con-claude-github-vercel/).
 
 ## Publicar un artículo
 
