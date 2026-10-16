@@ -29,7 +29,7 @@ jobs:
         run: |
           python3 - <<'PY'
           import json, urllib.request, email.utils, datetime
-          SITE = "https://emiliano-moretti.vercel.app"
+          SITE = "https://www.emilianomoretti.com"
           KEY = "4b8b80a693d07c7131de46a294bd6889"
           rss = urllib.request.urlopen(SITE + "/rss.xml").read().decode("utf-8")
           import xml.etree.ElementTree as ET
@@ -43,7 +43,7 @@ jobs:
               print("Hoy no hay artículos nuevos.")
               raise SystemExit(0)
           urls += [SITE + "/", SITE + "/blog/"]
-          body = json.dumps({"host": "emiliano-moretti.vercel.app", "key": KEY,
+          body = json.dumps({"host": "www.emilianomoretti.com", "key": KEY,
                              "keyLocation": f"{SITE}/{KEY}.txt", "urlList": urls}).encode()
           req = urllib.request.Request("https://api.indexnow.org/indexnow", data=body,
                                        headers={"Content-Type": "application/json; charset=utf-8"})
