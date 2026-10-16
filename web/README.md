@@ -89,6 +89,8 @@ Todo texto de la web, del blog y de redes pasa este filtro antes de publicarse (
 - Clientes y personas del equipo, siempre anónimos salvo que haya un ok explícito.
 - Frases propias que se respetan cuando suman: "La IA nos da esteroides", "Siempre usé el stack que me dieron. Hoy creo el mío", "Las herramientas se adaptan a las personas".
 
-## Cambiar a dominio propio
+## Dominio
 
-Editá `site` en `astro.config.mjs` y la línea `Sitemap:` de `public/robots.txt`.
+La web vive en `https://www.emilianomoretti.com` (comprado en Vercel). `emilianomoretti.com` y `emiliano-moretti.vercel.app` redirigen ahí con un 308.
+
+Si algún día cambia el dominio, hay que actualizarlo en `astro.config.mjs` (`site`), `public/robots.txt` (línea `Sitemap:`), `public/rss.xsl`, `src/pages/index.astro` (datos estructurados), `src/layouts/Base.astro` y `.github/workflows/publicar.yml` (`SITE` y `host`). Después, Search Console (Cambio de dirección), Bing (Site Move) y los links de LinkedIn, X y GitHub.

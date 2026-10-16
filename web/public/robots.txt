@@ -26,4 +26,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://emiliano-moretti.vercel.app/sitemap-index.xml
+Sitemap: https://www.emilianomoretti.com/sitemap-index.xml

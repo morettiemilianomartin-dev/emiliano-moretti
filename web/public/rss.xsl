@@ -68,7 +68,7 @@
 
     <div class="box">
       <p>RSS es una forma de suscribirse a un sitio. Copiá esta dirección en tu lector de RSS y cada artículo nuevo te va a llegar solo:</p>
-      <code>https://emiliano-moretti.vercel.app/rss.xml</code>
+      <code>https://www.emilianomoretti.com/rss.xml</code>
       <p class="small">Algunos lectores gratuitos: Feedly, Inoreader o NetNewsWire. Si no usás ninguno, también podés seguirme en <a href="https://www.linkedin.com/in/emiliano-moretti/">LinkedIn</a>.</p>
     </div>
 

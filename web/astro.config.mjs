@@ -2,9 +2,9 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// Cuando tengas dominio propio, cambiá solo esta línea.
+// Dominio propio desde oct 2026. Si cambia, actualizar también robots.txt, rss.xsl, index.astro y .github/workflows/publicar.yml.
 export default defineConfig({
-  site: 'https://emiliano-moretti.vercel.app',
+  site: 'https://www.emilianomoretti.com',
   trailingSlash: 'ignore',
   integrations: [sitemap()],
 });
