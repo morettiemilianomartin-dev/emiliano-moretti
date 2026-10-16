@@ -26,7 +26,7 @@ Cuando un cliente duda, casi siempre pregunta lo mismo: ¿hicieron algo parecido
 
 ## ¿Por qué en una agencia web es fácil?
 
-En SSTIL el trabajo se ve. Cuando la parte de webs todavía se llamaba Minimum, teníamos un [portfolio online](https://minimum.run/ourwork) con los links de las webs que hacíamos. El cliente entraba, navegaba un par de proyectos y en pocos minutos entendía qué sabíamos hacer. Mantenerlo era simple, porque solo había que sumar el link de cada web terminada, y trajo muchas ventas.
+En SSTIL el trabajo se ve. Cuando la parte de webs todavía se llamaba Minimum, teníamos un [portfolio online](https://www.minimum.run/our-work) con los links de las webs que hacíamos. El cliente entraba, navegaba un par de proyectos y en pocos minutos entendía qué sabíamos hacer. Mantenerlo era simple, porque solo había que sumar el link de cada web terminada, y trajo muchas ventas.
 
 ## ¿Por qué en automatización y apps cuesta tanto?
 

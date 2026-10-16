@@ -12,7 +12,7 @@ Sitio estático hecho con [Astro](https://astro.build). Vercel lo compila solo e
 ---
 title: "Título con la palabra clave principal (máx. ~65 caracteres)"
 description: "Resumen de 140–160 caracteres: es lo que muestran Google y las redes."
-pubDate: 2026-10-21
+pubDate: 2026-10-21T06:00:00Z
 category: "Proceso"
 tags: ["ventas con IA", "Claude"]
 tldr:
@@ -41,10 +41,21 @@ Cada artículo nuevo lleva su propia imagen al compartirse, para que no sea siem
 
 El diseño: fondo negro con puntos. Arriba, una línea de comando propia de cada artículo y `blog / categoría`; en el centro, el título (o una versión más corta); abajo, tu foto chica con tu nombre y la frase de la web. Detalle en `og-plantilla/README.md`.
 
+## Artículos programados
+
+Podés subir artículos con fecha futura: la web solo muestra los que tienen `pubDate` igual o anterior al momento en que se compila. Para que aparezcan solos en su día, todos los días a las 06:15 UTC (08:15 en Madrid en verano, 07:15 en invierno) GitHub vuelve a compilar la web con `.github/workflows/publicar.yml` y avisa a Bing (IndexNow) de los artículos de las últimas 24 horas.
+
+- Usá `pubDate: 2026-11-02T06:00:00Z` (a las 06:00 UTC) para que el artículo salga en la compilación de ese día.
+- Si querés publicar algo ya mismo, dale una fecha de hoy con una hora que ya pasó.
+- Para forzar una publicación sin esperar: en GitHub → Actions → "Publicar artículos programados" → Run workflow.
+- El workflow necesita el secreto `VERCEL_DEPLOY_HOOK` (GitHub → Settings → Secrets and variables → Actions). El valor sale de Vercel → Settings → Git → Deploy Hooks.
+- GitHub pausa los workflows programados si el repo pasa 60 días sin cambios. Si eso pasa, entrá a Actions y reactivalo.
+- No borrar `public/4b8b80a693d07c7131de46a294bd6889.txt`: es la clave de IndexNow.
+
 ## Después de publicar (2 minutos)
 
 1. **Google Search Console** → Inspección de URLs → pegar la URL del artículo → Solicitar indexación.
-2. **Bing Webmaster Tools** → URL Submission → pegar la URL → Submit.
+2. **Bing Webmaster Tools**: lo hace solo el workflow de publicación con IndexNow. Si querés asegurarte, URL Submission → pegar la URL → Submit.
 3. Compartirlo en LinkedIn y X con el enlace. Si la vista previa muestra una imagen o un título viejo, pasá la URL por el [Post Inspector de LinkedIn](https://www.linkedin.com/post-inspector/) para que la actualice.
 
 No borrar nunca `public/googleffb23e07d95d9c73.html`: es la verificación de Google Search Console.
