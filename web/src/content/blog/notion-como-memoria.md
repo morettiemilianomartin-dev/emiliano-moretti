@@ -1,7 +1,7 @@
 ---
 title: "Notion como memoria: la base de mi proceso comercial con Claude"
 description: "Todo lo que Claude sabe de un cliente sale de Notion. Cómo organizo fichas, notas de llamadas y propuestas para que la IA no empiece de cero en cada conversación."
-pubDate: 2026-10-29T06:00:00Z
+pubDate: 2026-11-02T06:00:00Z
 category: "Proceso"
 tags: ["Notion", "Claude", "ventas con IA", "proceso comercial"]
 image: "/og/notion-como-memoria.jpg"

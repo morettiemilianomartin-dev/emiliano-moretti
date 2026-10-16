@@ -1,7 +1,7 @@
 ---
 title: "Si podemos vender clases de surf online, podemos vender cualquier cosa"
 description: "El case de Tilegit, una academia de surf online: identidad visual, web y campaña para vender algo que se aprende en el mar. Por qué lo cuento seguido."
-pubDate: 2026-10-26T06:00:00Z
+pubDate: 2026-10-29T06:00:00Z
 category: "Proceso"
 tags: ["case studies", "identidad visual", "educación online", "conversión web"]
 image: "/og/vender-clases-de-surf-online.jpg"

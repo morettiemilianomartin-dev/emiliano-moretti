@@ -1,7 +1,7 @@
 ---
 title: "Identidad visual y confianza: lo que aprendí vendiendo branding"
 description: "Para comprarle a alguien hay que confiar en la persona y también en su marca. Qué me enseñó vender en un estudio de diseño, con tres cases reales como ejemplo."
-pubDate: 2026-10-22T06:00:00Z
+pubDate: 2026-10-26T06:00:00Z
 category: "Opinión"
 tags: ["identidad visual", "branding", "confianza", "ventas B2B"]
 image: "/og/identidad-visual-y-confianza.jpg"
