@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+import { getPosts, fmtDate } from '../lib/posts';
+const latest = (await getPosts()).slice(0, 3);
 const personLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -142,8 +144,37 @@ const personLd = {
     </div>
   </section>
 
-  <!-- 6. Esta web + trayectoria -->
+  <!-- 6. Del blog -->
+  <section id="blog-home" class="home-posts">
+    <div class="narrow">
+      <div class="home-posts-head rv">
+        <h2 class="eyebrow"><span class="num">05</span>Del blog</h2>
+        <a class="link-more" href="/blog/">Ver todos los artículos<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+      <ol class="blog-list rv">
+        {latest.map((p) => (
+          <li>
+            <a class="post-row" href={`/blog/${p.id}/`}>
+              <span class="post-meta"><time datetime={p.data.pubDate.toISOString()}>{fmtDate(p.data.pubDate)}</time> · {p.data.category}</span>
+              <span class="post-title">{p.data.title}</span>
+              <span class="post-desc">{p.data.description}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- 7. Quién soy + esta web + trayectoria -->
   <section id="quien">
+    <div class="whoami rv">
+      <img src="/avatar.jpg" alt="Emiliano Moretti" width="96" height="96" loading="lazy">
+      <div>
+        <p class="k">Quién soy</p>
+        <p class="t"><b>Emiliano Moretti, director comercial en Modulor Studios.</b> Vivo en Madrid y vendo desde 2011, primero en medios y publicidad. Desde principios de 2026 armo mi proceso comercial con Claude y lo cuento acá.</p>
+        <p class="links"><a href="https://www.linkedin.com/in/emiliano-moretti/" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/EmilianoMorett5" target="_blank" rel="noopener">X</a><a href="/blog/">Blog</a></p>
+      </div>
+    </div>
     <div class="build rv">
       <div>
         <p class="k">Esta web</p>
@@ -158,16 +189,16 @@ const personLd = {
     </div>
   </section>
 
-  <!-- 7. Contacto -->
+  <!-- 8. Contacto -->
   <section id="contacto" class="contact" style="padding-top: 24px">
     <div class="wrap">
       <div class="contact-box center stack rv">
-        <p class="eyebrow"><span class="num">05</span>Contacto</p>
+        <p class="eyebrow"><span class="num">06</span>Contacto</p>
         <h2 class="statement">¿Estás metiendo IA en tu empresa? <span class="g">Charlemos 30 minutos, en Madrid o por videollamada, y comparamos notas.</span></h2>
         <div class="ctas">
           <a class="pill pill-ink" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1_ERerY_SFciQLYK3iSLs8HwhEUT9XIO7E2XoCS4mqluKSFbzKchy6JSY0dDStcfYEp8gJYGx-" target="_blank" rel="noopener">Agendemos 30 minutos<svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
-          <a class="pill pill-soft" href="https://www.linkedin.com/in/emiliano-moretti/" target="_blank" rel="noopener">LinkedIn<svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
-          <a class="pill pill-soft" href="https://x.com/EmilianoMorett5" target="_blank" rel="noopener">X<svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+          <a class="pill pill-soft" href="https://www.linkedin.com/in/emiliano-moretti/" target="_blank" rel="noopener">Escribime por LinkedIn<svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+          <a class="pill pill-soft" href="https://x.com/EmilianoMorett5" target="_blank" rel="noopener">Seguime en X<svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
         </div>
         <p class="contact-note">O copiá mi email: <button type="button" class="link-btn" data-copy="emiliano@modulorstudios.com">emiliano@modulorstudios.com</button>. En LinkedIn y X cuento cada pieza.</p>
       </div>

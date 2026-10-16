@@ -3,6 +3,7 @@ title: "Cómo automaticé mi proceso comercial con Claude (sin saber programar)"
 description: "Del primer mail de un lead al CRM sin cargar nada a mano: las herramientas, el flujo paso a paso y lo que decidí no automatizar."
 pubDate: 2026-10-14T12:00:00Z
 category: "Proceso"
+destacado: true
 tags: ["ventas con IA", "Claude", "proceso comercial", "automatización de ventas", "Notion", "HubSpot"]
 tldr:
   - "Mi proceso comercial corre sobre Claude: del mail de un lead a la propuesta y al CRM, sin cargar datos a mano."

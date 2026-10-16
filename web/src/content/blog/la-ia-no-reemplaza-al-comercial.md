@@ -3,6 +3,7 @@ title: "Lo que delego a la IA y lo que no (y por qué no tengo miedo)"
 description: "Desde 2011 entre medios y ventas, y desde 2026 con un proceso comercial hecho con Claude. Qué le dejo a la IA, qué no, y qué cambió en la práctica."
 pubDate: 2026-10-14T11:00:00Z
 category: "Opinión"
+destacado: true
 tags: ["ventas con IA", "futuro de las ventas", "liderazgo comercial", "Claude"]
 tldr:
   - "No creo que la IA reemplace a los comerciales: los potencia. Yo lo resumo así: la IA nos da esteroides."

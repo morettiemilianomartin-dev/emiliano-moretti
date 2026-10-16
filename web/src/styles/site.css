@@ -420,3 +420,32 @@ footer button { background: none; border: 0; font: inherit; color: inherit; curs
 .statement { font-weight: 400; }
 h2.eyebrow { font-weight: 400; }
 .post-updated { color: var(--muted); }
+
+/* Home: últimos artículos */
+.home-posts { padding-block: 40px 0; }
+.home-posts-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-bottom: 16px; }
+.link-more { display: inline-flex; gap: 6px; align-items: center; font-size: 14px; font-weight: 500; color: var(--ink); }
+.link-more svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s var(--ease); }
+.link-more:hover svg { transform: translateX(3px); }
+.home-posts .post-title { font-size: 20px; }
+/* Home: quién soy */
+.whoami { margin: 0 auto 16px; max-width: 620px; display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 20px; align-items: center; text-align: left; padding: 20px 24px; border-radius: 24px; background: var(--surface); }
+.whoami img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; }
+.whoami .k { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .02em; color: var(--muted); }
+.whoami p.t { margin-top: 6px; font-size: 16px; line-height: 1.45; color: var(--fg); }
+.whoami p.t b { font-weight: 500; color: var(--ink); }
+.whoami .links { margin-top: 10px; display: flex; gap: 16px; font-size: 14px; font-weight: 500; }
+.whoami .links a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+@media (max-width: 640px) { .whoami { grid-template-columns: 64px minmax(0, 1fr); padding: 20px; gap: 16px; align-items: start; } .whoami img { width: 64px; height: 64px; } .home-posts .post-title { font-size: 18px; } }
+@media (max-width: 640px) { #quien { padding-inline: 16px; } }
+
+/* Blog: empezá por acá */
+.blog-featured { padding-block: 24px 16px; }
+.feat-grid { margin-top: 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.feat-card { display: flex; flex-direction: column; gap: 10px; padding: 22px; border-radius: 24px; background: var(--surface); min-height: 190px; transition: box-shadow .2s; }
+.feat-card:hover { box-shadow: inset 0 0 0 1px var(--line-strong); }
+.feat-card .post-more { margin-top: auto; }
+.feat-card:hover .post-more svg { transform: translateX(3px); }
+.feat-title { font-size: 18px; font-weight: 500; color: var(--ink); letter-spacing: -0.02em; line-height: 1.3; }
+.list-label { margin-bottom: 8px; }
+@media (max-width: 760px) { .feat-grid { grid-template-columns: minmax(0, 1fr); } .feat-card { min-height: 0; } }

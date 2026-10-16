@@ -3,6 +3,7 @@ title: "Mis primeros dos leads fueron amigos: lo que la IA no reemplaza"
 description: "Publiqué mi web y llegaron dos pedidos por WhatsApp para armar un flujo como el mío. Los dos eran de amigos. Por qué la confianza es lo que la IA no puede copiar."
 pubDate: 2026-10-14T18:00:00Z
 category: "Opinión"
+destacado: true
 tags: ["ventas con IA", "confianza", "marca personal", "relaciones comerciales"]
 tldr:
   - "Con la web recién publicada, dos personas me escribieron por WhatsApp para pedirme ayuda con un flujo comercial como el mío. Las dos son grandes amigos."

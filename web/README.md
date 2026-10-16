@@ -22,6 +22,7 @@ faq:
   - q: "Pregunta real que haría alguien"
     a: "Respuesta corta y autosuficiente."
 image: "/og/notion-como-memoria.jpg"           # imagen para redes de este artículo
+destacado: false                                   # true = aparece en "Empezá por acá" arriba del blog (máx. 3)
 linkedin: "https://www.linkedin.com/posts/..."   # opcional
 x: "https://x.com/EmilianoMorett5/status/..."      # opcional
 draft: false                                       # true = no se publica

@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { getPosts, fmtDate } from '../../lib/posts';
 const posts = await getPosts();
+const destacados = posts.filter((p) => p.data.destacado).slice(0, 3);
 const ld = { "@context": "https://schema.org", "@type": "Blog", "name": "Blog de Emiliano Moretti", "url": new URL('/blog/', Astro.site).href, "inLanguage": "es", "author": { "@type": "Person", "name": "Emiliano Moretti", "url": Astro.site?.href } };
 ---
 <Base title="Blog · Emiliano Moretti" description="Cómo vendo con Claude, pieza por pieza: conectores, skills, Notion como memoria y lo que decidí no automatizar." jsonld={ld}>
@@ -12,8 +13,25 @@ const ld = { "@context": "https://schema.org", "@type": "Blog", "name": "Blog de
       <h1 class="statement blog-title">Cómo vendo con Claude, pieza por pieza. <span class="g">Lo que pruebo, lo que funciona y lo que todavía no resolví.</span></h1>
     </div>
   </section>
+  {destacados.length > 0 && (
+  <section class="blog-featured">
+    <div class="narrow">
+      <h2 class="eyebrow">Empezá por acá</h2>
+      <div class="feat-grid">
+        {destacados.map((p) => (
+          <a class="feat-card" href={`/blog/${p.id}/`}>
+            <span class="post-meta">{p.data.category}</span>
+            <span class="feat-title">{p.data.title}</span>
+            <span class="post-more">Leer <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  )}
   <section class="blog-list-wrap">
     <div class="narrow">
+      <h2 class="eyebrow list-label">Todos los artículos</h2>
       <ol class="blog-list">
         {posts.map((p) => (
           <li>

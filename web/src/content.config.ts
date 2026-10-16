@@ -15,6 +15,7 @@ const blog = defineCollection({
     linkedin: z.string().url().optional(),   // Link al post de LinkedIn relacionado
     x: z.string().url().optional(),          // Link al post de X relacionado
     image: z.string().optional(),            // Imagen para redes (por defecto /og.jpg)
+    destacado: z.boolean().default(false),   // true = aparece en "Empezá por acá" arriba del blog (máx. 3)
     draft: z.boolean().default(false),       // true = no se publica
   }),
 });
