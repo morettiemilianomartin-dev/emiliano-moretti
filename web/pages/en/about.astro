@@ -1,0 +1,143 @@
+---
+// "About" page in English. The Spanish version is src/pages/sobre-mi.astro: keep both in sync.
+import Base from '../../layouts/Base.astro';
+import { CAL, EMAIL } from '../../lib/i18n';
+import Reveal from '../../components/Reveal.astro';
+import { getPosts } from '../../lib/posts';
+const site = Astro.site?.href.replace(/\/$/, '') ?? 'https://www.emilianomoretti.com';
+const ld = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "url": `${site}/en/about/`,
+  "inLanguage": "en",
+  "mainEntity": {
+    "@type": "Person", "@id": `${site}/#person`, "name": "Emiliano Moretti", "jobTitle": "Sales director",
+    "worksFor": { "@type": "Organization", "name": "Modulor Studios" },
+    "birthPlace": { "@type": "Place", "name": "Buenos Aires, Argentina" },
+    "homeLocation": { "@type": "Place", "name": "Madrid, Spain" },
+    "alumniOf": { "@type": "EducationalOrganization", "name": "EUDE Business School" },
+    "hasCredential": { "@type": "EducationalOccupationalCredential", "name": "Master's in Digital Marketing", "recognizedBy": { "@type": "EducationalOrganization", "name": "EUDE Business School" } },
+    "image": `${site}/avatar.jpg`,
+    "sameAs": ["https://www.linkedin.com/in/emiliano-moretti/", "https://x.com/EmilianoMorett5", "https://github.com/morettiemilianomartin-dev"],
+    "knowsLanguage": ["es", "en"]
+  }
+};
+const live = new Map((await getPosts('en')).map((p) => [p.id, p.data.title]));
+// The blog's four topics. Each card shows the first published article on its list (or links to the blog if there isn't one yet).
+const topics = [
+  { t: 'How I sell with AI', ids: ['automated-sales-process-with-claude'] },
+  { t: 'Trust and the person in a sale', ids: ['you-always-buy-from-people-you-like', 'my-first-two-leads-were-friends'] },
+  { t: 'Brand, marketing and agencies', ids: ['pibe-valderrama-fake-haircut', 'visual-identity-and-trust', 'case-studies-when-your-work-isnt-visible'] },
+  { t: 'What I build in public, like this website', ids: ['personal-website-with-claude-github-vercel'] },
+].map((x) => { const id = x.ids.find((i) => live.has(i)); return { ...x, href: id ? `/en/blog/${id}/` : '/en/blog/', ex: id ? live.get(id) : undefined }; });
+---
+<Base title="About · Emiliano Moretti" description="Sales director at Modulor Studios. Argentine, based in Madrid, in sales since 2011. My path through media and sales, rugby and how I work with AI today." jsonld={ld} lang="en" alt="/sobre-mi/" type="profile">
+<main id="top">
+  <!-- Hero: misma estructura que la home -->
+  <section class="hero ab-hero">
+    <div class="hero-in">
+      <p class="eyebrow fadein" style="--d:.05s"><span class="num">&gt;_</span>About</p>
+      <h1 class="fadein" style="--d:.15s"><span class="l1">I'm Emiliano Moretti,</span> <span class="g">sales director at Modulor Studios.</span></h1>
+      <p class="sub fadein" style="--d:.3s">I was born in Buenos Aires, I've lived in Madrid for five years and I've been in sales since 2011. Today my sales process runs on Claude, and I write about it on this blog.</p>
+      <div class="by ab-by fadein" style="--d:.38s"><img src="/avatar.jpg" alt="Emiliano Moretti" width="40" height="40" /><div><strong>Emiliano Moretti</strong><span>Madrid · B2B sales with AI and human judgment</span></div></div>
+      <div class="ctas fadein" style="--d:.45s">
+        <a class="pill pill-ink" href="#contacto">Let's talk<svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="pill pill-soft" href="#how-i-got-into-sales">See my path<svg class="arr arr-d" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 -->
+  <section id="where-i-come-from">
+    <div class="narrow center stack">
+      <h2 class="eyebrow rv"><span class="num">01</span>Where do I come from?</h2>
+      <p class="statement rv">I'm Argentine and I lived my whole life in Buenos Aires, a city and a country I love. <span class="g">Five years ago I moved to Madrid. Spain opened its doors to me from day one, and this is where I live and work.</span></p>
+      <p class="ab-route rv" aria-hidden="true"><span>Buenos Aires</span>→<span>Madrid</span></p>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section id="how-i-got-into-sales" style="padding-top:0">
+    <div class="narrow center stack">
+      <h2 class="eyebrow rv"><span class="num">02</span>How did I get into sales?</h2>
+      <p class="statement rv">I started working very young in advertising, at GroupM, a media agency. <span class="g">The first time a salesperson from a media platform walked through the office door, I saw him and thought I wanted to be him. Since that day I've worked in sales, and I'm still passionate about it.</span></p>
+    </div>
+    <div class="narrow">
+      <div class="hl">
+        <h3 class="hl-label rv">Highlights</h3>
+        <ul class="hl-grid">
+          <li class="hl-card rv" style="--d:0.00s"><span class="hl-k">Buenos Aires</span><span class="hl-co">GroupM</span><span class="hl-t">Where I decided to go into sales. A great school, with a lot of pressure.</span></li>
+          <li class="hl-card rv" style="--d:0.06s"><span class="hl-k">Buenos Aires</span><span class="hl-co">Infobae</span><span class="hl-t">One of the largest digital media outlets in Spanish. I met some very good sales directors.</span></li>
+          <li class="hl-card rv" style="--d:0.12s"><span class="hl-k">Madrid</span><span class="hl-co">Seedtag</span><span class="hl-t">Global sales enablement: adapting the pitch for Brazil, Germany and the United States. My first international experience.</span></li>
+          <li class="hl-card rv" style="--d:0.18s"><span class="hl-k">Madrid</span><span class="hl-co">Modulor Studios</span><span class="hl-t">Sales director. I run sales for SSTIL and NocodeHackers.</span></li>
+        </ul>
+        <p class="hl-foot rv">I did a master's in digital marketing at EUDE Business School. My full path is on <a href="https://www.linkedin.com/in/emiliano-moretti/" target="_blank" rel="noopener">LinkedIn ↗</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section id="how-i-work-today" style="padding-top:0">
+    <div class="narrow center stack">
+      <h2 class="eyebrow rv"><span class="num">03</span>How do I work today?</h2>
+      <p class="statement rv">In early 2026 I started using AI seriously. <span class="g">For years I worked with the stack I was given, and for the first time I built my own.</span></p>
+      <p class="ab-chain rv"><span class="core">claude</span>→<span>Gmail</span><span>Notion</span><span>Granola</span><span>Slack</span><span>HubSpot</span></p>
+      <p class="ab-note rv">AI prepares and I decide, and the time it frees up goes back to clients.</p>
+      <div class="ab-ctas rv">
+        <a class="pill pill-soft" href="/en/blog/automated-sales-process-with-claude/">How I automated my sales process<svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="pill pill-soft" href="/en/#como">See how it works<svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section id="rugby" style="padding-top:0">
+    <div class="wrap">
+      <div class="ab-rugby center stack rv">
+        <h2 class="eyebrow"><span class="num">04</span>What did rugby leave me?</h2>
+        <p class="statement">I played rugby my whole life and some years I was team captain. <span class="g">Sharing a locker room and competing at a high level taught me a lot, above all about being a good teammate.</span></p>
+        <div class="ab-line" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <p class="ab-quote">On defense, the team runs at the speed of the slowest player, so the line doesn't break.</p>
+        <p class="ab-quote-k">An idea I've always liked, from when I played in the youth teams and in amateur rugby, where there are all kinds of bodies and abilities.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section id="what-i-write-about" style="padding-top:0">
+    <div class="narrow center stack">
+      <h2 class="eyebrow rv"><span class="num">05</span>What do I write about?</h2>
+      <p class="statement rv">On the blog I write about four topics. <span class="g">Mostly in Spanish, and some articles are translated into English.</span></p>
+    </div>
+    <div class="narrow">
+      <div class="ab-topics">
+        {topics.map((x, i) => (
+          <a class="ab-topic rv" href={x.href} style={`--d:${i * 0.06}s`}>
+            <span class="n">0{i + 1}</span>
+            <span class="tt">{x.t}</span>
+            <span class="ex">{x.ex ? <>For example<b>{x.ex}</b></> : 'Coming soon on the blog'}</span>
+          </a>
+        ))}
+      </div>
+      <p class="center" style="margin-top:28px"><a class="link-more" href="/en/blog/">See all articles<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></p>
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section id="contacto" class="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact-box center stack rv">
+        <p class="eyebrow"><span class="num">06</span>Contact</p>
+        <h2 class="statement">Want to talk? <span class="g">Let's have a 30-minute chat, in Madrid or on a video call, about sales, AI or brand.</span></h2>
+        <div class="ctas">
+          <a class="pill pill-ink" href={CAL} target="_blank" rel="noopener">Book 30 minutes<svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+          <a class="pill pill-soft" href="https://www.linkedin.com/in/emiliano-moretti/" target="_blank" rel="noopener">Message me on LinkedIn<svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+          <a class="pill pill-soft" href="https://x.com/EmilianoMorett5" target="_blank" rel="noopener">Follow me on X<svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+        </div>
+        <p class="contact-note">Or copy my email: <button type="button" class="link-btn" data-copy={EMAIL}>{EMAIL}</button></p>
+      </div>
+    </div>
+  </section>
+</main>
+<Reveal />
+</Base>
