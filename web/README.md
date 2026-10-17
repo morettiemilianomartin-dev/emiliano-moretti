@@ -104,7 +104,7 @@ Todo texto de la web, del blog y de redes pasa este filtro antes de publicarse (
 
 ## Diseño: UI Kit
 
-La web usa tres plantillas: home, página principal (Blog, Sobre mí, 404) y artículo. Toda página que no sea la home abre con el componente `src/components/PageHeader.astro`, y los anchos, espacios y tamaños de título salen de los tokens del principio de `src/styles/site.css` (`--w-page`, `--w-read`, `--page-top`, `--h1-page`…).
+La web usa tres plantillas: página de marca (home y Sobre mí, con hero y secciones numeradas), página principal (Blog, 404, UI Kit) y artículo. Las páginas principales y los artículos abren con el componente `src/components/PageHeader.astro`, y los anchos, espacios y tamaños de título salen de los tokens del principio de `src/styles/site.css` (`--w-page`, `--w-read`, `--page-top`, `--h1-page`…).
 
 La referencia completa está en `/ui-kit/` (página interna: no se indexa y no está en el sitemap). Si cambiás un token o un componente, revisá que esa página siga diciendo lo mismo.
 

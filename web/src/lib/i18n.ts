@@ -10,7 +10,7 @@ export const ui = {
     navLabel: 'Principal', how: 'Cómo funciona', behind: 'Detrás', behindLong: 'Detrás del proceso', criteria: 'Lo que no automatizo', contact: 'Contacto',
     explore: 'Explorar', copyEmail: 'Copiar email', emailCopied: 'Email copiado', linkCopied: 'Link copiado',
     footer: 'Director comercial en Modulor Studios. Vendo con Claude y lo cuento mientras lo construyo.',
-    themeDark: 'Cambiar a modo oscuro', themeLight: 'Cambiar a modo claro',
+    themeDark: 'Cambiar a modo oscuro', themeLight: 'Cambiar a modo claro', menu: 'Menú', theme: 'Modo oscuro', themeL: 'Modo claro',
     switchTo: 'EN', switchLabel: 'Read in English', rssTitle: 'Blog de Emiliano Moretti',
     // Aviso que ve quien tiene el navegador en el otro idioma
     bar: 'Esta página también está en español.', barGo: 'Leer en español', barClose: 'Cerrar',
@@ -20,7 +20,7 @@ export const ui = {
     navLabel: 'Main', how: 'How it works', behind: 'Behind it', behindLong: 'Behind the process', criteria: 'What I don’t automate', contact: 'Contact',
     explore: 'Explore', copyEmail: 'Copy email', emailCopied: 'Email copied', linkCopied: 'Link copied',
     footer: 'Sales director at Modulor Studios. I sell with Claude and share how I build it as I go.',
-    themeDark: 'Switch to dark mode', themeLight: 'Switch to light mode',
+    themeDark: 'Switch to dark mode', themeLight: 'Switch to light mode', menu: 'Menu', theme: 'Dark mode', themeL: 'Light mode',
     switchTo: 'ES', switchLabel: 'Leer en español', rssTitle: 'Emiliano Moretti’s blog',
     bar: 'This page is also available in English.', barGo: 'Read in English', barClose: 'Close',
   },

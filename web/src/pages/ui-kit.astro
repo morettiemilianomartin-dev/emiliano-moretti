@@ -8,12 +8,12 @@ import Share from '../components/Share.astro';
 import { CAL } from '../lib/i18n';
 
 const colors = [
-  ['--ink', 'Titulares, botón primario'], ['--fg', 'Texto base'], ['--muted', 'Texto secundario, bajadas'],
+  ['--ink', 'Botón primario y detalles de máximo contraste'], ['--fg', 'Texto base, títulos y frases'], ['--muted', 'Texto secundario, bajadas'],
   ['--soft', 'Segundo tono, prompt'], ['--faint', 'Inactivo'], ['--line-strong', 'Bordes de botón'],
   ['--line', 'Divisores'], ['--surface', 'Tarjetas y bloques'], ['--bg', 'Fondo'],
 ];
 const widths = [
-  ['--w-wide', '1120px', 'Home: secciones anchas y barra de navegación', 100],
+  ['--w-wide', '1120px', 'Páginas de marca: bloques anchos, panel oscuro y contacto. También la barra', 100],
   ['--w-page', '880px', 'Páginas principales y artículos: define el borde izquierdo', 78.6],
   ['--w-read', '712px', 'Columna de lectura: texto corrido, TL;DR, FAQ, CTA del artículo', 63.6],
 ];
@@ -24,15 +24,15 @@ const space = [
 ];
 const radii = [['999px', 'Botones y botones de icono'], ['40px', 'Superficies grandes de la home'], ['32px', 'Bloque de CTA'], ['24px', 'Tarjetas, TL;DR, tarjeta de quién soy'], ['12px', 'Detalles chicos']];
 const templates = [
-  { k: 'A', n: 'Home', who: '/ y /en/', parts: ['Barra', 'Hero a pantalla completa (Display 62)', 'Secciones numeradas 01–06 con etiqueta mono', 'Contacto'], note: 'Es la portada. La única con hero y con secciones a --w-wide.' },
-  { k: 'B', n: 'Página principal', who: 'Blog, Sobre mí, 404', parts: ['Barra', 'Cabecera: etiqueta >_ · H1 en dos tonos · bajada opcional · foto opcional', 'Cuerpo a --w-page (listas, tarjetas) o --w-read (texto)', 'CTA'], note: 'Misma cabecera para todas. La foto solo en Sobre mí.' },
+  { k: 'A', n: 'Página de marca', who: 'Home y Sobre mí', parts: ['Barra', 'Hero centrado: H1 Display en dos tonos, bajada y dos botones', 'Secciones numeradas 01–06: etiqueta mono + statement en dos tonos', 'Bloques propios: tarjetas, listas, un panel oscuro', 'Contacto en superficie gris'], note: 'Para presentar quién soy y qué hago. Se lee de arriba abajo, como una landing.' },
+  { k: 'B', n: 'Página principal', who: 'Blog, 404, UI Kit', parts: ['Barra', 'Cabecera: etiqueta >_ · H1 en dos tonos · bajada opcional', 'Cuerpo a --w-page (listas, tarjetas) o --w-read (texto)', 'CTA'], note: 'Para navegar contenido. Misma cabecera para todas.' },
   { k: 'C', n: 'Artículo', who: '/blog/* y /en/blog/*', parts: ['Barra', 'Cabecera: migas · H1 · bajada', 'Firma + compartir', 'TL;DR · índice · texto · FAQ', 'Autor · CTA · relacionados'], note: 'Todo a --w-read, alineado al mismo borde que las páginas principales.' },
 ];
 ---
 <Base title="UI Kit · Emiliano Moretti" description="Referencia interna de plantillas, tokens y componentes de emilianomoretti.com." lang="es" noindex>
 <main class="page uk">
   <div class="narrow">
-    <PageHeader label="UI Kit v1.1" title="Un solo sistema para toda la web." gray="Tres plantillas, tres anchos y una escala de títulos." lead="Referencia interna para diseñar y construir páginas nuevas. Usa el CSS real del sitio, así que lo que ves acá es lo que se publica." />
+    <PageHeader label="UI Kit v1.2" title="Un solo sistema para toda la web." gray="Tres plantillas, tres anchos y una escala de títulos." lead="Referencia interna para diseñar y construir páginas nuevas. Usa el CSS real del sitio, así que lo que ves acá es lo que se publica." />
 
     <div class="page-body">
 
@@ -41,7 +41,7 @@ const templates = [
         <h2 class="eyebrow"><span class="num">01</span>Principios</h2>
         <div class="uk-grid4">
           <div class="uk-card"><b>Blanco y negro.</b> Sin color de acento. La jerarquía la hacen el tono, el peso y el aire.</div>
-          <div class="uk-card"><b>Dos tonos.</b> Lo que afirmo va en negro y el contexto que lo sostiene, en gris.</div>
+          <div class="uk-card"><b>Dos tonos.</b> Lo que afirmo va en gris muy oscuro (#333) y el contexto que lo sostiene, en gris (#8F8F8F). El negro puro queda para los botones.</div>
           <div class="uk-card"><b>Código como acento.</b> La monoespaciada marca lo técnico: logo, etiquetas, numeración y comandos. Nunca párrafos.</div>
           <div class="uk-card"><b>Un sistema, no copias.</b> Cada página usa una de las tres plantillas. Si algo no entra en ninguna, se discute antes de inventar una cuarta.</div>
         </div>
@@ -50,14 +50,14 @@ const templates = [
       <!-- 02 Plantillas -->
       <section class="uk-sec" id="plantillas">
         <h2 class="eyebrow"><span class="num">02</span>Plantillas</h2>
-        <p class="uk-intro">Tres plantillas y una regla: las páginas principales y los artículos arrancan a la misma altura y en el mismo borde izquierdo, así al navegar entre ellas el título no salta.</p>
+        <p class="uk-intro">Tres plantillas. Las páginas de marca presentan y se leen como una landing. Las páginas principales y los artículos sirven para navegar contenido: arrancan a la misma altura y en el mismo borde izquierdo, así al navegar entre ellas el título no salta.</p>
         <div class="uk-tpls">
           {templates.map((t) => (
             <div class="uk-tpl">
               <div class={`uk-wire uk-wire-${t.k}`} aria-hidden="true">
                 <i class="w-nav"></i>
                 {t.k === 'A' ? <><i class="w-hero"><i></i><i></i></i><i class="w-blk"></i><i class="w-blk"></i></> :
-                 t.k === 'B' ? <><i class="w-kick"></i><i class="w-h1"></i><i class="w-h1 g"></i><i class="w-lead"></i><i class="w-photo"></i><i class="w-cards"><i></i><i></i><i></i></i><i class="w-row"></i><i class="w-row"></i></> :
+                 t.k === 'B' ? <><i class="w-kick"></i><i class="w-h1"></i><i class="w-h1 g"></i><i class="w-lead"></i><i class="w-cards"><i></i><i></i><i></i></i><i class="w-row"></i><i class="w-row"></i></> :
                  <><i class="w-kick"></i><i class="w-h1 n"></i><i class="w-h1 n"></i><i class="w-lead n"></i><i class="w-by"></i><i class="w-box"></i><i class="w-txt"></i><i class="w-txt"></i><i class="w-txt s"></i></>}
               </div>
               <p class="uk-k">{t.k} · {t.who}</p>
@@ -91,7 +91,7 @@ const templates = [
       <!-- 04 Color -->
       <section class="uk-sec" id="color">
         <h2 class="eyebrow"><span class="num">04</span>Color</h2>
-        <p class="uk-intro">Los mismos tokens cambian solos en modo oscuro. Probalo con el botón de la luna.</p>
+        <p class="uk-intro">Los mismos tokens cambian solos en modo oscuro. Probalo con el botón de la luna. Calibrados con la referencia fde.builders: títulos y frases en --fg, nunca en negro puro.</p>
         <div class="uk-swatches">
           {colors.map(([v, d]) => <div class="uk-sw"><i style={`background:var(${v})`}></i><code>{v}</code><span>{d}</span></div>)}
         </div>
@@ -102,9 +102,9 @@ const templates = [
         <h2 class="eyebrow"><span class="num">05</span>Tipografía</h2>
         <p class="uk-intro">Inter Tight para leer y titular. Geist Mono para etiquetas, numeración y comandos. Un solo H1 por página, y su tamaño depende de la plantilla.</p>
         <div class="uk-type">
-          <div class="uk-ty"><p class="uk-k">Display · H1 de la home · 62 / 1.04 · 500</p><p class="uk-display">Soy de ventas. <span class="g">Mi proceso corre sobre Claude.</span></p></div>
-          <div class="uk-ty"><p class="uk-k">H1 de página y artículo · 52 / 1.06 · 500 · <code>.page-h1</code></p><p class="page-h1">Cómo vendo con Claude. <span class="g">Lo que pruebo y lo que funciona.</span></p></div>
-          <div class="uk-ty"><p class="uk-k">Statement · 32 / 1.25 · 400 · <code>.statement</code></p><p class="statement">Ningún lead espera. <span class="g">Abro el caso en Claude.</span></p></div>
+          <div class="uk-ty"><p class="uk-k">Display · H1 de la home 62 · Sobre mí 52 · 500</p><p class="uk-display">Soy de ventas. <span class="g">Mi proceso corre sobre Claude.</span></p></div>
+          <div class="uk-ty"><p class="uk-k">H1 de página y artículo · 44 / 1.1 · 400 · <code>.page-h1</code></p><p class="page-h1">Cómo vendo con Claude. <span class="g">Lo que pruebo y lo que funciona.</span></p></div>
+          <div class="uk-ty"><p class="uk-k">Statement · 30 / 1.27 · 400 · <code>.statement</code></p><p class="statement">Ningún lead espera. <span class="g">Abro el caso en Claude.</span></p></div>
           <div class="uk-ty"><p class="uk-k">H2 de texto · 28 / 1.2 · 500</p><p class="uk-h2">¿Qué cambió en mi día a día?</p></div>
           <div class="uk-ty"><p class="uk-k">Título de fila · 24 / 1.25 · 500 · <code>.post-title</code></p><p class="post-title">Case studies: cómo contar lo que hacés</p></div>
           <div class="uk-ty"><p class="uk-k">Título de tarjeta · 18 / 1.3 · 500 · <code>.feat-title</code></p><p class="feat-title">Mis primeros dos leads fueron amigos</p></div>
@@ -120,15 +120,32 @@ const templates = [
         <h2 class="eyebrow"><span class="num">06</span>Componentes</h2>
 
         <h3 class="uk-h3">Cabecera de página <code>PageHeader</code></h3>
-        <p class="uk-note">Etiqueta (o migas en artículos), H1 en dos tonos, bajada y foto opcionales. Es la única forma de abrir una página que no sea la home.</p>
+        <p class="uk-note">Etiqueta (o migas en artículos), H1 en dos tonos y bajada opcional. Es la forma de abrir las páginas principales y los artículos.</p>
         <div class="uk-demo">
-          <div class="page-head has-photo">
-            <p class="eyebrow"><span class="num">&gt;_</span>Sobre mí</p>
-            <p class="page-h1">Soy Emiliano Moretti, <span class="g">director comercial.</span></p>
+          <div class="page-head">
+            <p class="eyebrow"><span class="num">&gt;_</span>Blog</p>
+            <p class="page-h1">Cómo vendo con Claude, <span class="g">pieza por pieza.</span></p>
             <p class="page-lead">Bajada en gris, de una a tres líneas.</p>
-            <img class="page-photo" src="/avatar.jpg" alt="" width="128" height="128" />
           </div>
         </div>
+
+        <h3 class="uk-h3">Sección de página de marca</h3>
+        <p class="uk-note">Etiqueta numerada (el H2, en forma de pregunta cuando ayuda a buscadores e IA) y un statement en dos tonos, centrados. Debajo, el bloque propio de la sección.</p>
+        <div class="uk-demo center stack">
+          <p class="eyebrow"><span class="num">01</span>¿De dónde vengo?</p>
+          <p class="statement">Lo que afirmo va en negro. <span class="g">El contexto que lo sostiene, en gris.</span></p>
+          <p class="ab-route"><span>Buenos Aires</span>→<span>Madrid</span></p>
+        </div>
+
+        <h3 class="uk-h3">Panel oscuro</h3>
+        <p class="uk-note">Uno por página como máximo, para el momento central: Cómo funciona en la home y el rugby en Sobre mí.</p>
+        <div class="ab-rugby center stack" style="margin-top:16px;padding:56px 24px">
+          <p class="eyebrow"><span class="num">04</span>Momento central</p>
+          <p class="statement">Fondo #0E0E0E y texto blanco. <span class="g">Igual en modo claro y oscuro.</span></p>
+        </div>
+
+        <h3 class="uk-h3">Barra y menú</h3>
+        <p class="uk-note">En escritorio, los links de la barra marcan la página actual con un subrayado. Por debajo de 760px quedan el logo, Contacto y el botón de menú; el panel tiene los links (la página actual con &gt;), el idioma y el modo oscuro. Se cierra con Escape o al tocar un link.</p>
 
         <h3 class="uk-h3">Botones</h3>
         <p class="uk-note">Uno primario por bloque. → avanza, ↓ baja en la página, ↗ sale a otra web.</p>
@@ -174,12 +191,12 @@ const templates = [
       <section class="uk-sec" id="reglas">
         <h2 class="eyebrow"><span class="num">07</span>Reglas para páginas nuevas</h2>
         <ol class="uk-rules">
-          <li>Elegí la plantilla antes de diseñar: home, página principal o artículo.</li>
-          <li>Abrí siempre con <code>PageHeader</code>. Sin hero fuera de la home.</li>
+          <li>Elegí la plantilla antes de diseñar: página de marca, página principal o artículo.</li>
+          <li>Hero solo en las páginas de marca. Las páginas principales y los artículos abren con <code>PageHeader</code>.</li>
           <li>Un H1 por página, con el tamaño de su plantilla. Los títulos internos van en H2.</li>
           <li>Texto corrido a <code>--w-read</code>. Listas y tarjetas pueden ir a <code>--w-page</code>.</li>
           <li>Espacios con los tokens de página. Si necesitás un valor nuevo, primero sumalo acá.</li>
-          <li>Un botón primario por bloque y un CTA de cierre por página.</li>
+          <li>Un botón primario por bloque, un CTA de cierre por página y un panel oscuro como máximo.</li>
           <li>Todo lo nuevo se prueba en claro, oscuro y a 390px de ancho.</li>
         </ol>
       </section>

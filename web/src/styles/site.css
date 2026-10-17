@@ -28,7 +28,8 @@
   --page-bottom: 120px;
   --head-gap: 48px;   /* de la cabecera al primer bloque */
   --h1-display: clamp(40px, 5.2vw, 62px); /* solo el hero de la home */
-  --h1-page: clamp(34px, 4.4vw, 52px);    /* H1 de páginas principales y artículos */
+  --h1-page: clamp(30px, 3.6vw, 44px);    /* H1 de páginas principales y artículos */
+  --h1-brand: clamp(34px, 4.4vw, 52px);   /* H1 del hero de Sobre mí (la home usa --h1-display) */
 }
 @media (max-width: 640px) { :root { --page-top: 56px; --page-bottom: 88px; --head-gap: 36px; } }
 @media (prefers-color-scheme: dark) {
@@ -99,7 +100,24 @@ section { padding-block: 120px; }
 .nav-links .acts { display: flex; align-items: center; gap: 8px; margin-left: 6px; }
 .nav-links a.t { color: var(--fg); transition: color .2s; }
 .nav-links a.t:hover { color: var(--ink); }
-@media (max-width: 760px) { .nav-links a.t, .brand small { display: none; } .nav-links .acts { margin-left: 0; } }
+@media (max-width: 760px) { .nav-links a.t, .brand small { display: none; } .nav-links .acts { margin-left: 0; } .nav-links .acts .lang-btn, .nav-links .acts .theme-btn { display: none; } }
+/* Link activo: la página en la que estás */
+.nav-links a.t[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
+/* Menú del celular (por debajo de 760px) */
+.menu-btn { display: none; }
+.menu-btn svg path { transition: transform .25s var(--ease); transform-origin: 8px 8px; }
+.nav.open .menu-btn .l1 { transform: translateY(3px) rotate(45deg); }
+.nav.open .menu-btn .l2 { transform: translateY(-3px) rotate(-45deg); }
+.mmenu { border-top: 1px solid var(--line); background: var(--bg); }
+.mmenu[hidden] { display: none; }
+.nav .mmenu .wrap { display: block; height: auto; }
+.mmenu ul { list-style: none; padding-block: 8px; }
+.mmenu li + li { border-top: 1px solid var(--line); }
+.mmenu li a { display: flex; align-items: center; min-height: 52px; font-size: 20px; font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+.mmenu li a[aria-current="page"]::before { content: ">"; font-family: var(--mono); font-size: 16px; color: var(--soft); margin-right: 10px; }
+.mm-acts { display: flex; gap: 10px; padding: 8px 0 24px; }
+.nav.open { box-shadow: 0 1px 0 var(--line); }
+@media (max-width: 760px) { .menu-btn { display: grid; } }
 
 /* HERO */
 .hero { position: relative; padding-block: 0; height: min(800px, calc(100vh - 60px)); min-height: 580px; display: grid; place-items: center; overflow: hidden; }
@@ -469,22 +487,77 @@ h2.eyebrow { font-weight: 400; }
 @media (max-width: 430px) { .nav .wrap { gap: 10px; } .nav-links .acts { gap: 6px; } .nav .icon-btn { width: 32px; height: 32px; } .nav .pill-sm { padding: 0 12px; height: 32px; } .brand .wm { font-size: 15px; } }
 
 /* ===== Plantillas (UI Kit v1.1) =====
-   Home: hero propio (.hero). Páginas principales (Blog, Sobre mí) y artículos: misma cabecera (.page-head),
+   Páginas de marca (home y Sobre mí): hero centrado (.hero). Páginas principales (Blog, 404, UI Kit) y artículos: misma cabecera (.page-head),
    mismo contenedor (.narrow = --w-page) y mismo borde izquierdo. El texto corrido va en la columna de lectura (--w-read). */
 .page-head { display: grid; gap: 20px; }
 .page-head .crumbs, .page-head .eyebrow { margin-bottom: 0; }
-.page-h1 { font-size: var(--h1-page); line-height: 1.06; letter-spacing: -0.04em; font-weight: 500; color: var(--ink); text-wrap: balance; max-width: 18em; }
+.page-h1 { font-size: var(--h1-page); line-height: 1.1; letter-spacing: -0.03em; font-weight: 400; color: var(--ink); text-wrap: balance; max-width: 18em; }
 .page-h1 .g { color: var(--soft); }
 .page-lead { font-size: 20px; line-height: 1.45; color: var(--muted); max-width: 52ch; }
-.page-head.has-photo { grid-template-columns: minmax(0, 1fr) auto; column-gap: 48px; align-items: end; }
-.page-head.has-photo > :not(.page-photo) { grid-column: 1; }
-.page-photo { grid-column: 2; grid-row: 1 / span 3; align-self: end; width: 128px; height: 128px; border-radius: 50%; object-fit: cover; }
 .page-body { margin-top: var(--head-gap); }
 .read, .post-wrap > * { max-width: var(--w-read); }
-@media (max-width: 640px) {
-  .page-head.has-photo { grid-template-columns: minmax(0, 1fr); }
-  .page-head.has-photo > * { grid-column: 1; }
-  .page-photo { grid-row: 1; width: 88px; height: 88px; align-self: start; }
-}
 .page-body > .prose:first-child, .prose > :first-child { margin-top: 0; }
 .post-wrap section { padding-block: 0; } /* las secciones internas del artículo (FAQ, relacionados) usan sus propios márgenes */
+
+/* Ajustes de la revisión UX (oct 2026) */
+footer ul { gap: 2px; }
+footer li a, footer li button { display: inline-block; padding-block: 4px; }
+
+/* ===== Sobre mí (plantilla A: página de marca, misma estructura que la home) ===== */
+.ab-hero { height: auto; min-height: 0; padding-block: 112px 24px; }
+.ab-hero .hero-in { gap: 24px; }
+.ab-hero::after { display: none; }
+.ab-hero h1 { font-size: var(--h1-brand); line-height: 1.06; letter-spacing: -0.04em; }
+.ab-hero .eyebrow { margin-bottom: -8px; }
+.ab-by { text-align: left; }
+.ab-route { display: inline-flex; gap: 8px; align-items: center; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.ab-route span { padding: 4px 10px; border-radius: 999px; background: var(--surface); color: var(--ink); }
+/* Recorrido */
+.trail { margin-top: 64px; display: grid; gap: 40px; text-align: left; }
+.trail h3 { font-family: var(--mono); font-weight: 400; font-size: 12px; text-transform: uppercase; letter-spacing: .02em; color: var(--muted); padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.trail ol { list-style: none; }
+.trail li { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 8px 32px; padding-block: 22px; border-bottom: 1px solid var(--line); }
+.trail .co { font-size: 24px; font-weight: 500; letter-spacing: -0.025em; line-height: 1.2; color: var(--ink); }
+.trail .co small { display: block; margin-top: 6px; font-size: 14px; font-weight: 400; letter-spacing: -0.01em; color: var(--muted); }
+.trail .ds { font-size: 16px; line-height: 1.55; color: var(--fg); max-width: 60ch; }
+@media (max-width: 640px) { .trail li { grid-template-columns: minmax(0, 1fr); } .trail .co { font-size: 21px; } }
+/* Cómo trabajo hoy */
+.ab-chain { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; align-items: center; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.ab-chain span { padding: 6px 12px; border-radius: 999px; background: var(--surface); color: var(--ink); }
+.ab-chain span.core { background: var(--ink); color: var(--on-ink); }
+.ab-note { font-size: 18px; color: var(--muted); max-width: 46ch; }
+.ab-ctas { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+/* Rugby: panel oscuro, el momento personal de la página */
+.ab-rugby { background: #0E0E0E; color: #FFFFFF; border-radius: 40px; padding: 96px 32px; }
+.ab-rugby .eyebrow, .ab-rugby .eyebrow .num { color: rgba(255,255,255,.55); }
+.ab-rugby .eyebrow .num { color: #FFFFFF; }
+.ab-rugby .statement { color: #FFFFFF; }
+.ab-rugby .statement .g { color: rgba(255,255,255,.55); }
+.ab-line { display: flex; gap: 14px; justify-content: center; margin-block: 16px 4px; }
+.ab-line i { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,.9); }
+.ab-quote { font-size: clamp(22px, 2.6vw, 28px); line-height: 1.3; letter-spacing: -0.025em; font-weight: 500; max-width: 26em; }
+.ab-quote-k { font-size: 15px; color: rgba(255,255,255,.55); max-width: 52ch; }
+:root[data-theme="dark"] .ab-rugby { box-shadow: inset 0 0 0 1px var(--line); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ab-rugby { box-shadow: inset 0 0 0 1px var(--line); } }
+@media (max-width: 640px) { .ab-rugby { border-radius: 28px; padding: 64px 20px; } .ab-line { gap: 9px; } .ab-line i { width: 9px; height: 9px; } .ab-hero { padding-block: 64px 8px; } }
+/* De qué escribo */
+.ab-topics { margin-top: 56px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; text-align: left; }
+.ab-topic { display: flex; flex-direction: column; gap: 10px; padding: 26px; border-radius: 24px; background: var(--surface); min-height: 200px; transition: box-shadow .2s; }
+.ab-topic:hover { box-shadow: inset 0 0 0 1px var(--line-strong); }
+.ab-topic .n { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.ab-topic .tt { font-size: 22px; font-weight: 500; letter-spacing: -0.025em; line-height: 1.2; color: var(--ink); }
+.ab-topic .ex { margin-top: auto; font-size: 14px; color: var(--muted); }
+.ab-topic .ex b { display: block; margin-top: 4px; font-weight: 500; color: var(--ink); }
+.ab-topic:hover .ex b { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 640px) { .ab-topics { grid-template-columns: minmax(0, 1fr); } .ab-topic { min-height: 0; } }
+
+/* ===== Calibración con la referencia (fde.builders, oct 2026) =====
+   Títulos y frases en #333 en vez de negro puro, frases un punto más chicas y en columna más angosta,
+   links de la barra en gris. Los botones siguen en negro. */
+h1, h2, h3, .statement, .page-h1, .hero h1, .post-title, .feat-title, .trail .co, .ab-topic .tt, .bk h3 { color: var(--fg); }
+.statement { font-size: clamp(24px, 2.8vw, 30px); line-height: 1.27; letter-spacing: -0.02em; }
+.center .statement, .center.stack .statement { max-width: 22em; margin-inline: auto; }
+.contact .statement { font-size: clamp(26px, 3.2vw, 36px); max-width: 20em; }
+.nav-links a.t { color: var(--muted); }
+.nav-links a.t:hover, .nav-links a.t[aria-current="page"] { color: var(--fg); }
+.ab-rugby .statement { color: #FFFFFF; }
