@@ -36,8 +36,10 @@ const lds: object[] = [
 ];
 // FAQ visible en la página; sin schema FAQPage (Google retiró ese resultado enriquecido en mayo de 2026).
 const toc = headings.filter((h) => h.depth === 2);
+// Google corta los títulos largos: el nombre solo se suma si entra.
+const pageTitle = d.title.length <= 48 ? `${d.title} · Emiliano Moretti` : d.title;
 ---
-<Base title={`${d.title} · Emiliano Moretti`} description={d.description} image={d.image} type="article" jsonld={lds} lang={lang} alt={alt}>
+<Base title={pageTitle} description={d.description} image={d.image} type="article" jsonld={lds} lang={lang} alt={alt}>
 <Fragment slot="head">
   <meta property="article:published_time" content={d.pubDate.toISOString()} />
   <meta property="article:modified_time" content={(d.updatedDate ?? d.pubDate).toISOString()} />
