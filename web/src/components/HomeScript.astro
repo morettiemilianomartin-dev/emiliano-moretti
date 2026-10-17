@@ -56,23 +56,38 @@
     var p = pointAt(t); bump(p[0], p[1], 1, 1);
     path.forEach(function(q, i){ var k = i / (path.length - 1); if (Math.abs(t - k) < .015) { bump(q[0], q[1], 3, .9); glow[i] = 1; } });
     if (mouse.x > -900) bump(mouse.x, mouse.y, 4, .6);
+    /* La matriz de puntos fija se dibuja una sola vez en un canvas aparte; en cada cuadro solo se pintan los puntos encendidos */
+    if (baseKey !== cDot + W + 'x' + H) drawBase(cDot);
     ctx.clearRect(0, 0, W, H);
-    for (var y = 0; y < rows; y++) for (var x = 0; x < cols; x++) {
-      var idx = y * cols + x, h = heat[idx];
-      ctx.globalAlpha = 1; ctx.fillStyle = cDot; ctx.fillRect(x * S, y * S, S - G, S - G);
-      if (h > .02) { ctx.fillStyle = cOn; ctx.globalAlpha = h; ctx.fillRect(x * S, y * S, S - G, S - G); heat[idx] = h * .965; }
+    ctx.globalAlpha = 1; ctx.drawImage(base, 0, 0, W, H);
+    ctx.fillStyle = cOn;
+    for (var idx = 0, n = heat.length; idx < n; idx++) {
+      var h = heat[idx];
+      if (h > .02) { ctx.globalAlpha = h; ctx.fillRect((idx % cols) * S, Math.floor(idx / cols) * S, S - G, S - G); heat[idx] = h * .965; }
     }
     tctx.clearRect(0, 0, W, H);
     if (W > 700) path.forEach(function(q, i){ if (glow[i] > .02) { label(stops[i][0], q[0], q[1], Math.min(1, glow[i] / .4), cOn, cBg); glow[i] *= .978; } });
     tctx.globalAlpha = 1;
     ctx.globalAlpha = 1;
-    if (!reduce) requestAnimationFrame(frame);
+    if (!reduce && heroOn && !document.hidden) requestAnimationFrame(frame); else looping = false;
   }
+  var base = document.createElement('canvas'), bctx = base.getContext('2d'), baseKey = '';
+  function drawBase(cDot){
+    base.width = W * dpr; base.height = H * dpr; bctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    bctx.clearRect(0, 0, W, H); bctx.fillStyle = cDot;
+    for (var y = 0; y < rows; y++) for (var x = 0; x < cols; x++) bctx.fillRect(x * S, y * S, S - G, S - G);
+    baseKey = cDot + W + 'x' + H;
+  }
+  /* La animación se pausa cuando el hero no está en pantalla o la pestaña está oculta */
+  var heroOn = true, looping = false;
+  function startLoop(){ if (!reduce && heroOn && !document.hidden && !looping) { looping = true; requestAnimationFrame(frame); } }
+  if ('IntersectionObserver' in window) new IntersectionObserver(function(es){ heroOn = es[0].isIntersecting; startLoop(); }).observe(cv);
+  document.addEventListener('visibilitychange', startLoop);
   resize(); addEventListener('resize', resize);
   var heroEl = cv.parentElement;
   heroEl.addEventListener('pointermove', function(e){ var r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
   heroEl.addEventListener('pointerleave', function(){ mouse.x = mouse.y = -999; });
-  if (reduce) { for (var k = 0; k <= 80; k++) { var q = pointAt(k / 80); bump(q[0], q[1], 1, .4); } glow = glow.map(function(){ return .8; }); frame(t0); } else requestAnimationFrame(frame);
+  if (reduce) { for (var k = 0; k <= 80; k++) { var q = pointAt(k / 80); bump(q[0], q[1], 1, .4); } glow = glow.map(function(){ return .8; }); frame(t0); } else startLoop();
 
   /* PROBLEMA: las piezas se conectan al entrar en pantalla */
   var pieces = document.getElementById('pieces');

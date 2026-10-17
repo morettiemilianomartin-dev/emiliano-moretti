@@ -11,6 +11,7 @@ Sitio estático hecho con [Astro](https://astro.build). Vercel lo compila solo e
 ```md
 ---
 title: "Título con la palabra clave principal (máx. ~65 caracteres)"
+seoTitle: "Versión corta para Google y Bing"      # opcional: solo si el título pasa de 60 caracteres
 description: "Resumen de 140–160 caracteres: es lo que muestran Google y las redes."
 pubDate: 2026-10-21T06:00:00Z
 category: "Proceso"

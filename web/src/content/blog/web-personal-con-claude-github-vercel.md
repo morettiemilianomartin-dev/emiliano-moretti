@@ -1,5 +1,6 @@
 ---
 title: "Cómo armé mi web personal con Claude, GitHub y Vercel (gratis y sin programar)"
+seoTitle: "Cómo armé mi web con Claude, GitHub y Vercel, sin programar"
 description: "El proceso real detrás de esta web: de la idea a publicarla con Claude, GitHub y Vercel, sin saber programar y sin pagar hosting."
 pubDate: 2026-10-14T10:00:00Z
 category: "Construcción"

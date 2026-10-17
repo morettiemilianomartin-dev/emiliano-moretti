@@ -287,7 +287,7 @@ section { padding-block: 120px; }
 /* Footer */
 footer { border-top: 1px solid var(--line); margin-top: 48px; }
 footer .wrap { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px; padding-block: 56px 72px; font-size: 14px; }
-footer h4 { font-weight: 400; color: var(--muted); font-size: 14px; margin-bottom: 12px; }
+footer h4, footer .foot-h { font-weight: 400; color: var(--muted); font-size: 14px; margin-bottom: 12px; }
 footer ul { list-style: none; display: grid; gap: 8px; }
 footer a:hover, footer button:hover { color: var(--ink); }
 footer .about p { color: var(--muted); max-width: 32ch; margin-top: 12px; }

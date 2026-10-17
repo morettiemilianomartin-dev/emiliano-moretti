@@ -1,5 +1,6 @@
 ---
 title: "How I automated my sales process with Claude (without knowing how to code)"
+seoTitle: "How I automated my sales process with Claude (no coding)"
 description: "From a lead's first email to the CRM with zero manual data entry: the tools, the step-by-step flow and what I chose not to automate."
 pubDate: 2026-10-14T12:00:00Z
 category: "Process"

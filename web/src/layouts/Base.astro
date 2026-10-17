@@ -66,7 +66,7 @@ const lds = jsonld ? (Array.isArray(jsonld) ? jsonld : [jsonld]) : [];
       <a class="t" href={`${h}#como`}>{t.how}</a>
       <a class="t" href={`${h}#detras`}>{t.behind}</a>
       <a class="t" href={t.blog}>Blog</a>
-      <span class="acts"><a class="icon-btn lang-btn" href={switchHref} hreflang={other(lang)} lang={other(lang)} data-lang={other(lang)} aria-label={t.switchLabel} title={t.switchLabel}>{t.switchTo}</a><button class="icon-btn theme-btn" type="button" id="themeBtn" data-dark={t.themeDark} data-light={t.themeLight} aria-label={t.themeDark}><svg class="ic-moon" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.5A5.5 5.5 0 0 1 6.5 2.5a5.5 5.5 0 1 0 7 7z"/></svg><svg class="ic-sun" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.4 3.4l1 1M11.6 11.6l1 1M3.4 12.6l1-1M11.6 4.4l1-1"/></svg></button><a class="pill pill-ink pill-sm" href={`${h}#contacto`}>{t.contact}</a></span>
+      <span class="acts"><a class="icon-btn lang-btn" href={switchHref} hreflang={other(lang)} lang={other(lang)} data-lang={other(lang)} aria-label={`${t.switchTo} · ${t.switchLabel}`} title={t.switchLabel}>{t.switchTo}</a><button class="icon-btn theme-btn" type="button" id="themeBtn" data-dark={t.themeDark} data-light={t.themeLight} aria-label={t.themeDark}><svg class="ic-moon" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.5A5.5 5.5 0 0 1 6.5 2.5a5.5 5.5 0 1 0 7 7z"/></svg><svg class="ic-sun" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.4 3.4l1 1M11.6 11.6l1 1M3.4 12.6l1-1M11.6 4.4l1-1"/></svg></button><a class="pill pill-ink pill-sm" href={`${h}#contacto`}>{t.contact}</a></span>
     </div>
   </div>
 </nav>
@@ -83,8 +83,8 @@ const lds = jsonld ? (Array.isArray(jsonld) ? jsonld : [jsonld]) : [];
 <footer>
   <div class="wrap">
     <div class="about"><a class="brand" href={t.home}><span class="wm"><span class="pr" aria-hidden="true">&gt;</span> emiliano moretti<span class="cur" aria-hidden="true"></span></span></a><p>{t.footer}</p></div>
-    <div><h4>{t.explore}</h4><ul><li><a href={`${h}#como`}>{t.how}</a></li><li><a href={`${h}#detras`}>{t.behindLong}</a></li><li><a href={`${h}#criterio`}>{t.criteria}</a></li><li><a href={t.blog}>Blog</a></li></ul></div>
-    <div><h4>{t.contact}</h4><ul><li><button type="button" data-copy={EMAIL}>{t.copyEmail}</button></li><li><a href="https://www.linkedin.com/in/emiliano-moretti/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://x.com/EmilianoMorett5" target="_blank" rel="noopener">X</a></li><li><a href={t.rss}>RSS</a></li><li><a href={switchHref} hreflang={other(lang)} lang={other(lang)} data-lang={other(lang)}>{other(lang) === 'en' ? 'English' : 'Español'}</a></li></ul></div>
+    <div><h2 class="foot-h">{t.explore}</h2><ul><li><a href={`${h}#como`}>{t.how}</a></li><li><a href={`${h}#detras`}>{t.behindLong}</a></li><li><a href={`${h}#criterio`}>{t.criteria}</a></li><li><a href={t.blog}>Blog</a></li></ul></div>
+    <div><h2 class="foot-h">{t.contact}</h2><ul><li><button type="button" data-copy={EMAIL}>{t.copyEmail}</button></li><li><a href="https://www.linkedin.com/in/emiliano-moretti/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://x.com/EmilianoMorett5" target="_blank" rel="noopener">X</a></li><li><a href={t.rss}>RSS</a></li><li><a href={switchHref} hreflang={other(lang)} lang={other(lang)} data-lang={other(lang)}>{other(lang) === 'en' ? 'English' : 'Español'}</a></li></ul></div>
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite" data-msg={t.emailCopied}>{t.emailCopied}</div>

@@ -3,6 +3,7 @@ import { glob } from 'astro/loaders';
 
 const fields = {
     title: z.string(),                       // Título del artículo (H1). Máx. ~65 caracteres para Google.
+    seoTitle: z.string().optional(),         // Título más corto para Google y Bing (<title>) si el H1 pasa de 60 caracteres
     description: z.string(),                 // Resumen para Google y redes. 140–160 caracteres.
     pubDate: z.coerce.date(),                // Fecha de publicación: 2026-10-14
     updatedDate: z.coerce.date().optional(),

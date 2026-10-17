@@ -1,5 +1,6 @@
 ---
 title: "How I built my personal website with Claude, GitHub and Vercel (free and without coding)"
+seoTitle: "How I built my website with Claude, GitHub and Vercel"
 description: "The real process behind this website: from the idea to going live with Claude, GitHub and Vercel, without knowing how to code and without paying for hosting."
 pubDate: 2026-10-14T10:00:00Z
 category: "Building"
