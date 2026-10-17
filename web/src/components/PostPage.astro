@@ -2,6 +2,7 @@
 // Página de un artículo. La usan /blog/<slug>/ (español) y /en/blog/<slug>/ (inglés).
 import { render } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import PageHeader from './PageHeader.astro';
 import Share from './Share.astro';
 import { fmtDate, readingMinutes, postUrl } from '../lib/posts';
 import { CAL, ui, type Lang } from '../lib/i18n';
@@ -48,9 +49,9 @@ const pageTitle = d.seoTitle ?? (d.title.length <= 48 ? `${d.title} · Emiliano 
 </Fragment>
 <main class="post">
   <article class="narrow post-wrap">
-    <nav class="crumbs" aria-label={T.crumbs}><a href={ui[lang].blog}>Blog</a><span aria-hidden="true">/</span><span>{d.category}</span></nav>
-    <h1 class="post-h1">{d.title}</h1>
-    <p class="post-lead">{d.description}</p>
+    <PageHeader title={d.title} lead={d.description}>
+      <nav slot="kicker" class="crumbs" aria-label={T.crumbs}><a href={ui[lang].blog}>Blog</a><span aria-hidden="true">/</span><span>{d.category}</span></nav>
+    </PageHeader>
     <div class="post-by">
       <div class="by">
         <img src="/avatar.jpg" alt="" width="40" height="40" loading="lazy" />

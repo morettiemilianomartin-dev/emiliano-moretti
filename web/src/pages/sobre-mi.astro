@@ -1,6 +1,7 @@
 ---
 // Página "Sobre mí". La versión en inglés está en src/pages/en/about.astro: si cambiás algo acá, cambialo también allá.
 import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
 import { CAL } from '../lib/i18n';
 const site = Astro.site?.href.replace(/\/$/, '') ?? 'https://www.emilianomoretti.com';
 const ld = {
@@ -22,12 +23,10 @@ const ld = {
 };
 ---
 <Base title="Sobre mí · Emiliano Moretti" description="Director comercial en Modulor Studios. Argentino, vivo en Madrid y vendo desde 2011. Mi recorrido en medios y ventas, el rugby y cómo trabajo hoy con IA." jsonld={ld} lang="es" alt="/en/about/" type="profile">
-<main class="post">
-  <article class="narrow post-wrap">
-    <p class="eyebrow"><span class="num">&gt;_</span>Sobre mí</p>
-    <h1 class="post-h1">Soy Emiliano Moretti, director comercial en Modulor Studios.</h1>
-    <p class="post-lead">Nací en Buenos Aires, vivo en Madrid desde hace cinco años y vendo desde 2011. Hoy mi proceso comercial corre sobre Claude, y lo cuento en este blog.</p>
-    <div class="post-by"><div class="by"><img src="/avatar.jpg" alt="Emiliano Moretti" width="40" height="40" /><div><strong>Emiliano Moretti</strong><span>Madrid · Ventas B2B con IA y criterio humano</span></div></div></div>
+<main class="page">
+  <article class="narrow">
+    <PageHeader label="Sobre mí" title="Soy Emiliano Moretti," gray="director comercial en Modulor Studios." lead="Nací en Buenos Aires, vivo en Madrid desde hace cinco años y vendo desde 2011. Hoy mi proceso comercial corre sobre Claude, y lo cuento en este blog." photo="/avatar.jpg" photoAlt="Emiliano Moretti" />
+    <div class="read page-body">
 
     <div class="prose">
       <h2 id="de-donde-vengo">¿De dónde vengo?</h2>
@@ -60,6 +59,7 @@ const ld = {
         <a class="pill pill-soft" href="https://www.linkedin.com/in/emiliano-moretti/" target="_blank" rel="noopener">LinkedIn <svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
         <a class="pill pill-soft" href="https://x.com/EmilianoMorett5" target="_blank" rel="noopener">X <svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
       </div>
+    </div>
     </div>
   </article>
 </main>

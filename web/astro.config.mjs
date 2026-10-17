@@ -36,5 +36,5 @@ for (const [es, en] of pairs) {
 export default defineConfig({
   site: SITE,
   trailingSlash: 'ignore',
-  integrations: [sitemap({ serialize(item) { const links = alternates.get(item.url); if (links) item.links = links; if (lastmod.has(item.url)) item.lastmod = lastmod.get(item.url); return item; } })],
+  integrations: [sitemap({ filter: (page) => !page.includes('/ui-kit/'), serialize(item) { const links = alternates.get(item.url); if (links) item.links = links; if (lastmod.has(item.url)) item.lastmod = lastmod.get(item.url); return item; } })],
 });

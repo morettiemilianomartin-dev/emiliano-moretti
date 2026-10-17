@@ -1,6 +1,7 @@
 ---
 // Índice del blog. Lo usan /blog/ (español) y /en/blog/ (inglés).
 import Base from '../layouts/Base.astro';
+import PageHeader from './PageHeader.astro';
 import { getPosts, fmtDate, postUrl } from '../lib/posts';
 import { CAL, ui, type Lang } from '../lib/i18n';
 interface Props { lang: Lang; }
@@ -25,14 +26,12 @@ const destacados = posts.length > 3 ? posts.filter((p) => p.data.destacado).slic
 const ld = { "@context": "https://schema.org", "@type": "Blog", "name": T.ldName, "url": new URL(ui[lang].blog, Astro.site).href, "inLanguage": lang, "author": { "@type": "Person", "name": "Emiliano Moretti", "url": Astro.site?.href } };
 ---
 <Base title={T.title} description={T.desc} jsonld={ld} lang={lang} alt={es ? '/en/blog/' : '/blog/'}>
-<main class="blog">
-  <section class="blog-head">
-    <div class="narrow">
-      <p class="eyebrow"><span class="num">&gt;_</span>Blog</p>
-      <h1 class="statement blog-title">{T.h1} <span class="g">{T.h1g}</span></h1>
-      {!es && <p class="blog-note">I write mostly in Spanish. These are the articles I’ve translated so far; the rest are on the <a href="/blog/" hreflang="es" lang="es">blog en español</a>.</p>}
-    </div>
-  </section>
+<main class="blog page">
+  <div class="narrow">
+    <PageHeader label="Blog" title={T.h1} gray={T.h1g} />
+    {!es && <p class="blog-note">I write mostly in Spanish. These are the articles I’ve translated so far; the rest are on the <a href="/blog/" hreflang="es" lang="es">blog en español</a>.</p>}
+  </div>
+  <div class="page-body">
   {destacados.length > 0 && (
   <section class="blog-featured">
     <div class="narrow">
@@ -73,5 +72,6 @@ const ld = { "@context": "https://schema.org", "@type": "Blog", "name": T.ldName
       </div>
     </div>
   </section>
+  </div>
 </main>
 </Base>

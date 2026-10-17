@@ -1,0 +1,265 @@
+---
+// UI Kit v1.1: referencia interna de plantillas, tokens y componentes de la web.
+// No se indexa (noindex) y no está en el sitemap. Usa el CSS real del sitio: lo que se ve acá es lo que se publica.
+// Si cambiás un token o un componente en site.css, revisá que esta página siga diciendo la verdad.
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Share from '../components/Share.astro';
+import { CAL } from '../lib/i18n';
+
+const colors = [
+  ['--ink', 'Titulares, botón primario'], ['--fg', 'Texto base'], ['--muted', 'Texto secundario, bajadas'],
+  ['--soft', 'Segundo tono, prompt'], ['--faint', 'Inactivo'], ['--line-strong', 'Bordes de botón'],
+  ['--line', 'Divisores'], ['--surface', 'Tarjetas y bloques'], ['--bg', 'Fondo'],
+];
+const widths = [
+  ['--w-wide', '1120px', 'Home: secciones anchas y barra de navegación', 100],
+  ['--w-page', '880px', 'Páginas principales y artículos: define el borde izquierdo', 78.6],
+  ['--w-read', '712px', 'Columna de lectura: texto corrido, TL;DR, FAQ, CTA del artículo', 63.6],
+];
+const space = [
+  ['--page-top', '88px', '56px', 'De la barra a la cabecera de cada página'],
+  ['--head-gap', '48px', '36px', 'De la cabecera al primer bloque'],
+  ['--page-bottom', '120px', '88px', 'Aire antes del pie'],
+];
+const radii = [['999px', 'Botones y botones de icono'], ['40px', 'Superficies grandes de la home'], ['32px', 'Bloque de CTA'], ['24px', 'Tarjetas, TL;DR, tarjeta de quién soy'], ['12px', 'Detalles chicos']];
+const templates = [
+  { k: 'A', n: 'Home', who: '/ y /en/', parts: ['Barra', 'Hero a pantalla completa (Display 62)', 'Secciones numeradas 01–06 con etiqueta mono', 'Contacto'], note: 'Es la portada. La única con hero y con secciones a --w-wide.' },
+  { k: 'B', n: 'Página principal', who: 'Blog, Sobre mí, 404', parts: ['Barra', 'Cabecera: etiqueta >_ · H1 en dos tonos · bajada opcional · foto opcional', 'Cuerpo a --w-page (listas, tarjetas) o --w-read (texto)', 'CTA'], note: 'Misma cabecera para todas. La foto solo en Sobre mí.' },
+  { k: 'C', n: 'Artículo', who: '/blog/* y /en/blog/*', parts: ['Barra', 'Cabecera: migas · H1 · bajada', 'Firma + compartir', 'TL;DR · índice · texto · FAQ', 'Autor · CTA · relacionados'], note: 'Todo a --w-read, alineado al mismo borde que las páginas principales.' },
+];
+---
+<Base title="UI Kit · Emiliano Moretti" description="Referencia interna de plantillas, tokens y componentes de emilianomoretti.com." lang="es" noindex>
+<main class="page uk">
+  <div class="narrow">
+    <PageHeader label="UI Kit v1.1" title="Un solo sistema para toda la web." gray="Tres plantillas, tres anchos y una escala de títulos." lead="Referencia interna para diseñar y construir páginas nuevas. Usa el CSS real del sitio, así que lo que ves acá es lo que se publica." />
+
+    <div class="page-body">
+
+      <!-- 01 Principios -->
+      <section class="uk-sec" id="principios">
+        <h2 class="eyebrow"><span class="num">01</span>Principios</h2>
+        <div class="uk-grid4">
+          <div class="uk-card"><b>Blanco y negro.</b> Sin color de acento. La jerarquía la hacen el tono, el peso y el aire.</div>
+          <div class="uk-card"><b>Dos tonos.</b> Lo que afirmo va en negro y el contexto que lo sostiene, en gris.</div>
+          <div class="uk-card"><b>Código como acento.</b> La monoespaciada marca lo técnico: logo, etiquetas, numeración y comandos. Nunca párrafos.</div>
+          <div class="uk-card"><b>Un sistema, no copias.</b> Cada página usa una de las tres plantillas. Si algo no entra en ninguna, se discute antes de inventar una cuarta.</div>
+        </div>
+      </section>
+
+      <!-- 02 Plantillas -->
+      <section class="uk-sec" id="plantillas">
+        <h2 class="eyebrow"><span class="num">02</span>Plantillas</h2>
+        <p class="uk-intro">Tres plantillas y una regla: las páginas principales y los artículos arrancan a la misma altura y en el mismo borde izquierdo, así al navegar entre ellas el título no salta.</p>
+        <div class="uk-tpls">
+          {templates.map((t) => (
+            <div class="uk-tpl">
+              <div class={`uk-wire uk-wire-${t.k}`} aria-hidden="true">
+                <i class="w-nav"></i>
+                {t.k === 'A' ? <><i class="w-hero"><i></i><i></i></i><i class="w-blk"></i><i class="w-blk"></i></> :
+                 t.k === 'B' ? <><i class="w-kick"></i><i class="w-h1"></i><i class="w-h1 g"></i><i class="w-lead"></i><i class="w-photo"></i><i class="w-cards"><i></i><i></i><i></i></i><i class="w-row"></i><i class="w-row"></i></> :
+                 <><i class="w-kick"></i><i class="w-h1 n"></i><i class="w-h1 n"></i><i class="w-lead n"></i><i class="w-by"></i><i class="w-box"></i><i class="w-txt"></i><i class="w-txt"></i><i class="w-txt s"></i></>}
+              </div>
+              <p class="uk-k">{t.k} · {t.who}</p>
+              <h3>{t.n}</h3>
+              <ol>{t.parts.map((p) => <li>{p}</li>)}</ol>
+              <p class="uk-note">{t.note}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- 03 Layout -->
+      <section class="uk-sec" id="layout">
+        <h2 class="eyebrow"><span class="num">03</span>Layout</h2>
+        <h3 class="uk-h3">Anchos</h3>
+        <div class="uk-widths">
+          {widths.map(([v, px, d, pct]) => (
+            <div class="uk-w"><div class="uk-bar" style={`width:${pct}%`}><code>{v}</code><span>{px}</span></div><p>{d}</p></div>
+          ))}
+        </div>
+        <h3 class="uk-h3">Espacios de página</h3>
+        <table class="uk-table">
+          <thead><tr><th>Token</th><th>Escritorio</th><th>Móvil</th><th>Uso</th></tr></thead>
+          <tbody>{space.map(([t, d, m, u]) => <tr><td><code>{t}</code></td><td>{d}</td><td>{m}</td><td>{u}</td></tr>)}</tbody>
+        </table>
+        <p class="uk-note">Margen lateral: 24px en las páginas (20px en móvil) y 32px en la home. Entre componentes dentro de un bloque, la escala es 8 · 12 · 16 · 20 · 24 · 32 · 48 · 64.</p>
+        <h3 class="uk-h3">Radios</h3>
+        <div class="uk-radii">{radii.map(([r, d]) => <div><i style={`border-radius:${r}`}></i><code>{r}</code><span>{d}</span></div>)}</div>
+      </section>
+
+      <!-- 04 Color -->
+      <section class="uk-sec" id="color">
+        <h2 class="eyebrow"><span class="num">04</span>Color</h2>
+        <p class="uk-intro">Los mismos tokens cambian solos en modo oscuro. Probalo con el botón de la luna.</p>
+        <div class="uk-swatches">
+          {colors.map(([v, d]) => <div class="uk-sw"><i style={`background:var(${v})`}></i><code>{v}</code><span>{d}</span></div>)}
+        </div>
+      </section>
+
+      <!-- 05 Tipografía -->
+      <section class="uk-sec" id="tipografia">
+        <h2 class="eyebrow"><span class="num">05</span>Tipografía</h2>
+        <p class="uk-intro">Inter Tight para leer y titular. Geist Mono para etiquetas, numeración y comandos. Un solo H1 por página, y su tamaño depende de la plantilla.</p>
+        <div class="uk-type">
+          <div class="uk-ty"><p class="uk-k">Display · H1 de la home · 62 / 1.04 · 500</p><p class="uk-display">Soy de ventas. <span class="g">Mi proceso corre sobre Claude.</span></p></div>
+          <div class="uk-ty"><p class="uk-k">H1 de página y artículo · 52 / 1.06 · 500 · <code>.page-h1</code></p><p class="page-h1">Cómo vendo con Claude. <span class="g">Lo que pruebo y lo que funciona.</span></p></div>
+          <div class="uk-ty"><p class="uk-k">Statement · 32 / 1.25 · 400 · <code>.statement</code></p><p class="statement">Ningún lead espera. <span class="g">Abro el caso en Claude.</span></p></div>
+          <div class="uk-ty"><p class="uk-k">H2 de texto · 28 / 1.2 · 500</p><p class="uk-h2">¿Qué cambió en mi día a día?</p></div>
+          <div class="uk-ty"><p class="uk-k">Título de fila · 24 / 1.25 · 500 · <code>.post-title</code></p><p class="post-title">Case studies: cómo contar lo que hacés</p></div>
+          <div class="uk-ty"><p class="uk-k">Título de tarjeta · 18 / 1.3 · 500 · <code>.feat-title</code></p><p class="feat-title">Mis primeros dos leads fueron amigos</p></div>
+          <div class="uk-ty"><p class="uk-k">Bajada · 20 / 1.45 · <code>.page-lead</code></p><p class="page-lead">Del primer mail de un lead al CRM sin cargar nada a mano.</p></div>
+          <div class="uk-ty"><p class="uk-k">Texto de lectura · 18 / 1.7 · <code>.prose</code></p><div class="prose"><p>Claude no reemplaza mis herramientas: lee y escribe en ellas.</p></div></div>
+          <div class="uk-ty"><p class="uk-k">Etiqueta · 12 · mono · mayúsculas · <code>.eyebrow</code></p><p class="eyebrow"><span class="num">02</span>Cómo funciona</p></div>
+          <div class="uk-ty"><p class="uk-k">Comando · 13–16 · mono</p><p class="uk-cmd">&gt; /prep-llamada</p></div>
+        </div>
+      </section>
+
+      <!-- 06 Componentes -->
+      <section class="uk-sec" id="componentes">
+        <h2 class="eyebrow"><span class="num">06</span>Componentes</h2>
+
+        <h3 class="uk-h3">Cabecera de página <code>PageHeader</code></h3>
+        <p class="uk-note">Etiqueta (o migas en artículos), H1 en dos tonos, bajada y foto opcionales. Es la única forma de abrir una página que no sea la home.</p>
+        <div class="uk-demo">
+          <div class="page-head has-photo">
+            <p class="eyebrow"><span class="num">&gt;_</span>Sobre mí</p>
+            <p class="page-h1">Soy Emiliano Moretti, <span class="g">director comercial.</span></p>
+            <p class="page-lead">Bajada en gris, de una a tres líneas.</p>
+            <img class="page-photo" src="/avatar.jpg" alt="" width="128" height="128" />
+          </div>
+        </div>
+
+        <h3 class="uk-h3">Botones</h3>
+        <p class="uk-note">Uno primario por bloque. → avanza, ↓ baja en la página, ↗ sale a otra web.</p>
+        <div class="uk-demo uk-row">
+          <a class="pill pill-ink" href={CAL} target="_blank" rel="noopener">Agendemos 30 minutos <svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+          <a class="pill pill-soft" href="#componentes">Secundario</a>
+          <a class="pill pill-ink pill-sm" href="#componentes">Chico</a>
+          <Share url="https://www.emilianomoretti.com/" title="Emiliano Moretti" />
+        </div>
+
+        <h3 class="uk-h3">Etiquetas y migas</h3>
+        <div class="uk-demo uk-col">
+          <p class="eyebrow"><span class="num">&gt;_</span>Blog</p>
+          <p class="eyebrow"><span class="num">03</span>Detrás del proceso</p>
+          <nav class="crumbs" aria-label="Ejemplo de migas"><a href="/blog/">Blog</a><span aria-hidden="true">/</span><span>Proceso</span></nav>
+          <p class="post-meta">17 de octubre de 2026 · Opinión</p>
+        </div>
+
+        <h3 class="uk-h3">Tarjeta destacada y fila de artículo</h3>
+        <div class="uk-demo">
+          <div class="feat-grid" style="margin-top:0">
+            <a class="feat-card" href="#componentes"><span class="post-meta">Opinión</span><span class="feat-title">Título del artículo en dos o tres líneas</span><span class="post-more">Leer <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+            <a class="feat-card" href="#componentes"><span class="post-meta">Proceso</span><span class="feat-title">Hasta tres por fila</span><span class="post-more">Leer <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+            <a class="feat-card" href="#componentes"><span class="post-meta">Construir</span><span class="feat-title">Fondo --surface, radio 24</span><span class="post-more">Leer <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+          </div>
+          <ol class="blog-list" style="margin-top:24px">
+            <li><a class="post-row" href="#componentes"><span class="post-meta">17 de octubre de 2026 · Proceso</span><span class="post-title">Título de la fila</span><span class="post-desc">Descripción del artículo, la misma que va en Google.</span><span class="post-more">Leer <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></li>
+          </ol>
+        </div>
+
+        <h3 class="uk-h3">Bloques de artículo</h3>
+        <div class="uk-demo read">
+          <div class="post-by" style="margin-top:0">
+            <div class="by"><img src="/avatar.jpg" alt="" width="40" height="40" /><div><strong>Emiliano Moretti</strong><span>17 de octubre de 2026 · <span class="post-updated">Actualizado el 18 de octubre</span> · 5 min de lectura</span></div></div>
+          </div>
+          <aside class="tldr" aria-label="Ejemplo de TL;DR"><p class="tldr-k">En corto</p><ul><li>Tres o cuatro frases que resumen el artículo.</li><li>Cada una se entiende sola.</li></ul></aside>
+          <div class="faq" style="margin-top:32px"><details><summary>Pregunta frecuente</summary><p>Respuesta corta, en una o dos frases.</p></details></div>
+          <div class="post-cta"><p class="statement">¿Querés conversar? <span class="g">El cierre de cada página, siempre con una sola acción principal.</span></p><a class="pill pill-ink" href={CAL} target="_blank" rel="noopener">Agendemos 30 minutos <svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a></div>
+        </div>
+      </section>
+
+      <!-- 07 Reglas -->
+      <section class="uk-sec" id="reglas">
+        <h2 class="eyebrow"><span class="num">07</span>Reglas para páginas nuevas</h2>
+        <ol class="uk-rules">
+          <li>Elegí la plantilla antes de diseñar: home, página principal o artículo.</li>
+          <li>Abrí siempre con <code>PageHeader</code>. Sin hero fuera de la home.</li>
+          <li>Un H1 por página, con el tamaño de su plantilla. Los títulos internos van en H2.</li>
+          <li>Texto corrido a <code>--w-read</code>. Listas y tarjetas pueden ir a <code>--w-page</code>.</li>
+          <li>Espacios con los tokens de página. Si necesitás un valor nuevo, primero sumalo acá.</li>
+          <li>Un botón primario por bloque y un CTA de cierre por página.</li>
+          <li>Todo lo nuevo se prueba en claro, oscuro y a 390px de ancho.</li>
+        </ol>
+      </section>
+
+    </div>
+  </div>
+</main>
+</Base>
+
+<style>
+  .uk-sec { padding: 56px 0 0; margin-top: 56px; border-top: 1px solid var(--line); }
+  .uk-sec:first-child { margin-top: 0; }
+  .uk-intro { margin-top: 16px; max-width: 60ch; color: var(--muted); font-size: 17px; }
+  .uk-note { margin-top: 8px; max-width: 64ch; color: var(--muted); font-size: 15px; }
+  .uk-h3 { margin-top: 36px; font-size: 18px; letter-spacing: -0.02em; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+  .uk-h3 code, .uk code { font-family: var(--mono); font-size: 13px; font-weight: 400; color: var(--muted); }
+  .uk-k { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .02em; color: var(--muted); }
+  .uk-grid4 { margin-top: 20px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .uk-card { background: var(--surface); border-radius: 24px; padding: 22px; color: var(--fg); font-size: 15px; line-height: 1.5; }
+  .uk-card b { display: block; font-weight: 500; color: var(--ink); font-size: 17px; margin-bottom: 6px; }
+  .uk-tpls { margin-top: 24px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .uk-tpl h3 { margin-top: 4px; font-size: 20px; letter-spacing: -0.02em; }
+  .uk-tpl ol { margin-top: 10px; padding-left: 1.2em; display: grid; gap: 4px; font-size: 14px; color: var(--fg); }
+  .uk-tpl li::marker { color: var(--soft); font-family: var(--mono); font-size: 12px; }
+  .uk-wire { position: relative; aspect-ratio: 4 / 5; border-radius: 20px; background: var(--surface); padding: 14px; margin-bottom: 14px; display: flex; flex-direction: column; gap: 7px; overflow: hidden; }
+  .uk-wire i { display: block; background: var(--line-strong); border-radius: 4px; }
+  .uk-wire .w-nav { height: 6px; width: 100%; background: var(--line); margin-bottom: 10px; }
+  .uk-wire .w-hero { flex: 0 0 42%; background: none; display: grid; place-content: center; gap: 6px; justify-items: center; }
+  .uk-wire .w-hero i { height: 12px; width: 120px; background: var(--ink); }
+  .uk-wire .w-hero i + i { width: 90px; background: var(--soft); }
+  .uk-wire .w-blk { height: 22%; border-radius: 10px; background: var(--bg); }
+  .uk-wire-B, .uk-wire-C { padding-left: 22px; }
+  .uk-wire .w-kick { height: 5px; width: 40px; background: var(--soft); margin-top: 8px; }
+  .uk-wire .w-h1 { height: 11px; width: 78%; background: var(--ink); }
+  .uk-wire .w-h1.g { width: 60%; background: var(--soft); }
+  .uk-wire .w-h1.n { width: 70%; }
+  .uk-wire .w-lead { height: 6px; width: 55%; background: var(--line-strong); margin-bottom: 8px; }
+  .uk-wire .w-lead.n { width: 50%; }
+  .uk-wire .w-photo { position: absolute; right: 18px; top: 44px; width: 30px; height: 30px; border-radius: 50%; background: var(--soft); }
+  .uk-wire .w-cards { background: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; height: 48px; }
+  .uk-wire .w-cards i { background: var(--bg); border-radius: 8px; }
+  .uk-wire .w-row { height: 18px; background: none; border-bottom: 1px solid var(--line-strong); border-radius: 0; }
+  .uk-wire .w-by { height: 14px; width: 70%; background: none; border-block: 1px solid var(--line-strong); border-radius: 0; }
+  .uk-wire .w-box { height: 40px; width: 70%; background: var(--bg); border-radius: 8px; }
+  .uk-wire .w-txt { height: 5px; width: 70%; background: var(--line-strong); }
+  .uk-wire .w-txt.s { width: 50%; }
+  .uk-widths { margin-top: 16px; display: grid; gap: 14px; }
+  .uk-bar { height: 40px; border-radius: 12px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); display: flex; justify-content: space-between; align-items: center; padding: 0 14px; font-family: var(--mono); font-size: 13px; color: var(--ink); }
+  .uk-bar code { color: var(--ink) !important; }
+  .uk-w p { margin-top: 6px; font-size: 14px; color: var(--muted); }
+  .uk-table { margin-top: 12px; width: 100%; border-collapse: collapse; font-size: 15px; }
+  .uk-table th { text-align: left; font-family: var(--mono); font-weight: 400; font-size: 12px; text-transform: uppercase; letter-spacing: .02em; color: var(--muted); padding: 10px 12px 10px 0; border-bottom: 1px solid var(--line); }
+  .uk-table td { padding: 12px 12px 12px 0; border-bottom: 1px solid var(--line); color: var(--fg); vertical-align: top; }
+  .uk-radii { margin-top: 16px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+  .uk-radii div { display: grid; gap: 6px; font-size: 13px; color: var(--muted); }
+  .uk-radii i { display: block; height: 64px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line-strong); }
+  .uk-swatches { margin-top: 20px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .uk-sw { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 12px; align-items: center; }
+  .uk-sw i { grid-row: span 2; width: 44px; height: 44px; border-radius: 12px; box-shadow: inset 0 0 0 1px var(--line); }
+  .uk-sw code { color: var(--ink) !important; }
+  .uk-sw span { font-size: 13px; color: var(--muted); }
+  .uk-type { margin-top: 20px; display: grid; }
+  .uk-ty { padding-block: 22px; border-bottom: 1px solid var(--line); display: grid; gap: 10px; }
+  .uk-ty:first-child { border-top: 1px solid var(--line); }
+  .uk-display { font-size: var(--h1-display); line-height: 1.04; letter-spacing: -0.045em; font-weight: 500; color: var(--ink); text-wrap: balance; }
+  .uk-display .g { color: var(--soft); }
+  .uk-h2 { font-size: 28px; line-height: 1.2; letter-spacing: -0.03em; font-weight: 500; color: var(--ink); }
+  .uk-ty .prose { margin-top: 0; }
+  .uk-cmd { font-family: var(--mono); font-size: 15px; color: var(--ink); }
+  .uk-demo { margin-top: 16px; padding: 28px; border-radius: 24px; box-shadow: inset 0 0 0 1px var(--line); }
+  .uk-demo.read { max-width: none; }
+  .uk-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .uk-col { display: grid; gap: 14px; justify-items: start; }
+  .uk-rules { margin-top: 20px; padding-left: 1.4em; display: grid; gap: 10px; font-size: 17px; color: var(--fg); max-width: var(--w-read); }
+  .uk-rules li::marker { font-family: var(--mono); font-size: 13px; color: var(--soft); }
+  .uk-rules code { font-size: 14px; }
+  @media (max-width: 760px) {
+    .uk-tpls, .uk-grid4, .uk-swatches { grid-template-columns: minmax(0, 1fr); }
+    .uk-tpl .uk-wire { max-width: 260px; }
+    .uk-radii { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .uk-demo { padding: 18px; }
+  }
+</style>

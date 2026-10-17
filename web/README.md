@@ -102,6 +102,12 @@ Todo texto de la web, del blog y de redes pasa este filtro antes de publicarse (
 - Clientes y personas del equipo, siempre anónimos salvo que haya un ok explícito.
 - Frases propias que se respetan cuando suman: "La IA nos da esteroides", "Siempre usé el stack que me dieron. Hoy creo el mío", "Las herramientas se adaptan a las personas".
 
+## Diseño: UI Kit
+
+La web usa tres plantillas: home, página principal (Blog, Sobre mí, 404) y artículo. Toda página que no sea la home abre con el componente `src/components/PageHeader.astro`, y los anchos, espacios y tamaños de título salen de los tokens del principio de `src/styles/site.css` (`--w-page`, `--w-read`, `--page-top`, `--h1-page`…).
+
+La referencia completa está en `/ui-kit/` (página interna: no se indexa y no está en el sitemap). Si cambiás un token o un componente, revisá que esa página siga diciendo lo mismo.
+
 ## Otros archivos
 
 - `src/pages/sobre-mi.astro` y `src/pages/en/about.astro`: la página "Sobre mí" en los dos idiomas. Si cambiás una, cambiá la otra.

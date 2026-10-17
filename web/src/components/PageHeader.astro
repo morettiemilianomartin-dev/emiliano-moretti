@@ -1,0 +1,14 @@
+---
+// Cabecera común de páginas principales (Blog, Sobre mí, 404) y artículos. Ver /ui-kit/.
+// label: etiqueta ">_" de arriba (en artículos va la ruta de migas por el slot "kicker").
+// title + gray: el H1 en dos tonos (lo que afirmo en negro, el contexto en gris).
+// lead: bajada opcional. photo: foto redonda a la derecha (solo Sobre mí).
+interface Props { label?: string; title: string; gray?: string; lead?: string; photo?: string; photoAlt?: string; }
+const { label, title, gray, lead, photo, photoAlt = '' } = Astro.props;
+---
+<header class:list={['page-head', { 'has-photo': photo }]}>
+  {Astro.slots.has('kicker') ? <slot name="kicker" /> : label && <p class="eyebrow"><span class="num">&gt;_</span>{label}</p>}
+  <h1 class="page-h1">{title}{gray && <> <span class="g">{gray}</span></>}</h1>
+  {lead && <p class="page-lead">{lead}</p>}
+  {photo && <img class="page-photo" src={photo} alt={photoAlt} width="128" height="128" />}
+</header>
