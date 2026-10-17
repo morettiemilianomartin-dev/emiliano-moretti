@@ -2,6 +2,7 @@
 title: "My first two leads were friends: what AI can't replace"
 description: "I published my website and two requests came in on WhatsApp to build a flow like mine. Both were from friends. Why trust is the thing AI can't copy."
 pubDate: 2026-10-14T18:00:00Z
+updatedDate: 2026-10-17T12:00:00Z
 category: "Opinion"
 destacado: true
 es: "mis-primeros-leads-fueron-amigos"
@@ -11,7 +12,7 @@ tldr:
   - "With my website just published, two people messaged me on WhatsApp asking for help with a sales flow like mine. Both are close friends."
   - "There are surely people who can build more complex flows than mine. That's not why they chose me."
   - "AI copies processes, but it doesn't copy trust: that's built over years of relationship."
-  - "Technology opens the door. The relationship is what makes someone walk through it."
+  - "The website showed them what I'm working on, and the trust we already had did the rest."
 faq:
   - q: "Can AI replace trust in a sale?"
     a: "No. AI can prepare a proposal, research a client or keep the CRM up to date, but the decision to work with someone still depends on how much you trust that person."
@@ -29,7 +30,7 @@ Both made me think about something I wrote on this same blog about [what I deleg
 
 ## Why did they choose me?
 
-It wasn't technical complexity. There are surely people who can build far more sophisticated flows than mine: connecting more tools, coding custom integrations, automating steps I still do by hand. I come from sales, and I built [my process](/en/#como) with judgment and with Claude, without years of engineering behind it.
+There are surely people who can build far more sophisticated flows than mine: connecting more tools, coding custom integrations, automating steps I still do by hand. I come from sales, and I built [my process](/en/#como) with judgment and with Claude, without years of engineering behind it.
 
 They chose me because they know me. They know how I work, they know that if I say something I deliver it, and they know I won't sell them something they don't need. That trust existed before the website.
 
@@ -39,7 +40,7 @@ AI can copy a process. It can research a lead, summarize a call, build a proposa
 
 What it can't copy is trust, which is built over years of conversations, favors and doing what you said you'd do. It's the human component of selling, and it can't be transferred.
 
-Today anyone can access the same tools I use. What you can't download is the history you have with each person.
+Today anyone can access the same tools I use, but the history you have with each person can't be downloaded.
 
 ## So what's the point of a personal brand?
 
@@ -53,8 +54,8 @@ That changes how I think about what I publish. I write so that people who alread
 
 The same thing I keep saying, now with an example of my own. AI makes the work faster: I get to every conversation with context and without wasting time on data entry. But without trust there's no conversation to prepare for, which is why the time AI frees up has to go back to people. As I like to say, AI puts us on steroids, but trust is still the muscle.
 
-## What I take away
+## What do I take away?
 
-It surprised me, in a good way. I thought the most valuable thing about this website would be showing how I work. It turned out the most valuable thing was being reminded why people want to work with someone.
+It surprised me, in a good way. I thought the most valuable thing about this website would be showing how I work, and it ended up reminding me why people choose to work with someone.
 
 To my two friends: thanks for being the first. And if you're reading this and also bringing AI into the way you work, [get in touch and let's compare notes](/en/#contacto).

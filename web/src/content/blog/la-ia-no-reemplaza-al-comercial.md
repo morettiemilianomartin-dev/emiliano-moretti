@@ -2,11 +2,12 @@
 title: "Lo que delego a la IA y lo que no (y por qué no tengo miedo)"
 description: "Desde 2011 entre medios y ventas, y desde 2026 con un proceso comercial hecho con Claude. Qué le dejo a la IA, qué no, y qué cambió en la práctica."
 pubDate: 2026-10-14T11:00:00Z
+updatedDate: 2026-10-17T12:00:00Z
 category: "Opinión"
 destacado: true
 tags: ["ventas con IA", "futuro de las ventas", "liderazgo comercial", "Claude"]
 tldr:
-  - "No creo que la IA reemplace a los comerciales: los potencia. Yo lo resumo así: la IA nos da esteroides."
+  - "No creo que la IA reemplace a los comerciales. La forma en que lo digo es que la IA nos da esteroides."
   - "Lo que delego: prospección, notas de llamadas, validación antes de estimar, propuestas y CRM."
   - "Lo que no delego: las llamadas, la relación, la empatía y la decisión final."
   - "En la práctica: llego a cada llamada con contexto, las propuestas salen más rápido y paso más tiempo con clientes."
@@ -21,7 +22,7 @@ faq:
     a: "Por vos mismo. Usala unas semanas en tu propio trabajo, elegí un proceso que mueva mucha información y poco criterio, y escribí qué no se va a automatizar antes de sumar al equipo."
 ---
 
-**Desde 2011 trabajo entre medios y ventas, y desde principios de 2026 hago mi proceso comercial con Claude.** Le dejo a la IA lo que mueve información: investigar, tomar notas, validar y armar documentos. Me quedo con lo que es vender: escuchar al cliente y acompañarlo hasta que decide. Y no, no tengo miedo de que me reemplace. Lo resumo en una frase: la IA nos da esteroides.
+**Desde 2011 trabajo entre medios y ventas, y desde principios de 2026 hago mi proceso comercial con Claude.** Le dejo a la IA lo que mueve información: investigar, tomar notas, validar y armar documentos. Me quedo con lo que es vender: escuchar al cliente y acompañarlo hasta que decide. Y no tengo miedo de que me reemplace; como suelo decir, la IA nos da esteroides.
 
 Lo que cuento acá es [cómo trabajo hoy](/blog/proceso-comercial-automatizado-con-claude/), con lo que ya funciona y lo que todavía estoy probando.
 
@@ -69,7 +70,7 @@ Cambia el reparto del tiempo: menos copiar y pegar entre herramientas, más conv
 
 Y creo que cambia algo más grande. Con IA se van a crear y vender cada vez más cosas: productos, servicios y proyectos que antes no se hacían porque eran caros o lentos de armar. Va a hacer falta alguien que entienda a cada cliente y lo acompañe, y ese es el trabajo del comercial.
 
-También creo que los comerciales vamos a tener más voz. Cada vez va a haber más vendedores contando lo que hacen y cómo lo hacen. Este blog es mi intento.
+También creo que los comerciales vamos a tener más voz. Cada vez va a haber más vendedores contando lo que hacen y cómo lo hacen, y este blog es mi intento.
 
 ## ¿Cómo empezar si liderás un equipo?
 
@@ -81,7 +82,7 @@ También creo que los comerciales vamos a tener más voz. Cada vez va a haber m�
 
 Si querés ver cómo se ve todo esto por dentro, con conectores, skills y Notion como memoria, está en [Detrás del proceso](/#detras).
 
-## La IA nos da esteroides
+## ¿Cómo veo el futuro de las ventas?
 
 Veo el futuro de las ventas con esperanza. Al comercial que entiende a sus clientes, la IA le saca de encima lo que no era vender.
 

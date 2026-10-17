@@ -3,6 +3,7 @@ title: "Cómo armé mi web personal con Claude, GitHub y Vercel (gratis y sin pr
 seoTitle: "Cómo armé mi web con Claude, GitHub y Vercel, sin programar"
 description: "El proceso real detrás de esta web: de la idea a publicarla con Claude, GitHub y Vercel, sin saber programar y sin pagar hosting."
 pubDate: 2026-10-14T10:00:00Z
+updatedDate: 2026-10-17T12:00:00Z
 category: "Construcción"
 tags: ["Claude", "GitHub", "Vercel", "Astro", "web personal", "marca personal"]
 tldr:
@@ -50,7 +51,7 @@ No usé plantillas pagas, constructores visuales ni hosting.
 
 Antes de diseñar nada definí tres cosas: el objetivo (contar cómo trabajo, no vender servicios), a quién le hablo (founders, directivos y perfiles tech que están dando sus primeros pasos con IA) y qué quería que pasara después: una conversación.
 
-Esa fue la parte difícil. La técnica vino después.
+Esa fue la parte difícil; la técnica vino después.
 
 ### 2. Buscar referencias
 
@@ -76,9 +77,9 @@ Cuando quise escribir artículos como este, pasamos la web a Astro. Ahora public
 
 Varias cosas, y conviene contarlas.
 
-- **Un archivo con el nombre equivocado.** Al descargar una versión nueva, mi computadora la guardó como `index_4.html`. La subí así y la web dejó de verse. La solución fue renombrarla a `index.html` desde GitHub. Lección: revisar el nombre antes de subir.
-- **Una foto que desapareció.** En una versión, la imagen de la tarjeta de contacto dependía de un archivo aparte que no estaba donde debía. Terminé incrustándola en la página.
-- **Diseños que no funcionaban.** Hubo un diagrama que me parecía bien y no explicaba nada. Lo cambiamos por algo más simple: las herramientas fijas que se van pintando a medida que bajás.
+- Un archivo con el nombre equivocado. Al descargar una versión nueva, mi computadora la guardó como `index_4.html`. La subí así y la web dejó de verse. La solución fue renombrarla a `index.html` desde GitHub. Lección: revisar el nombre antes de subir.
+- Una foto que desapareció. En una versión, la imagen de la tarjeta de contacto dependía de un archivo aparte que no estaba donde debía. Terminé incrustándola en la página.
+- Diseños que no funcionaban. Hubo un diagrama que me parecía bien y no explicaba nada. Lo cambiamos por algo más simple: las herramientas fijas que se van pintando a medida que bajás.
 
 Para resolverlos no hizo falta programar. Alcanzó con mirar con atención y pedir el cambio.
 
@@ -95,6 +96,4 @@ Para un founder o un directivo, eso significa poder probar una idea (una landing
 3. Pedir revisiones con un rol concreto mejora el resultado. "Revisalo como un director de ventas" da mejores observaciones que "¿qué te parece?".
 4. El stack gratuito alcanza de sobra para una web personal con blog.
 
-Es el mismo principio que aplico en ventas: [las herramientas se adaptan a las personas](/#detras), no al revés.
-
-Si estás probando algo parecido en tu empresa, escribime y te cuento cómo lo hice.
+Es el mismo principio que aplico en ventas: [las herramientas se adaptan a las personas](/#detras), no al revés. Si estás probando algo parecido en tu empresa, escribime y te cuento cómo lo hice.

@@ -2,6 +2,7 @@
 title: "Cómo automaticé mi proceso comercial con Claude (sin saber programar)"
 description: "Del primer mail de un lead al CRM sin cargar nada a mano: las herramientas, el flujo paso a paso y lo que decidí no automatizar."
 pubDate: 2026-10-14T12:00:00Z
+updatedDate: 2026-10-17T12:00:00Z
 category: "Proceso"
 destacado: true
 tags: ["ventas con IA", "Claude", "proceso comercial", "automatización de ventas", "Notion", "HubSpot"]
@@ -61,35 +62,25 @@ Son cinco pasos, del primer contacto al seguimiento. En cada uno, lo que antes h
 
 ### 1. El lead
 
-**Antes:** un "te escribo pronto" y a investigar quién era.
-
-**Hoy:** el formulario llega a mi correo y abro el caso en Claude. En minutos sé quién escribe, qué hace su empresa y si ya hablamos antes, así que ningún lead queda esperando.
+Antes era un "te escribo pronto" y a investigar quién era. Hoy el formulario llega a mi correo y abro el caso en Claude. En minutos sé quién escribe, qué hace su empresa y si ya hablamos antes, así que ningún lead queda esperando.
 
 ### 2. La llamada
 
-**Antes:** notas en una libreta que nadie pasaba a limpio.
-
-**Hoy:** llego a la llamada sabiendo con quién hablo. La ficha nace en Notion, Granola graba el discovery y Claude completa la ficha con lo que dijo el cliente. Yo me concentro en escuchar.
+Antes eran notas en una libreta que nadie pasaba a limpio. Hoy llego a la llamada sabiendo con quién hablo. La ficha nace en Notion, Granola graba el discovery y Claude completa la ficha con lo que dijo el cliente. Yo me concentro en escuchar.
 
 ### 3. La estimación
 
-**Antes:** días persiguiendo al equipo por Slack.
-
-**Hoy:** el pedido sale por Slack con el resumen de la llamada y el link a la ficha. El equipo estima con todo el contexto, sin tener que preguntarme lo mismo dos veces.
+Antes eran días persiguiendo al equipo por Slack. Hoy el pedido sale por Slack con el resumen de la llamada y el link a la ficha. El equipo estima con todo el contexto, sin tener que preguntarme lo mismo dos veces.
 
 ### 4. La propuesta
 
-**Antes:** slides armadas a mano, una por una.
-
-**Hoy:** la propuesta se arma en Claude Design con el sistema de diseño de cada boutique y sale con la marca correcta a la primera. Después la reviso con el cliente en una llamada grabada.
+Antes eran slides armadas a mano, una por una. Hoy la propuesta se arma en Claude Design con el sistema de diseño de cada boutique y sale con la marca correcta a la primera. Después la reviso con el cliente en una llamada grabada.
 
 Algo que todavía no resolví: al pasar de la landing al PDF perdí la analítica de apertura. La extraño, y va a volver.
 
 ### 5. El seguimiento
 
-**Antes:** un CRM que se actualizaba el viernes, si se actualizaba.
-
-**Hoy:** cada paso actualiza el deal en HubSpot y lo urgente me llega por WhatsApp, esté donde esté. Lo que muestra el pipeline es lo que está pasando.
+Antes tenía un CRM que se actualizaba el viernes, si se actualizaba. Hoy cada paso actualiza el deal en HubSpot y lo urgente me llega por WhatsApp, esté donde esté. Lo que muestra el pipeline es lo que está pasando.
 
 ## ¿Qué hace posible que funcione?
 
@@ -109,9 +100,9 @@ Se da por sentado y es la base. Todo lo que Claude sabe de un cliente sale de No
 
 ## ¿Qué cambió en mi día a día?
 
-Lo más visible es el tiempo, pero no es lo más importante. Lo que más valoro es que el proceso ya no depende de mi memoria.
+Se nota en el tiempo, aunque lo que más valoro es que el proceso ya no depende de mi memoria.
 
-Antes, que una estimación saliera completa dependía de que yo me acordara de todo lo que se habló en la llamada. Hoy Claude valida las notas contra lo que pidió el cliente y contra lo que necesita el equipo técnico. Ya no depende de la subjetividad de olvidarme algo.
+Antes, que una estimación saliera completa dependía de que yo me acordara de todo lo que se habló en la llamada. Hoy Claude valida las notas contra lo que pidió el cliente y contra lo que necesita el equipo técnico, así que ya no depende de que me acuerde de todo.
 
 El equipo también trabaja distinto: recibe el contexto completo de entrada y deja de perseguirme con preguntas. Y yo tengo más tiempo para lo que no se delega: estar con los clientes.
 
@@ -136,4 +127,4 @@ No hace falta armarlo todo de una vez. Yo tampoco lo hice así: empecé por una 
 4. Definí dónde vive la memoria: una ficha por cliente, siempre en el mismo lugar.
 5. Decidí qué no vas a automatizar. Con ese límite claro, confiás en el resto.
 
-Siempre usé el stack que me dieron. Hoy creo el mío. Y lo voy a seguir contando acá, pieza por pieza. Si estás en lo mismo, [escribime y comparamos notas](/#contacto).
+Durante años usé el stack que me dieron y hoy armo el mío, así que lo voy a seguir contando acá, pieza por pieza. Si estás en lo mismo, [escribime y comparamos notas](/#contacto).

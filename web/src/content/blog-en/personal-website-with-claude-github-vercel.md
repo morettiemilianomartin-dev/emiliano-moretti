@@ -3,6 +3,7 @@ title: "How I built my personal website with Claude, GitHub and Vercel (free and
 seoTitle: "How I built my website with Claude, GitHub and Vercel"
 description: "The real process behind this website: from the idea to going live with Claude, GitHub and Vercel, without knowing how to code and without paying for hosting."
 pubDate: 2026-10-14T10:00:00Z
+updatedDate: 2026-10-17T12:00:00Z
 category: "Building"
 es: "web-personal-con-claude-github-vercel"
 image: "/og/personal-website-with-claude-github-vercel.jpg"
@@ -52,7 +53,7 @@ I didn't use paid templates, visual builders or hosting.
 
 Before designing anything I defined three things: the goal (to share how I work, not to sell services), who I'm talking to (founders, executives and tech people taking their first steps with AI) and what I wanted to happen next: a conversation.
 
-That was the hard part. The technical side came later.
+That was the hard part; the technical side came later.
 
 ### 2. Look for references
 
@@ -78,9 +79,9 @@ When I wanted to write articles like this one, we moved the website to Astro. No
 
 Several things, and they're worth sharing.
 
-- **A file with the wrong name.** When I downloaded a new version, my computer saved it as `index_4.html`. I uploaded it like that and the website stopped showing. The fix was renaming it to `index.html` from GitHub. Lesson: check the name before uploading.
-- **A photo that disappeared.** In one version, the image on the contact card depended on a separate file that wasn't where it should be. I ended up embedding it in the page.
-- **Designs that didn't work.** There was a diagram I liked that didn't explain anything. We replaced it with something simpler: fixed tools that light up as you scroll down.
+- A file with the wrong name. When I downloaded a new version, my computer saved it as `index_4.html`. I uploaded it like that and the website stopped showing. The fix was renaming it to `index.html` from GitHub. Lesson: check the name before uploading.
+- A photo that disappeared. In one version, the image on the contact card depended on a separate file that wasn't where it should be. I ended up embedding it in the page.
+- Designs that didn't work. There was a diagram I liked that didn't explain anything. We replaced it with something simpler: fixed tools that light up as you scroll down.
 
 Fixing them didn't take any coding. Paying close attention and asking for the change was enough.
 
@@ -97,6 +98,4 @@ For a founder or an executive, that means being able to test an idea (a landing 
 3. Asking for reviews from a specific role improves the result. "Review it as a sales director" gets better feedback than "what do you think?".
 4. The free stack is more than enough for a personal website with a blog.
 
-It's the same principle I apply in sales: [tools adapt to people](/en/#detras), not the other way around.
-
-If you're trying something similar at your company, get in touch and I'll tell you how I did it.
+It's the same principle I apply in sales: [tools adapt to people](/en/#detras), not the other way around. If you're trying something similar at your company, get in touch and I'll tell you how I did it.

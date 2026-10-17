@@ -3,6 +3,7 @@ title: "How I automated my sales process with Claude (without knowing how to cod
 seoTitle: "How I automated my sales process with Claude (no coding)"
 description: "From a lead's first email to the CRM with zero manual data entry: the tools, the step-by-step flow and what I chose not to automate."
 pubDate: 2026-10-14T12:00:00Z
+updatedDate: 2026-10-17T12:00:00Z
 category: "Process"
 destacado: true
 es: "proceso-comercial-automatizado-con-claude"
@@ -64,35 +65,25 @@ There are five steps, from first contact to follow-up. In each one, what I used 
 
 ### 1. The lead
 
-**Before:** an "I'll get back to you soon" and then digging to find out who they were.
-
-**Now:** the form lands in my inbox and I open the case in Claude. Within minutes I know who's writing, what their company does and whether we've talked before, so no lead is left waiting.
+Before, it was an "I'll get back to you soon" and then digging to find out who they were. Now the form lands in my inbox and I open the case in Claude. Within minutes I know who's writing, what their company does and whether we've talked before, so no lead is left waiting.
 
 ### 2. The call
 
-**Before:** notes in a notebook nobody ever typed up.
-
-**Now:** I show up to the call knowing who I'm talking to. The client file starts in Notion, Granola records the discovery call and Claude fills in the file with what the client said. I focus on listening.
+Before, it was notes in a notebook nobody ever typed up. Now I show up to the call knowing who I'm talking to. The client file starts in Notion, Granola records the discovery call and Claude fills in the file with what the client said. I focus on listening.
 
 ### 3. The estimate
 
-**Before:** days chasing the team on Slack.
-
-**Now:** the request goes out on Slack with the call summary and a link to the client file. The team estimates with the full context, without having to ask me the same thing twice.
+Before, it was days chasing the team on Slack. Now the request goes out on Slack with the call summary and a link to the client file. The team estimates with the full context, without having to ask me the same thing twice.
 
 ### 4. The proposal
 
-**Before:** slides built by hand, one by one.
-
-**Now:** the proposal is built in Claude Design with each boutique's design system and goes out with the right branding the first time. Then I walk the client through it on a recorded call.
+Before, it was slides built by hand, one by one. Now the proposal is built in Claude Design with each boutique's design system and goes out with the right branding the first time. Then I walk the client through it on a recorded call.
 
 Something I haven't solved yet: when I moved from the landing page to PDF, I lost the open tracking. I miss it, and it's coming back.
 
 ### 5. The follow-up
 
-**Before:** a CRM that got updated on Fridays, if at all.
-
-**Now:** every step updates the deal in HubSpot, and anything urgent reaches me on WhatsApp, wherever I am. What the pipeline shows is what's actually happening.
+Before, I had a CRM that got updated on Fridays, if at all. Now every step updates the deal in HubSpot, and anything urgent reaches me on WhatsApp, wherever I am. What the pipeline shows is what's actually happening.
 
 ## What makes it work?
 
@@ -112,9 +103,9 @@ It's taken for granted, and it's the foundation. Everything Claude knows about a
 
 ## What changed in my day-to-day?
 
-The most visible change is time, but it isn't the most important one. What I value most is that the process no longer depends on my memory.
+You notice it in time saved, although what I value most is that the process no longer depends on my memory.
 
-Before, whether an estimate request went out complete depended on me remembering everything said on the call. Now Claude checks the notes against what the client asked for and against what the technical team needs, so it no longer depends on whether I happened to forget something.
+Before, whether an estimate request went out complete depended on me remembering everything said on the call. Now Claude checks the notes against what the client asked for and against what the technical team needs, so it no longer depends on me remembering everything.
 
 The team works differently too: they get the full context up front and stop chasing me with questions. And I have more time for what can't be delegated, which is being with clients.
 
@@ -139,4 +130,4 @@ You don't need to build it all at once. I didn't either: I started with a single
 4. Decide where the memory lives: one file per client, always in the same place.
 5. Decide what you won't automate. With that limit clear, you can trust the rest.
 
-I always used the stack I was given. Now I build my own, and I'll keep writing about it here, piece by piece. If you're working on the same thing, [get in touch and let's compare notes](/en/#contacto).
+For years I used the stack I was given and now I build my own, so I'll keep writing about it here, piece by piece. If you're working on the same thing, [get in touch and let's compare notes](/en/#contacto).
