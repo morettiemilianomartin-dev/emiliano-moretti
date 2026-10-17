@@ -1,16 +1,23 @@
 ---
 import '../styles/site.css';
 import Analytics from '@vercel/analytics/astro';
-interface Props { title: string; description: string; image?: string; type?: string; jsonld?: object | object[]; home?: boolean; }
-const { title, description, image = '/og.jpg', type = 'website', jsonld, home = false } = Astro.props;
+import { ui, other, EMAIL, type Lang } from '../lib/i18n';
+// lang: idioma de la página. alt: ruta de la misma página en el otro idioma (si existe).
+// Con alt, la página le avisa a Google y Bing que existe en los dos idiomas (hreflang).
+interface Props { title: string; description: string; image?: string; type?: string; jsonld?: object | object[]; home?: boolean; lang?: Lang; alt?: string; }
+const { title, description, image = '/og.jpg', type = 'website', jsonld, home = false, lang = 'es', alt } = Astro.props;
+const t = ui[lang], o = ui[other(lang)];
 const site = Astro.site ?? new URL('https://www.emilianomoretti.com');
 const canonical = new URL(Astro.url.pathname, site).href;
+const altUrl = alt ? new URL(alt, site).href : undefined;
+const esUrl = lang === 'es' ? canonical : altUrl, enUrl = lang === 'en' ? canonical : altUrl;
 const ogImage = new URL(image, site).href;
-const h = home ? '' : '/';
+const h = home ? '' : t.home;
+const switchHref = alt ?? o.home;
 const lds = jsonld ? (Array.isArray(jsonld) ? jsonld : [jsonld]) : [];
 ---
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -18,8 +25,14 @@ const lds = jsonld ? (Array.isArray(jsonld) ? jsonld : [jsonld]) : [];
 <meta name="description" content={description}>
 <meta name="author" content="Emiliano Moretti">
 <link rel="canonical" href={canonical}>
+{altUrl && <>
+<link rel="alternate" hreflang="es" href={esUrl}>
+<link rel="alternate" hreflang="en" href={enUrl}>
+<link rel="alternate" hreflang="x-default" href={esUrl}>
+</>}
 <meta property="og:type" content={type}>
-<meta property="og:locale" content="es_ES">
+<meta property="og:locale" content={t.locale}>
+{altUrl && <meta property="og:locale:alternate" content={o.locale}>}
 <meta property="og:site_name" content="Emiliano Moretti">
 <meta property="og:url" content={canonical}>
 <meta property="og:title" content={title}>
@@ -32,7 +45,7 @@ const lds = jsonld ? (Array.isArray(jsonld) ? jsonld : [jsonld]) : [];
 <meta name="twitter:title" content={title}>
 <meta name="twitter:description" content={description}>
 <meta name="twitter:image" content={ogImage}>
-<link rel="alternate" type="application/rss+xml" title="Blog de Emiliano Moretti" href="/rss.xml">
+<link rel="alternate" type="application/rss+xml" title={t.rssTitle} href={t.rss}>
 <link rel="sitemap" href="/sitemap-index.xml">
 <script is:inline>try{var t=localStorage.getItem("em-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -46,31 +59,40 @@ const lds = jsonld ? (Array.isArray(jsonld) ? jsonld : [jsonld]) : [];
 <Analytics />
 </head>
 <body>
-<nav class="nav" id="nav" aria-label="Principal">
+<nav class="nav" id="nav" aria-label={t.navLabel}>
   <div class="wrap">
-    <a class="brand" href="/"><span class="wm"><span class="pr" aria-hidden="true">&gt;</span> emiliano moretti<span class="cur" aria-hidden="true"></span></span><small>Madrid</small></a>
+    <a class="brand" href={t.home}><span class="wm"><span class="pr" aria-hidden="true">&gt;</span> emiliano moretti<span class="cur" aria-hidden="true"></span></span><small>Madrid</small></a>
     <div class="nav-links">
-      <a class="t" href={`${h}#como`}>Cómo funciona</a>
-      <a class="t" href={`${h}#detras`}>Detrás</a>
-      <a class="t" href="/blog/">Blog</a>
-      <span class="acts"><button class="icon-btn theme-btn" type="button" id="themeBtn" aria-label="Cambiar a modo oscuro"><svg class="ic-moon" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.5A5.5 5.5 0 0 1 6.5 2.5a5.5 5.5 0 1 0 7 7z"/></svg><svg class="ic-sun" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.4 3.4l1 1M11.6 11.6l1 1M3.4 12.6l1-1M11.6 4.4l1-1"/></svg></button><a class="pill pill-ink pill-sm" href={`${h}#contacto`}>Contacto</a></span>
+      <a class="t" href={`${h}#como`}>{t.how}</a>
+      <a class="t" href={`${h}#detras`}>{t.behind}</a>
+      <a class="t" href={t.blog}>Blog</a>
+      <span class="acts"><a class="icon-btn lang-btn" href={switchHref} hreflang={other(lang)} lang={other(lang)} data-lang={other(lang)} aria-label={t.switchLabel} title={t.switchLabel}>{t.switchTo}</a><button class="icon-btn theme-btn" type="button" id="themeBtn" data-dark={t.themeDark} data-light={t.themeLight} aria-label={t.themeDark}><svg class="ic-moon" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.5A5.5 5.5 0 0 1 6.5 2.5a5.5 5.5 0 1 0 7 7z"/></svg><svg class="ic-sun" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.4 3.4l1 1M11.6 11.6l1 1M3.4 12.6l1-1M11.6 4.4l1-1"/></svg></button><a class="pill pill-ink pill-sm" href={`${h}#contacto`}>{t.contact}</a></span>
     </div>
   </div>
 </nav>
+{alt && (
+  <div class="langbar" id="langbar" data-page={lang} hidden>
+    <div class="wrap" lang={other(lang)}>
+      <span>{o.bar}</span>
+      <a href={alt} hreflang={other(lang)} data-lang={other(lang)}>{o.barGo}</a>
+      <button type="button" id="langbarX" aria-label={o.barClose}><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 2l8 8M10 2l-8 8"/></svg></button>
+    </div>
+  </div>
+)}
 <slot />
 <footer>
   <div class="wrap">
-    <div class="about"><a class="brand" href="/"><span class="wm"><span class="pr" aria-hidden="true">&gt;</span> emiliano moretti<span class="cur" aria-hidden="true"></span></span></a><p>Director comercial en Modulor Studios. Vendo con Claude y lo cuento mientras lo construyo.</p></div>
-    <div><h4>Explorar</h4><ul><li><a href={`${h}#como`}>Cómo funciona</a></li><li><a href={`${h}#detras`}>Detrás del proceso</a></li><li><a href={`${h}#criterio`}>Lo que no automatizo</a></li><li><a href="/blog/">Blog</a></li></ul></div>
-    <div><h4>Contacto</h4><ul><li><button type="button" data-copy="emiliano@modulorstudios.com">Copiar email</button></li><li><a href="https://www.linkedin.com/in/emiliano-moretti/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://x.com/EmilianoMorett5" target="_blank" rel="noopener">X</a></li><li><a href="/rss.xml">RSS</a></li></ul></div>
+    <div class="about"><a class="brand" href={t.home}><span class="wm"><span class="pr" aria-hidden="true">&gt;</span> emiliano moretti<span class="cur" aria-hidden="true"></span></span></a><p>{t.footer}</p></div>
+    <div><h4>{t.explore}</h4><ul><li><a href={`${h}#como`}>{t.how}</a></li><li><a href={`${h}#detras`}>{t.behindLong}</a></li><li><a href={`${h}#criterio`}>{t.criteria}</a></li><li><a href={t.blog}>Blog</a></li></ul></div>
+    <div><h4>{t.contact}</h4><ul><li><button type="button" data-copy={EMAIL}>{t.copyEmail}</button></li><li><a href="https://www.linkedin.com/in/emiliano-moretti/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://x.com/EmilianoMorett5" target="_blank" rel="noopener">X</a></li><li><a href={t.rss}>RSS</a></li><li><a href={switchHref} hreflang={other(lang)} lang={other(lang)} data-lang={other(lang)}>{other(lang) === 'en' ? 'English' : 'Español'}</a></li></ul></div>
   </div>
 </footer>
-<div class="toast" id="toast" role="status" aria-live="polite">Email copiado</div>
+<div class="toast" id="toast" role="status" aria-live="polite" data-msg={t.emailCopied}>{t.emailCopied}</div>
 <script is:inline>
 (function(){
   var root = document.documentElement, tbtn = document.getElementById('themeBtn');
   function effTheme(){ var t = root.getAttribute('data-theme'); return t || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); }
-  function syncTheme(){ var d = effTheme() === 'dark'; tbtn.setAttribute('aria-label', d ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'); }
+  function syncTheme(){ var d = effTheme() === 'dark'; tbtn.setAttribute('aria-label', d ? tbtn.getAttribute('data-light') : tbtn.getAttribute('data-dark')); }
   tbtn.addEventListener('click', function(){ var n = effTheme() === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', n); try { localStorage.setItem('em-theme', n); } catch (e) {} syncTheme(); });
   syncTheme();
   var nav = document.getElementById('nav');
@@ -80,11 +102,25 @@ const lds = jsonld ? (Array.isArray(jsonld) ? jsonld : [jsonld]) : [];
   window.emSay = function(m){ toast.textContent = m; toast.classList.add('on'); clearTimeout(tt); tt = setTimeout(function(){ toast.classList.remove('on'); }, 1800); };
   document.querySelectorAll('[data-copy]').forEach(function(b){
     b.addEventListener('click', function(){
-      var v = b.getAttribute('data-copy'), msg = b.getAttribute('data-copy-msg') || 'Email copiado';
+      var v = b.getAttribute('data-copy'), msg = b.getAttribute('data-copy-msg') || toast.getAttribute('data-msg');
       function fb(){ emSay(v); }
       try { navigator.clipboard.writeText(v).then(function(){ emSay(msg); }, fb); } catch (e) { fb(); }
     });
   });
+  /* Idioma: quien elige un idioma con el botón queda recordado. A quien tiene el navegador en el otro idioma
+     se le ofrece la versión traducida con un aviso; nunca se redirige solo (así Google y Bing ven las dos). */
+  document.querySelectorAll('[data-lang]').forEach(function(a){
+    a.addEventListener('click', function(){ try { localStorage.setItem('em-lang', a.getAttribute('data-lang')); } catch (e) {} });
+  });
+  var bar = document.getElementById('langbar');
+  if (bar) {
+    var page = bar.getAttribute('data-page'), chosen = null, closedBar = false;
+    try { chosen = localStorage.getItem('em-lang'); closedBar = localStorage.getItem('em-langbar') === '1'; } catch (e) {}
+    var nl = ((navigator.languages && navigator.languages[0]) || navigator.language || '').slice(0, 2).toLowerCase();
+    var want = nl === 'en' ? 'en' : nl === 'es' ? 'es' : null;
+    if (!closedBar && chosen !== page && want && want !== page) bar.hidden = false;
+    document.getElementById('langbarX').addEventListener('click', function(){ bar.hidden = true; try { localStorage.setItem('em-langbar', '1'); } catch (e) {} });
+  }
 })();
 </script>
 </body>

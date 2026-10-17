@@ -1,7 +1,8 @@
 """Genera la imagen para redes (1200x630) de un artículo nuevo.
 
 Uso (desde la carpeta web/):
-  python3 og-plantilla/generar.py <slug> "<título corto>" "<categoría>" "<línea de comando>"
+  python3 og-plantilla/generar.py <slug> "<título corto>" "<categoría>" "<línea de comando>" [en]
+  (con "en" al final, el texto de abajo sale en inglés, para las traducciones)
 
 Ejemplo:
   python3 og-plantilla/generar.py mi-articulo "Mis primeros dos leads fueron amigos" "opinión" "whatsapp: 2 mensajes nuevos"
@@ -36,22 +37,23 @@ h1{{font-size:76px;font-weight:500;line-height:1;text-wrap:balance}}
 .r{{font-size:19px;color:#9A9A9A;margin-top:2px}}
 """
 
-def page(title, category, cmd):
+def page(title, category, cmd, sub='Ventas B2B con IA y criterio humano'):
     t, k, c = (html.escape(x) for x in (title, category.lower(), cmd))
     return (f'<!doctype html><html><head><meta charset=utf-8><style>{CSS}</style></head><body>'
             f'<div class="dots"></div>'
             f'<div class="top mono"><span><span class="w">&gt; {c}</span><span class="cur"></span></span><span>blog / {k}</span></div>'
             f'<div class="t"><h1>{t}</h1></div>'
-            f'<div class="bot"><img src="{PHOTO}"><div><div class="n">Emiliano Moretti</div><div class="r">Ventas B2B con IA y criterio humano</div></div></div>'
+            f'<div class="bot"><img src="{PHOTO}"><div><div class="n">Emiliano Moretti</div><div class="r">{html.escape(sub)}</div></div></div>'
             f'</body></html>')
 
 def main():
     slug, title, category, cmd = sys.argv[1:5]
+    sub = 'B2B sales with AI and human judgment' if sys.argv[5:6] == ['en'] else 'Ventas B2B con IA y criterio humano'
     out = WEB / 'public' / 'og' / f'{slug}.jpg'
     out.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory() as d:
         src = pathlib.Path(d) / 'og.html'; png = pathlib.Path(d) / 'og.png'
-        src.write_text(page(title, category, cmd), encoding='utf-8')
+        src.write_text(page(title, category, cmd, sub), encoding='utf-8')
         js = ("const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();"
               "const p=await b.newPage({viewport:{width:1200,height:630}});"
               f"await p.goto({src.as_uri()!r});await p.waitForTimeout(400);"

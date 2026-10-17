@@ -1,0 +1,164 @@
+---
+// Animaciones de la home. Lo usan la home en español y la home en inglés.
+---
+<script is:inline>
+
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('js');
+  var css = function(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); };
+
+  /* Reveal */
+  var rv = [].slice.call(document.querySelectorAll('.rv'));
+  if (!reduce && 'IntersectionObserver' in window) {
+    rv.forEach(function(el){ if (el.getBoundingClientRect().top > innerHeight) el.classList.add('pre'); });
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.remove('pre'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' });
+    rv.forEach(function(el){ if (el.classList.contains('pre')) io.observe(el); });
+  }
+
+  /* HERO: matriz de puntos; una señal recorre el pipeline y enciende cada herramienta al pasar */
+  var cv = document.getElementById('grid'), ctx = cv.getContext('2d'), tg = document.getElementById('tags'), tctx = tg.getContext('2d');
+  var S = 10, G = 3, cols, rows, heat, dpr, W, H, mouse = { x: -999, y: -999 };
+  var stops = [['Web',.06,.82],['Gmail',.09,.26],['Claude',.28,.10],['Notion',.72,.10],['Slack',.91,.24],['Claude Design',.93,.64],['HubSpot',.80,.90]];
+  var path = [], glow = stops.map(function(){ return 0; });
+  function resize(){
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); tg.width = W * dpr; tg.height = H * dpr; tctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cols = Math.ceil(W / S); rows = Math.ceil(H / S);
+    heat = new Float32Array(cols * rows);
+    path = stops.map(function(p){ return [p[1] * W, p[2] * H]; });
+  }
+  function lerp(a,b,t){ return a + (b - a) * t; }
+  function pointAt(t){
+    var n = path.length - 1, f = Math.max(0, Math.min(.9999, t)) * n, i = Math.floor(f), k = f - i;
+    return [lerp(path[i][0], path[i+1][0], k), lerp(path[i][1], path[i+1][1], k)];
+  }
+  function bump(x, y, r, v){
+    var cx = Math.floor(x / S), cy = Math.floor(y / S);
+    for (var j = -r; j <= r; j++) for (var i = -r; i <= r; i++) {
+      var X = cx + i, Y = cy + j; if (X < 0 || Y < 0 || X >= cols || Y >= rows) continue;
+      var d = Math.sqrt(i*i + j*j); if (d > r) continue;
+      var idx = Y * cols + X; heat[idx] = Math.max(heat[idx], v * (1 - d / (r + 1)));
+    }
+  }
+  function label(txt, x, y, a, cInk, cBg){
+    tctx.font = '500 12px "Inter Tight", Arial, sans-serif';
+    var w = tctx.measureText(txt).width + 20, h = 26, lx = Math.max(8, Math.min(W - w - 8, x - w / 2)), ly = Math.max(8, Math.min(H - h - 8, y - 40));
+    tctx.globalAlpha = a; tctx.fillStyle = cInk;
+    tctx.beginPath(); if (tctx.roundRect) tctx.roundRect(lx, ly, w, h, 13); else tctx.rect(lx, ly, w, h); tctx.fill();
+    tctx.fillStyle = cBg; tctx.textBaseline = 'middle'; tctx.fillText(txt, lx + 10, ly + h / 2 + .5);
+  }
+  var t0 = performance.now(), LOOP = 9000;
+  function frame(now){
+    var cDot = css('--dot'), cOn = css('--dot-on'), cBg = css('--bg');
+    var t = (Math.max(0, now - t0) % LOOP) / LOOP;
+    var p = pointAt(t); bump(p[0], p[1], 1, 1);
+    path.forEach(function(q, i){ var k = i / (path.length - 1); if (Math.abs(t - k) < .015) { bump(q[0], q[1], 3, .9); glow[i] = 1; } });
+    if (mouse.x > -900) bump(mouse.x, mouse.y, 4, .6);
+    ctx.clearRect(0, 0, W, H);
+    for (var y = 0; y < rows; y++) for (var x = 0; x < cols; x++) {
+      var idx = y * cols + x, h = heat[idx];
+      ctx.globalAlpha = 1; ctx.fillStyle = cDot; ctx.fillRect(x * S, y * S, S - G, S - G);
+      if (h > .02) { ctx.fillStyle = cOn; ctx.globalAlpha = h; ctx.fillRect(x * S, y * S, S - G, S - G); heat[idx] = h * .965; }
+    }
+    tctx.clearRect(0, 0, W, H);
+    if (W > 700) path.forEach(function(q, i){ if (glow[i] > .02) { label(stops[i][0], q[0], q[1], Math.min(1, glow[i] / .4), cOn, cBg); glow[i] *= .978; } });
+    tctx.globalAlpha = 1;
+    ctx.globalAlpha = 1;
+    if (!reduce) requestAnimationFrame(frame);
+  }
+  resize(); addEventListener('resize', resize);
+  var heroEl = cv.parentElement;
+  heroEl.addEventListener('pointermove', function(e){ var r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
+  heroEl.addEventListener('pointerleave', function(){ mouse.x = mouse.y = -999; });
+  if (reduce) { for (var k = 0; k <= 80; k++) { var q = pointAt(k / 80); bump(q[0], q[1], 1, .4); } glow = glow.map(function(){ return .8; }); frame(t0); } else requestAnimationFrame(frame);
+
+  /* PROBLEMA: las piezas se conectan al entrar en pantalla */
+  var pieces = document.getElementById('pieces');
+  if (reduce || !('IntersectionObserver' in window)) pieces.classList.add('joined');
+  else new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting) { setTimeout(function(){ pieces.classList.add('joined'); }, 250); ob.disconnect(); } }, { threshold: .6 }).observe(pieces);
+
+  /* CÓMO FUNCIONA: el scroll avanza los pasos y va pintando el stack. Cada herramienta se pinta en el paso en que entra; las del paso actual quedan en blanco */
+  var use = [['Gmail'], ['Calendar', 'Granola', 'Notion'], ['Notion', 'Slack'], ['Granola', 'Claude Design'], ['HubSpot', 'Instinct']];
+  var track = document.getElementById('howTrack'), pinEl = track.firstElementChild;
+  var tools = [].slice.call(document.querySelectorAll('.tool[data-step]'));
+  var stepEls = [].slice.call(document.querySelectorAll('.how-step')), fills = [].slice.call(document.querySelectorAll('.how-prog i'));
+  var prevB = document.getElementById('howPrev'), nextB = document.getElementById('howNext');
+  var N = stepEls.length, cur = -1;
+  var pinMQ = window.matchMedia ? matchMedia('(min-height: 541px)') : { matches: true };
+  function pinTop(){ return parseFloat(getComputedStyle(pinEl).top) || 0; }
+  function runLen(){ return track.offsetHeight - pinEl.offsetHeight; }
+  function pinned(){ return pinMQ.matches && runLen() > 40; }
+  function show(i){
+    if (i === cur) return; cur = i;
+    stepEls.forEach(function(s, k){ var on = k === i; s.classList.toggle('on', on); s.setAttribute('aria-hidden', on ? 'false' : 'true'); });
+    prevB.disabled = i === 0; nextB.disabled = i === N - 1;
+  }
+  function paint(x){
+    var i = Math.min(N - 1, Math.floor(x));
+    show(i);
+    fills.forEach(function(f, k){ f.style.setProperty('--p', k < i ? 1 : k > i ? 0 : Math.min(1, x - i)); });
+    tools.forEach(function(t){
+      var s = +t.getAttribute('data-step'), v = s < i ? 1 : s > i ? 0 : Math.max(0, Math.min(1, (x - i) / .35));
+      t.style.setProperty('--paint', v.toFixed(3));
+      t.classList.toggle('painted', v > .5);
+      t.classList.toggle('on', use[i].indexOf(t.getAttribute('data-tool')) > -1 && v > 0);
+    });
+  }
+  function howScroll(){
+    if (!pinned()) { paint(cur < 0 ? 0.999 : cur + 0.999); return; }
+    var p = Math.max(0, Math.min(1, (pinTop() - track.getBoundingClientRect().top) / runLen()));
+    paint(Math.max(p * N, .02));
+  }
+  function go(i){
+    i = Math.max(0, Math.min(N - 1, i));
+    if (pinned()) {
+      var y = track.getBoundingClientRect().top + scrollY - pinTop() + (i + .5) / N * runLen();
+      scrollTo({ top: Math.round(y), behavior: reduce ? 'auto' : 'smooth' });
+    } else { cur = -1; paint(i + .999); }
+  }
+  prevB.addEventListener('click', function(){ go(cur - 1); });
+  nextB.addEventListener('click', function(){ go(cur + 1); });
+  howScroll();
+  addEventListener('resize', howScroll);
+  if (pinMQ.addEventListener) pinMQ.addEventListener('change', howScroll);
+
+  /* DETRÁS: conectores que se encienden, terminal que recorre las skills, Notion que se ilumina */
+  var connL = [].slice.call(document.querySelectorAll('#conn li')), skL = [].slice.call(document.querySelectorAll('#skills li')), ntL = [].slice.call(document.querySelectorAll('#notion li')), termTxt = document.getElementById('termTxt'), termOut = document.getElementById('termOut');
+  function backStatic(){ connL.forEach(function(l){ l.classList.add('on'); }); skL[0].classList.add('on'); ntL[1].classList.add('on'); }
+  function backRun(){
+    connL.forEach(function(l, k){ setTimeout(function(){ l.classList.add('on'); }, 250 + k * 220); });
+    var si = 0, ni = 1;
+    function typeTo(txt, done){ var i = 1; (function tick(){ termTxt.textContent = txt.slice(0, i); if (i++ < txt.length) setTimeout(tick, 45); else done(); })(); }
+    function nextSkill(){
+      skL.forEach(function(l, k){ l.classList.toggle('on', k === si); });
+      ntL.forEach(function(l, k){ l.classList.toggle('on', k === ni); });
+      termOut.style.opacity = 0; typeTo(skL[si].textContent, function(){ termOut.textContent = '→ ' + skL[si].getAttribute('data-d'); termOut.style.opacity = 1; setTimeout(function(){ si = (si + 1) % skL.length; ni = ni >= ntL.length - 1 ? 1 : ni + 1; nextSkill(); }, 1900); });
+    }
+    nextSkill();
+  }
+  if (reduce || !('IntersectionObserver' in window)) backStatic();
+  else new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting) { backRun(); ob.disconnect(); } }, { threshold: .35 }).observe(document.getElementById('backGrid'));
+
+  /* Criterio, nav, tarjeta flotante */
+  var lines = [].slice.call(document.querySelectorAll('#lines .statement'));
+  var nav = document.getElementById('nav'), fl = document.getElementById('float'), hero = document.querySelector('.hero'), contact = document.getElementById('contacto'), closed = false;
+  try { closed = sessionStorage.getItem('em-float') === '1'; } catch (e) {}
+  document.getElementById('floatClose').addEventListener('click', function(){ closed = true; fl.classList.remove('show'); try { sessionStorage.setItem('em-float', '1'); } catch (e) {} });
+  function onScroll(){
+    var vh = innerHeight;
+    nav.classList.toggle('solid', scrollY > 8);
+    lines.forEach(function(l){ l.classList.toggle('lit', l.getBoundingClientRect().top < vh * .62); });
+    var past = hero.getBoundingClientRect().bottom < vh * .3, atEnd = contact.getBoundingClientRect().top < vh * .85;
+    var hr = track.getBoundingClientRect(), inHow = hr.top < vh * .8 && hr.bottom > vh * .4;
+    fl.classList.toggle('show', !closed && past && !atEnd && !inHow);
+    howScroll();
+  }
+  if (reduce) lines.forEach(function(l){ l.classList.add('lit'); });
+  addEventListener('scroll', function(){ requestAnimationFrame(onScroll); }, { passive: true });
+  onScroll();
+
+})();
+
+</script>

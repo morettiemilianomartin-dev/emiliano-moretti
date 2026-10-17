@@ -1,0 +1,77 @@
+---
+// Índice del blog. Lo usan /blog/ (español) y /en/blog/ (inglés).
+import Base from '../layouts/Base.astro';
+import { getPosts, fmtDate, postUrl } from '../lib/posts';
+import { CAL, ui, type Lang } from '../lib/i18n';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const T = es ? {
+  title: 'Blog · Emiliano Moretti',
+  desc: 'Cómo vendo con Claude, pieza por pieza: conectores, skills, Notion como memoria y lo que decidí no automatizar.',
+  h1: 'Cómo vendo con Claude, pieza por pieza.', h1g: 'Lo que pruebo, lo que funciona y lo que todavía no resolví.',
+  start: 'Empezá por acá', read: 'Leer', all: 'Todos los artículos', ldName: 'Blog de Emiliano Moretti',
+  cta: '¿Estás metiendo IA en tu empresa?', ctag: 'Charlemos 30 minutos, en Madrid o por videollamada, y comparamos notas.', book: 'Agendemos 30 minutos', rss: 'Seguir por RSS',
+} : {
+  title: 'Blog · Emiliano Moretti',
+  desc: 'How I sell with Claude, piece by piece: connectors, skills, Notion as memory and what I chose not to automate.',
+  h1: 'How I sell with Claude, piece by piece.', h1g: 'What I try, what works and what I haven’t figured out yet.',
+  start: 'Start here', read: 'Read', all: 'All articles', ldName: 'Emiliano Moretti’s blog',
+  cta: 'Bringing AI into your company?', ctag: 'Let’s talk for 30 minutes, in Madrid or on a video call, and compare notes.', book: 'Book 30 minutes', rss: 'Follow via RSS',
+};
+const posts = await getPosts(lang);
+// "Empezá por acá" solo tiene sentido cuando hay más artículos que destacados.
+const destacados = posts.length > 3 ? posts.filter((p) => p.data.destacado).slice(0, 3) : [];
+const ld = { "@context": "https://schema.org", "@type": "Blog", "name": T.ldName, "url": new URL(ui[lang].blog, Astro.site).href, "inLanguage": lang, "author": { "@type": "Person", "name": "Emiliano Moretti", "url": Astro.site?.href } };
+---
+<Base title={T.title} description={T.desc} jsonld={ld} lang={lang} alt={es ? '/en/blog/' : '/blog/'}>
+<main class="blog">
+  <section class="blog-head">
+    <div class="narrow">
+      <p class="eyebrow"><span class="num">&gt;_</span>Blog</p>
+      <h1 class="statement blog-title">{T.h1} <span class="g">{T.h1g}</span></h1>
+      {!es && <p class="blog-note">I write mostly in Spanish. These are the articles I’ve translated so far; the rest are on the <a href="/blog/" hreflang="es" lang="es">blog en español</a>.</p>}
+    </div>
+  </section>
+  {destacados.length > 0 && (
+  <section class="blog-featured">
+    <div class="narrow">
+      <h2 class="eyebrow">{T.start}</h2>
+      <div class="feat-grid">
+        {destacados.map((p) => (
+          <a class="feat-card" href={postUrl(lang, p.id)}>
+            <span class="post-meta">{p.data.category}</span>
+            <span class="feat-title">{p.data.title}</span>
+            <span class="post-more">{T.read} <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  )}
+  <section class="blog-list-wrap">
+    <div class="narrow">
+      <h2 class="eyebrow list-label">{T.all}</h2>
+      <ol class="blog-list">
+        {posts.map((p) => (
+          <li>
+            <a class="post-row" href={postUrl(lang, p.id)}>
+              <span class="post-meta"><time datetime={p.data.pubDate.toISOString()}>{fmtDate(p.data.pubDate, lang)}</time> · {p.data.category}</span>
+              <span class="post-title">{p.data.title}</span>
+              <span class="post-desc">{p.data.description}</span>
+              <span class="post-more">{T.read} <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+            </a>
+          </li>
+        ))}
+      </ol>
+      <div class="post-cta" style="margin-top:64px">
+        <p class="statement">{T.cta} <span class="g">{T.ctag}</span></p>
+        <div class="ctas" style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="pill pill-ink" href={CAL} target="_blank" rel="noopener">{T.book} <svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+          <a class="pill pill-soft" href={ui[lang].rss}>{T.rss}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</Base>

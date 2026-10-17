@@ -1,0 +1,219 @@
+---
+import Base from '../../layouts/Base.astro';
+import HomeScript from '../../components/HomeScript.astro';
+import { getPosts, fmtDate } from '../../lib/posts';
+// Home en inglés. Si cambiás textos de la home en español, actualizá también este archivo.
+const latest = (await getPosts('en')).slice(0, 3);
+const personLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Person", "@id": "https://www.emilianomoretti.com/#person", "name": "Emiliano Moretti", "jobTitle": "Sales director", "worksFor": { "@type": "Organization", "name": "Modulor Studios" }, "address": { "@type": "PostalAddress", "addressLocality": "Madrid", "addressCountry": "ES" }, "url": "https://www.emilianomoretti.com/", "image": "https://www.emilianomoretti.com/avatar.jpg", "description": "Sales director at Modulor Studios. In sales since 2011, his sales process runs on Claude.", "sameAs": ["https://www.linkedin.com/in/emiliano-moretti/", "https://x.com/EmilianoMorett5"], "knowsAbout": ["B2B sales", "AI for sales", "Claude", "Sales automation", "Notion", "HubSpot"] },
+    { "@type": "WebSite", "@id": "https://www.emilianomoretti.com/en/#website", "url": "https://www.emilianomoretti.com/en/", "name": "Emiliano Moretti", "inLanguage": "en", "publisher": { "@id": "https://www.emilianomoretti.com/#person" } }
+  ]
+};
+---
+<Base title="Emiliano Moretti · B2B sales with AI and human judgment" description="Sales director. I share how I use AI in my sales process and talk with founders and executives who are working on the same thing." image="/og-en.jpg" jsonld={personLd} home lang="en" alt="/">
+<main id="top">
+  <!-- 1. Tesis -->
+  <section class="hero">
+    <canvas id="grid" aria-hidden="true"></canvas><canvas id="tags" aria-hidden="true"></canvas>
+    <div class="hero-in">
+      <h1 class="fadein" style="--d:.1s"><span class="l1">I’m a salesperson, not a coder.</span> <span class="g">My sales process runs on Claude.</span></h1>
+      <p class="sub fadein" style="--d:.3s">From a lead’s first email to the CRM, with zero manual data entry. More time with clients, less copying and pasting.</p>
+      <div class="ctas fadein" style="--d:.45s">
+        <a class="pill pill-ink" href="#contacto">Let’s talk<svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="pill pill-soft" href="#como">See how it works<svg class="arr arr-d" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></a>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">Scroll<i></i></div>
+  </section>
+
+  <!-- 3. El problema -->
+  <section id="problema">
+    <div class="narrow center stack">
+      <p class="eyebrow rv"><span class="num">01</span>The problem</p>
+      <h2 class="statement rv">A salesperson spends more time moving information than selling. <span class="g">Every jump between tools means manual work and lost context.</span></h2>
+    </div>
+    <div class="wrap">
+      <div class="pieces" id="pieces" aria-label="The pieces of the sales process, connected">
+        <span class="rail" aria-hidden="true"></span>
+        <span class="piece" style="--sx:-18px;--sy:-34px;--r:-7deg;--dl:0s">The lead’s email</span>
+        <span class="piece" style="--sx:10px;--sy:30px;--r:5deg;--dl:.08s">The notes</span>
+        <span class="piece" style="--sx:-6px;--sy:-26px;--r:-4deg;--dl:.16s">The estimate</span>
+        <span class="piece" style="--sx:14px;--sy:34px;--r:6deg;--dl:.24s">The deck</span>
+        <span class="piece end" style="--sx:-12px;--sy:-30px;--r:-5deg;--dl:.32s">The CRM</span>
+      </div>
+      <p class="pieces-caption center rv">So I connected them.</p>
+    </div>
+  </section>
+
+  <!-- 4. Cómo funciona -->
+  <section id="como">
+    <div class="how-track" id="howTrack">
+      <div class="how-pin">
+        <div class="how-stage">
+        <div class="wrap how-grid">
+          <div class="how-text">
+            <p class="eyebrow"><span class="num">02</span>How it works</p>
+            <h2 class="how-title">My stack, step by step. <span class="g">Each tool comes in when the lead needs it.</span></h2>
+            <div class="how-prog" aria-hidden="true"><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span></div>
+            <div class="how-steps" aria-live="polite">
+              <div class="how-step on" id="how-0"><p class="k">Step 01 / 05</p><h3>The lead</h3><p class="how-say"><b>No lead is left waiting.</b> The form lands in my inbox and I open the case in Claude: within minutes I know who’s writing, what their company does and whether we’ve talked before.</p><p class="before"><b>Before</b><s>A “I’ll get back to you soon” and then digging to find out who they were.</s></p></div>
+              <div class="how-step" id="how-1" aria-hidden="true"><p class="k">Step 02 / 05</p><h3>The call</h3><p class="how-say"><b>I show up knowing who I’m talking to.</b> The client file starts in Notion, Granola records the discovery call and Claude fills in the file with what the client said.</p><p class="before"><b>Before</b><s>Notes in a notebook nobody ever typed up.</s></p></div>
+              <div class="how-step" id="how-2" aria-hidden="true"><p class="k">Step 03 / 05</p><h3>The estimate</h3><p class="how-say"><b>The team estimates with the full context.</b> The request goes out on Slack with the call summary and a link to the client file.</p><p class="before"><b>Before</b><s>Days chasing the team on Slack.</s></p></div>
+              <div class="how-step" id="how-3" aria-hidden="true"><p class="k">Step 04 / 05</p><h3>The proposal</h3><p class="how-say"><b>It goes out with the right branding the first time.</b> It’s built in Claude Design with each boutique’s design system, and I walk the client through it on a recorded call.</p><p class="before"><b>Before</b><s>Slides built by hand, one by one.</s></p></div>
+              <div class="how-step" id="how-4" aria-hidden="true"><p class="k">Step 05 / 05</p><h3>The follow-up</h3><p class="how-say"><b>The pipeline tells the truth.</b> Every step updates the deal in HubSpot, and anything urgent reaches me on WhatsApp, wherever I am.</p><p class="before"><b>Before</b><s>A CRM that got updated on Fridays, if at all.</s></p></div>
+            </div>
+            <div class="how-nav"><button type="button" id="howPrev" aria-label="Previous step"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 11V3M3.5 6.5L7 3l3.5 3.5"/></svg></button><button type="button" id="howNext" aria-label="Next step"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 3v8M3.5 7.5L7 11l3.5-3.5"/></svg></button></div>
+          </div>
+          <div class="stack-grid" id="stackGrid" aria-label="The tools in the process">
+              <div class="tool" data-tool="Gmail" data-step="0"><span class="tag"><span>01</span></span><span><strong>Gmail</strong><small>The lead comes in</small></span></div>
+              <div class="tool" data-tool="Calendar" data-step="1"><span class="tag"><span>02</span></span><span><strong>Calendar</strong><small>Books the call</small></span></div>
+              <div class="tool" data-tool="Granola" data-step="1"><span class="tag"><span>02</span></span><span><strong>Granola</strong><small>Records and summarizes</small></span></div>
+              <div class="tool" data-tool="Instinct" data-step="4"><span class="tag"><span>05</span></span><span><strong>Instinct</strong><small>WhatsApp alerts</small></span></div>
+              <div class="tool core" data-tool="Claude"><span class="tag"><span>hub</span><span>01–05</span></span><span><strong>claude<span class="cur" aria-hidden="true"></span></strong><small>Connects every step</small></span></div>
+              <div class="tool" data-tool="Notion" data-step="1"><span class="tag"><span>02</span></span><span><strong>Notion</strong><small>The client file</small></span></div>
+              <div class="tool" data-tool="HubSpot" data-step="4"><span class="tag"><span>05</span></span><span><strong>HubSpot</strong><small>The pipeline, up to date</small></span></div>
+              <div class="tool" data-tool="Claude Design" data-step="3"><span class="tag"><span>04</span></span><span><strong>Claude Design</strong><small>Builds the proposal</small></span></div>
+              <div class="tool" data-tool="Slack" data-step="2"><span class="tag"><span>03</span></span><span><strong>Slack</strong><small>Requests the estimate</small></span></div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4b. Detrás del proceso -->
+  <section id="detras">
+    <div class="wrap">
+      <div class="narrow center stack" style="padding-inline:0">
+        <p class="eyebrow rv"><span class="num">03</span>Behind the process</p>
+        <h2 class="statement rv">What you don’t see is what makes it work. <span class="g">Connectors so Claude works inside my tools, skills so I don’t improvise, and Notion as memory.</span></h2>
+      </div>
+      <div class="back-grid" id="backGrid">
+        <article class="bk rv">
+          <p class="lbl">Connectors</p>
+          <h3>Inside my tools.</h3>
+          <p class="d">Claude reads and writes in them, and I stop copying and pasting between tabs.</p>
+          <div class="vis"><ul class="conn" id="conn">
+            <li><i></i><span>Gmail</span><span>reads and drafts</span></li>
+            <li><i></i><span>Calendar</span><span>schedules</span></li>
+            <li><i></i><span>Granola</span><span>transcripts</span></li>
+            <li><i></i><span>Notion</span><span>reads and writes</span></li>
+            <li><i></i><span>Slack</span><span>sends requests</span></li>
+            <li><i></i><span>HubSpot</span><span>updates deals</span></li>
+          </ul></div>
+        </article>
+        <article class="bk rv" style="--d:.08s">
+          <p class="lbl">Skills</p>
+          <h3>What I repeat, I standardize.</h3>
+          <p class="d">Any task I do more than twice becomes a skill, with the same process and the same quality every time.</p>
+          <div class="vis term"><div class="prompt"><span class="pr">&gt; </span><span id="termTxt">/call-prep</span><span class="cur" aria-hidden="true"></span></div><p class="out" id="termOut">→ context before every call</p><ul id="skills">
+            <li data-d="context before every call">/call-prep</li>
+            <li data-d="everything discussed with a client">/account-history</li>
+            <li data-d="from the client file to the document">/proposal</li>
+            <li data-d="the full deal, in HubSpot">/load-deal</li>
+            <li data-d="what’s stuck and why">/pipeline-hygiene</li>
+            <li data-d="from yes to project start">/kickoff</li>
+          </ul></div>
+        </article>
+        <article class="bk rv" style="--d:.16s">
+          <p class="lbl">Notion</p>
+          <h3>The system’s memory.</h3>
+          <p class="d">It’s taken for granted, and it’s the foundation: everything Claude knows about a client comes from there. Without Notion, it starts from scratch in every conversation.</p>
+          <div class="vis nt"><ul id="notion">
+            <li><b>▾</b>Sales</li>
+            <li class="sub"><b>·</b>Clients and accounts</li>
+            <li class="sub"><b>·</b>Call notes</li>
+            <li class="sub"><b>·</b>Proposals</li>
+            <li class="sub"><b>·</b>Playbooks by boutique</li>
+          </ul><p class="foot">claude reads → decides → writes</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Criterio -->
+  <section id="criterio">
+    <div class="narrow center">
+      <h2 class="eyebrow rv"><span class="num">04</span>What I don’t automate</h2>
+      <div class="lines" id="lines">
+        <p class="statement"><b>AI prepares, I decide.</b> Nothing reaches a client without me reading it.</p>
+        <p class="statement"><b>The calls are mine.</b> Granola takes the notes so I can listen.</p>
+        <p class="statement"><b>Context beats the prompt.</b> Results improve when you teach it where to look.</p>
+        <p class="statement"><b>Relationships don’t get automated.</b> The time I free up goes to seeing clients, not to sending more emails.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Del blog -->
+  <section id="blog-home" class="home-posts">
+    <div class="narrow">
+      <div class="home-posts-head rv">
+        <h2 class="eyebrow"><span class="num">05</span>From the blog</h2>
+        <a class="link-more" href="/en/blog/">See all articles<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+      <ol class="blog-list rv">
+        {latest.map((p) => (
+          <li>
+            <a class="post-row" href={`/en/blog/${p.id}/`}>
+              <span class="post-meta"><time datetime={p.data.pubDate.toISOString()}>{fmtDate(p.data.pubDate, 'en')}</time> · {p.data.category}</span>
+              <span class="post-title">{p.data.title}</span>
+              <span class="post-desc">{p.data.description}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- 7. Quién soy + esta web + trayectoria -->
+  <section id="quien">
+    <div class="whoami rv">
+      <img src="/avatar.jpg" alt="Emiliano Moretti" width="96" height="96" loading="lazy">
+      <div>
+        <p class="k">About me</p>
+        <p class="t"><b>Emiliano Moretti, sales director at Modulor Studios.</b> I live in Madrid and have been in sales since 2011, starting in media and advertising. Since early 2026 I’ve been building my sales process with Claude and writing about it here.</p>
+        <p class="links"><a href="https://www.linkedin.com/in/emiliano-moretti/" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/EmilianoMorett5" target="_blank" rel="noopener">X</a><a href="/en/blog/">Blog</a></p>
+      </div>
+    </div>
+    <div class="build rv">
+      <div>
+        <p class="k">This site</p>
+        <p class="t"><b>I didn’t code this either.</b> I built it with Claude: the code lives on GitHub and every change goes live on Vercel automatically.</p>
+        <p class="chain"><span>Claude</span>→<span>GitHub</span>→<span>Vercel</span></p>
+      </div>
+      <a class="pill pill-soft pill-sm" href="https://github.com/morettiemilianomartin-dev/emiliano-moretti" target="_blank" rel="noopener">See the code<svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+    </div>
+    <div class="narrow center career rv">
+      <p class="eyebrow">Fifteen years in media and sales</p>
+      <div class="logos"><span>GroupM</span><span>MEDIAMAX</span><span>Infobae</span><span>Seedtag</span><span>Modulor Studios</span></div>
+    </div>
+  </section>
+
+  <!-- 8. Contacto -->
+  <section id="contacto" class="contact" style="padding-top: 24px">
+    <div class="wrap">
+      <div class="contact-box center stack rv">
+        <p class="eyebrow"><span class="num">06</span>Contact</p>
+        <h2 class="statement">Bringing AI into your company? <span class="g">Let’s talk for 30 minutes, in Madrid or on a video call, and compare notes.</span></h2>
+        <div class="ctas">
+          <a class="pill pill-ink" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1_ERerY_SFciQLYK3iSLs8HwhEUT9XIO7E2XoCS4mqluKSFbzKchy6JSY0dDStcfYEp8gJYGx-" target="_blank" rel="noopener">Book 30 minutes<svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+          <a class="pill pill-soft" href="https://www.linkedin.com/in/emiliano-moretti/" target="_blank" rel="noopener">Message me on LinkedIn<svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+          <a class="pill pill-soft" href="https://x.com/EmilianoMorett5" target="_blank" rel="noopener">Follow me on X<svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+        </div>
+        <p class="contact-note">Or copy my email: <button type="button" class="link-btn" data-copy="emiliano@modulorstudios.com">emiliano@modulorstudios.com</button>. I share every piece on LinkedIn and X.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<aside class="float" id="float" aria-label="Direct contact">
+  <div class="top">
+    <div class="av"><img alt="Emiliano Moretti" src="/avatar.jpg" width="40" height="40"></div>
+    <div><strong>Emiliano Moretti</strong><small>Sales director · Modulor Studios</small></div>
+    <button class="x" type="button" id="floatClose" aria-label="Close"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 2l8 8M10 2l-8 8"/></svg></button>
+  </div>
+  <a class="pill pill-sm" href="#contacto">Let’s talk<svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+</aside>
+<HomeScript />
+</Base>

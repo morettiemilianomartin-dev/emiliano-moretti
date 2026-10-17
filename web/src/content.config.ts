@@ -1,9 +1,7 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-const blog = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
-  schema: z.object({
+const fields = {
     title: z.string(),                       // Título del artículo (H1). Máx. ~65 caracteres para Google.
     description: z.string(),                 // Resumen para Google y redes. 140–160 caracteres.
     pubDate: z.coerce.date(),                // Fecha de publicación: 2026-10-14
@@ -17,7 +15,18 @@ const blog = defineCollection({
     image: z.string().optional(),            // Imagen para redes (por defecto /og.jpg)
     destacado: z.boolean().default(false),   // true = aparece en "Empezá por acá" arriba del blog (máx. 3)
     draft: z.boolean().default(false),       // true = no se publica
-  }),
+};
+
+// Artículos en español (idioma principal): /blog/<archivo>/
+const blog = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  schema: z.object(fields),
 });
 
-export const collections = { blog };
+// Traducciones al inglés: /en/blog/<archivo>/. "es" es el nombre del archivo del artículo original en español.
+const blogEn = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog-en' }),
+  schema: z.object({ ...fields, es: z.string() }),
+});
+
+export const collections = { blog, blogEn };

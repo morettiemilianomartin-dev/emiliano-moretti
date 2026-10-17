@@ -42,6 +42,15 @@ Cada artículo nuevo lleva su propia imagen al compartirse, para que no sea siem
 
 El diseño: fondo negro con puntos. Arriba, una línea de comando propia de cada artículo y `blog / categoría`; en el centro, el título (o una versión más corta); abajo, tu foto chica con tu nombre y la frase de la web. Detalle en `og-plantilla/README.md`.
 
+## Versión en inglés
+
+La web está en español (idioma principal, sin prefijo) y en inglés debajo de `/en/`. No se traduce todo: la home, el índice del blog y los artículos que elijas.
+
+- **Traducir un artículo:** pedíselo a Claude. Crea `src/content/blog-en/<link-en-inglés>.md` con el mismo frontmatter más la línea `es: "<nombre del archivo en español>"`, y la imagen con `python3 og-plantilla/generar.py <link> "<título>" "<categoría>" "<comando>" en`. Usá la misma `pubDate` que el original (si el original está programado, la traducción sale el mismo día).
+- **Qué pasa solo:** cada página declara su versión en el otro idioma (`hreflang`) para Google y Bing, el sitemap lista los pares, el botón ES/EN de la barra lleva a la misma página en el otro idioma y el feed `/en/rss.xml` alimenta el aviso diario a Bing.
+- **Aviso de idioma:** a quien tiene el navegador en inglés y entra a una página que tiene traducción le aparece una barra para pasar a inglés (y al revés). No se redirige a nadie automáticamente, para que los buscadores vean las dos versiones.
+- **Textos de la home y la interfaz:** la home en inglés es `src/pages/en/index.astro`; los textos de la barra, el pie y los botones están en `src/lib/i18n.ts`. Si cambiás algo de la home en español, cambialo también ahí.
+
 ## Artículos programados
 
 Podés subir artículos con fecha futura: la web solo muestra los que tienen `pubDate` igual o anterior al momento en que se compila. Para que aparezcan solos en su día, todos los días a las 06:15 UTC (08:15 en Madrid en verano, 07:15 en invierno) GitHub vuelve a compilar la web con `.github/workflows/publicar.yml` y avisa a Bing (IndexNow) de los artículos de las últimas 24 horas.
