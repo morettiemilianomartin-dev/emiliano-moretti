@@ -19,6 +19,7 @@ English: the site is also available in English at ${site}/en/ (home, blog and tr
 ## Páginas
 - [Inicio](${site}/): quién es, cómo funciona su proceso paso a paso y cómo contactarlo.
 - [Blog](${site}/blog/): artículos sobre ventas con IA.
+- [Sobre mí](${site}/sobre-mi/) ([About](${site}/en/about/)): su recorrido, de Buenos Aires a Madrid, y cómo trabaja hoy.
 - [Home in English](${site}/en/) y [blog in English](${site}/en/blog/): versión en inglés del sitio.
 
 ## Artículos

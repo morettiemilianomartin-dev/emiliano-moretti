@@ -6,7 +6,7 @@ export const EMAIL = 'emiliano@modulorstudios.com';
 
 export const ui = {
   es: {
-    home: '/', blog: '/blog/', rss: '/rss.xml', locale: 'es_ES', date: 'es-ES',
+    home: '/', blog: '/blog/', about: '/sobre-mi/', aboutLabel: 'Sobre mí', rss: '/rss.xml', locale: 'es_ES', date: 'es-ES',
     navLabel: 'Principal', how: 'Cómo funciona', behind: 'Detrás', behindLong: 'Detrás del proceso', criteria: 'Lo que no automatizo', contact: 'Contacto',
     explore: 'Explorar', copyEmail: 'Copiar email', emailCopied: 'Email copiado', linkCopied: 'Link copiado',
     footer: 'Director comercial en Modulor Studios. Vendo con Claude y lo cuento mientras lo construyo.',
@@ -16,7 +16,7 @@ export const ui = {
     bar: 'Esta página también está en español.', barGo: 'Leer en español', barClose: 'Cerrar',
   },
   en: {
-    home: '/en/', blog: '/en/blog/', rss: '/en/rss.xml', locale: 'en_US', date: 'en-GB',
+    home: '/en/', blog: '/en/blog/', about: '/en/about/', aboutLabel: 'About', rss: '/en/rss.xml', locale: 'en_US', date: 'en-GB',
     navLabel: 'Main', how: 'How it works', behind: 'Behind it', behindLong: 'Behind the process', criteria: 'What I don’t automate', contact: 'Contact',
     explore: 'Explore', copyEmail: 'Copy email', emailCopied: 'Email copied', linkCopied: 'Link copied',
     footer: 'Sales director at Modulor Studios. I sell with Claude and share how I build it as I go.',

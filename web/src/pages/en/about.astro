@@ -1,0 +1,66 @@
+---
+// "About" page in English. The Spanish version is src/pages/sobre-mi.astro: keep both in sync.
+import Base from '../../layouts/Base.astro';
+import { CAL } from '../../lib/i18n';
+const site = Astro.site?.href.replace(/\/$/, '') ?? 'https://www.emilianomoretti.com';
+const ld = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "url": `${site}/en/about/`,
+  "inLanguage": "en",
+  "mainEntity": {
+    "@type": "Person", "@id": `${site}/#person`, "name": "Emiliano Moretti", "jobTitle": "Sales director",
+    "worksFor": { "@type": "Organization", "name": "Modulor Studios" },
+    "birthPlace": { "@type": "Place", "name": "Buenos Aires, Argentina" },
+    "homeLocation": { "@type": "Place", "name": "Madrid, Spain" },
+    "alumniOf": { "@type": "EducationalOrganization", "name": "EUDE Business School" },
+    "hasCredential": { "@type": "EducationalOccupationalCredential", "name": "Master's in Digital Marketing", "recognizedBy": { "@type": "EducationalOrganization", "name": "EUDE Business School" } },
+    "image": `${site}/avatar.jpg`,
+    "sameAs": ["https://www.linkedin.com/in/emiliano-moretti/", "https://x.com/EmilianoMorett5", "https://github.com/morettiemilianomartin-dev"],
+    "knowsLanguage": ["es", "en"]
+  }
+};
+---
+<Base title="About · Emiliano Moretti" description="Sales director at Modulor Studios. Argentine, based in Madrid, in sales since 2011. My path through media and sales, rugby and how I work with AI today." jsonld={ld} lang="en" alt="/sobre-mi/" type="profile">
+<main class="post">
+  <article class="narrow post-wrap">
+    <p class="eyebrow"><span class="num">&gt;_</span>About</p>
+    <h1 class="post-h1">I'm Emiliano Moretti, sales director at Modulor Studios.</h1>
+    <p class="post-lead">I was born in Buenos Aires, I've lived in Madrid for five years and I've been in sales since 2011. Today my sales process runs on Claude, and I write about it on this blog.</p>
+    <div class="post-by"><div class="by"><img src="/avatar.jpg" alt="Emiliano Moretti" width="40" height="40" /><div><strong>Emiliano Moretti</strong><span>Madrid · B2B sales with AI and human judgment</span></div></div></div>
+
+    <div class="prose">
+      <h2 id="where-i-come-from">Where do I come from?</h2>
+      <p>I'm Argentine and I lived my whole life in Buenos Aires, a city and a country I love. Five years ago I moved to Madrid. Spain opened its doors to me from day one, and this is where I live and work.</p>
+
+      <h2 id="how-i-got-into-sales">How did I get into sales?</h2>
+      <p>I started working very young in advertising, at GroupM, a media agency. It was a great school, with a lot of pressure, and I loved starting out there. The first time a salesperson from a media platform walked through the office door, I saw him and thought I wanted to be him. Since that day I've worked in sales, and I'm still passionate about it. Along the way I did a master's in digital marketing at EUDE Business School.</p>
+      <p>Then I worked at MEDIAMAX and at Infobae, one of the largest digital media outlets in Spanish. At Infobae I worked hard and met some very good sales directors. I left because I moved to Spain; otherwise I'd probably still be there.</p>
+
+      <h2 id="what-i-did-in-spain">What have I done since moving to Spain?</h2>
+      <p>I've worked at two Spanish companies, Seedtag and Modulor Studios.</p>
+      <p>Seedtag has offices all over the world, and I was in charge of global sales enablement. I talked with the sales teams in each country, listened to how each one pitched the product and gave them ideas for telling it in each market, because you don't sell the same way in Brazil as in Germany or the United States. It was my first international experience after a whole life in Buenos Aires.</p>
+      <p>At Modulor Studios I entered the world of design and development through the front door. Design is everywhere there: the first thing they tell you is that they build the e-commerce site for one of the biggest fashion brands in the world. Today I'm the sales director and I run sales for SSTIL and NocodeHackers.</p>
+
+      <h2 id="how-i-work-today">How do I work today?</h2>
+      <p>In early 2026 I started using AI seriously. For years I worked with the stack I was given, and for the first time I built my own: Claude connected to my email, Notion, Granola, Slack and HubSpot. AI prepares and I decide, and the time it frees up goes back to clients. I explain it piece by piece in <a href="/en/blog/automated-sales-process-with-claude/">how I automated my sales process with Claude</a>.</p>
+
+      <h2 id="rugby">What did rugby leave me?</h2>
+      <p>I played rugby my whole life and some years I was team captain. Sharing a locker room and competing at a high level taught me a lot, above all about being a good teammate.</p>
+      <p>There's an idea I've always liked, from when I played in the youth teams and in amateur rugby, where there are all kinds of bodies and abilities: on defense, the team runs at the speed of the slowest player, so the line doesn't break.</p>
+
+      <h2 id="what-i-write-about">What do I write about?</h2>
+      <p>On the <a href="/en/blog/">blog</a> I write about how I sell with AI, about trust and the person in a sale, about brand, marketing and agencies, and about what I'm building in public, like this website. I write mostly in Spanish, and some articles are translated into English.</p>
+    </div>
+
+    <div class="post-cta">
+      <p class="statement">Want to talk? <span class="g">Let's have a 30-minute chat, in Madrid or on a video call, about sales, AI or brand.</span></p>
+      <div class="ctas" style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="pill pill-ink" href={CAL} target="_blank" rel="noopener">Book 30 minutes <svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+        <a class="pill pill-soft" href="https://www.linkedin.com/in/emiliano-moretti/" target="_blank" rel="noopener">LinkedIn <svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+        <a class="pill pill-soft" href="https://x.com/EmilianoMorett5" target="_blank" rel="noopener">X <svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+      </div>
+    </div>
+  </article>
+</main>
+</Base>

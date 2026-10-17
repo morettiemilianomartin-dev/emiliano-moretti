@@ -25,7 +25,7 @@ const esLive = new Set(esPosts.map((p) => p.id));
 const lastmod = new Map();
 for (const p of esPosts) lastmod.set(`${SITE}/blog/${p.id}/`, (p.upd ?? p.pub).toISOString());
 for (const p of enPosts) lastmod.set(`${SITE}/en/blog/${p.id}/`, (p.upd ?? p.pub).toISOString());
-const pairs = [['/', '/en/'], ['/blog/', '/en/blog/']];
+const pairs = [['/', '/en/'], ['/blog/', '/en/blog/'], ['/sobre-mi/', '/en/about/']];
 for (const p of enPosts) if (esLive.has(p.es)) pairs.push([`/blog/${p.es}/`, `/en/blog/${p.id}/`]);
 const alternates = new Map();
 for (const [es, en] of pairs) {

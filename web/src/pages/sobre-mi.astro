@@ -1,0 +1,66 @@
+---
+// Página "Sobre mí". La versión en inglés está en src/pages/en/about.astro: si cambiás algo acá, cambialo también allá.
+import Base from '../layouts/Base.astro';
+import { CAL } from '../lib/i18n';
+const site = Astro.site?.href.replace(/\/$/, '') ?? 'https://www.emilianomoretti.com';
+const ld = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "url": `${site}/sobre-mi/`,
+  "inLanguage": "es",
+  "mainEntity": {
+    "@type": "Person", "@id": `${site}/#person`, "name": "Emiliano Moretti", "jobTitle": "Director comercial",
+    "worksFor": { "@type": "Organization", "name": "Modulor Studios" },
+    "birthPlace": { "@type": "Place", "name": "Buenos Aires, Argentina" },
+    "homeLocation": { "@type": "Place", "name": "Madrid, España" },
+    "alumniOf": { "@type": "EducationalOrganization", "name": "EUDE Business School" },
+    "hasCredential": { "@type": "EducationalOccupationalCredential", "name": "Máster en Marketing Digital", "recognizedBy": { "@type": "EducationalOrganization", "name": "EUDE Business School" } },
+    "image": `${site}/avatar.jpg`,
+    "sameAs": ["https://www.linkedin.com/in/emiliano-moretti/", "https://x.com/EmilianoMorett5", "https://github.com/morettiemilianomartin-dev"],
+    "knowsLanguage": ["es", "en"]
+  }
+};
+---
+<Base title="Sobre mí · Emiliano Moretti" description="Director comercial en Modulor Studios. Argentino, vivo en Madrid y vendo desde 2011. Mi recorrido en medios y ventas, el rugby y cómo trabajo hoy con IA." jsonld={ld} lang="es" alt="/en/about/" type="profile">
+<main class="post">
+  <article class="narrow post-wrap">
+    <p class="eyebrow"><span class="num">&gt;_</span>Sobre mí</p>
+    <h1 class="post-h1">Soy Emiliano Moretti, director comercial en Modulor Studios.</h1>
+    <p class="post-lead">Nací en Buenos Aires, vivo en Madrid desde hace cinco años y vendo desde 2011. Hoy mi proceso comercial corre sobre Claude, y lo cuento en este blog.</p>
+    <div class="post-by"><div class="by"><img src="/avatar.jpg" alt="Emiliano Moretti" width="40" height="40" /><div><strong>Emiliano Moretti</strong><span>Madrid · Ventas B2B con IA y criterio humano</span></div></div></div>
+
+    <div class="prose">
+      <h2 id="de-donde-vengo">¿De dónde vengo?</h2>
+      <p>Soy argentino y viví toda mi vida en Buenos Aires, una ciudad y un país que quiero mucho. Hace cinco años me mudé a Madrid. España me abrió las puertas desde el primer día, y acá vivo y trabajo.</p>
+
+      <h2 id="como-llegue-a-las-ventas">¿Cómo llegué a las ventas?</h2>
+      <p>Empecé a trabajar muy joven en publicidad, en GroupM, una agencia de medios. Fue una gran escuela, con mucha presión, y me encantó arrancar ahí. La primera vez que un vendedor de una plataforma cruzó la puerta de la oficina, lo vi y pensé que quería ser él. Desde ese día me dedico a vender, y me sigue apasionando. En el camino hice un máster en marketing digital en EUDE Business School.</p>
+      <p>Después pasé por MEDIAMAX y por Infobae, uno de los medios digitales más grandes en español. En Infobae trabajé mucho y conocí a muy buenos directores comerciales. Me fui porque me vine a vivir a España; si no, posiblemente seguiría ahí.</p>
+
+      <h2 id="que-hice-en-espana">¿Qué hice desde que llegué a España?</h2>
+      <p>Trabajé en dos empresas españolas, Seedtag y Modulor Studios.</p>
+      <p>Seedtag tiene oficinas en todo el mundo, y ahí me encargaba del sales enablement global. Hablaba con los equipos comerciales de cada país, escuchaba cómo presentaba cada uno el producto y les bajaba ideas para contarlo según el mercado, porque no se vende igual en Brasil que en Alemania o en Estados Unidos. Fue mi primera experiencia internacional después de toda una vida en Buenos Aires.</p>
+      <p>En Modulor Studios entré al mundo del diseño y el desarrollo por la puerta grande. Ahí el diseño se respira en todos lados: lo primero que te cuentan es que hacen el e-commerce de una de las marcas de moda más grandes del mundo. Hoy soy director comercial y llevo las ventas de SSTIL y NocodeHackers.</p>
+
+      <h2 id="como-trabajo-hoy">¿Cómo trabajo hoy?</h2>
+      <p>A principios de 2026 empecé a usar IA en serio. Durante años trabajé con el stack que me daban, y por primera vez armé el mío: Claude conectado a mi correo, Notion, Granola, Slack y HubSpot. La IA prepara y yo decido, y el tiempo que me libera vuelve a los clientes. Lo cuento pieza por pieza en <a href="/blog/proceso-comercial-automatizado-con-claude/">cómo automaticé mi proceso comercial con Claude</a>.</p>
+
+      <h2 id="rugby">¿Qué me dejó el rugby?</h2>
+      <p>Jugué al rugby toda mi vida y algunos años fui capitán del equipo. Compartir vestuario y competir en alto rendimiento me enseñó muchas cosas, sobre todo compañerismo.</p>
+      <p>Hay una idea que me gustó siempre, de cuando jugaba en infantiles y en el rugby amateur, donde hay todo tipo de cuerpos y de aptitudes: en defensa, el equipo corre a la velocidad del más lento, para que la línea no se rompa.</p>
+
+      <h2 id="de-que-escribo">¿De qué escribo?</h2>
+      <p>En el <a href="/blog/">blog</a> escribo sobre cómo vendo con IA, sobre la confianza y la persona en una venta, sobre marca, marketing y agencias, y sobre lo que voy construyendo en público, como esta web. Algunos artículos también están <a href="/en/blog/" hreflang="en">en inglés</a>.</p>
+    </div>
+
+    <div class="post-cta">
+      <p class="statement">¿Querés conversar? <span class="g">Charlemos 30 minutos, en Madrid o por videollamada, sobre ventas, IA o marca.</span></p>
+      <div class="ctas" style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="pill pill-ink" href={CAL} target="_blank" rel="noopener">Agendemos 30 minutos <svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+        <a class="pill pill-soft" href="https://www.linkedin.com/in/emiliano-moretti/" target="_blank" rel="noopener">LinkedIn <svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+        <a class="pill pill-soft" href="https://x.com/EmilianoMorett5" target="_blank" rel="noopener">X <svg class="arr arr-x" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+      </div>
+    </div>
+  </article>
+</main>
+</Base>

@@ -104,6 +104,7 @@ Todo texto de la web, del blog y de redes pasa este filtro antes de publicarse (
 
 ## Otros archivos
 
+- `src/pages/sobre-mi.astro` y `src/pages/en/about.astro`: la página "Sobre mí" en los dos idiomas. Si cambiás una, cambiá la otra.
 - `src/pages/404.astro`: la página que aparece cuando un link no existe (en español, con acceso a la versión en inglés).
 - `vercel.json`: cabeceras de seguridad y caché para fuentes e imágenes. Si una imagen de redes cambia y no se actualiza, puede tardar hasta un día.
 
