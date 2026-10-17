@@ -2,7 +2,7 @@
 # Todos los días a las 06:15 UTC (08:15 en Madrid en verano, 07:15 en invierno):
 #   1. Pide a Vercel que vuelva a compilar la web. Los artículos cuya fecha (pubDate) ya llegó aparecen.
 #   2. Espera a que termine el deploy.
-#   3. Avisa a Bing (IndexNow) de los artículos publicados en las últimas 24 horas.
+#   3. Avisa a Bing (IndexNow) de los artículos publicados en las últimas 24 horas, en español y en inglés.
 # Necesita el secreto VERCEL_DEPLOY_HOOK (Settings > Secrets and variables > Actions).
 name: Publicar artículos programados
 
@@ -31,18 +31,19 @@ jobs:
           import json, urllib.request, email.utils, datetime
           SITE = "https://www.emilianomoretti.com"
           KEY = "4b8b80a693d07c7131de46a294bd6889"
-          rss = urllib.request.urlopen(SITE + "/rss.xml").read().decode("utf-8")
           import xml.etree.ElementTree as ET
           now = datetime.datetime.now(datetime.timezone.utc)
           urls = []
-          for item in ET.fromstring(rss).iter("item"):
-              when = email.utils.parsedate_to_datetime(item.findtext("pubDate"))
-              if now - when <= datetime.timedelta(hours=24):
-                  urls.append(item.findtext("link"))
+          # Lee el feed en español y el de las traducciones al inglés.
+          for feed, home in (("/rss.xml", "/"), ("/en/rss.xml", "/en/")):
+              rss = urllib.request.urlopen(SITE + feed).read().decode("utf-8")
+              nuevos = [i.findtext("link") for i in ET.fromstring(rss).iter("item")
+                        if now - email.utils.parsedate_to_datetime(i.findtext("pubDate")) <= datetime.timedelta(hours=24)]
+              if nuevos:
+                  urls += nuevos + [SITE + home, SITE + home + "blog/"]
           if not urls:
               print("Hoy no hay artículos nuevos.")
               raise SystemExit(0)
-          urls += [SITE + "/", SITE + "/blog/"]
           body = json.dumps({"host": "www.emilianomoretti.com", "key": KEY,
                              "keyLocation": f"{SITE}/{KEY}.txt", "urlList": urls}).encode()
           req = urllib.request.Request("https://api.indexnow.org/indexnow", data=body,
