@@ -4,8 +4,8 @@ import Analytics from '@vercel/analytics/astro';
 import { ui, other, EMAIL, type Lang } from '../lib/i18n';
 // lang: idioma de la página. alt: ruta de la misma página en el otro idioma (si existe).
 // Con alt, la página le avisa a Google y Bing que existe en los dos idiomas (hreflang).
-interface Props { title: string; description: string; image?: string; type?: string; jsonld?: object | object[]; home?: boolean; lang?: Lang; alt?: string; }
-const { title, description, image = '/og.jpg', type = 'website', jsonld, home = false, lang = 'es', alt } = Astro.props;
+interface Props { title: string; description: string; image?: string; type?: string; jsonld?: object | object[]; home?: boolean; lang?: Lang; alt?: string; noindex?: boolean; }
+const { title, description, image = '/og.jpg', type = 'website', jsonld, home = false, lang = 'es', alt, noindex = false } = Astro.props;
 const t = ui[lang], o = ui[other(lang)];
 const site = Astro.site ?? new URL('https://www.emilianomoretti.com');
 const canonical = new URL(Astro.url.pathname, site).href;
@@ -24,7 +24,7 @@ const lds = jsonld ? (Array.isArray(jsonld) ? jsonld : [jsonld]) : [];
 <title>{title}</title>
 <meta name="description" content={description}>
 <meta name="author" content="Emiliano Moretti">
-<link rel="canonical" href={canonical}>
+{noindex ? <meta name="robots" content="noindex"> : <link rel="canonical" href={canonical}>}
 {altUrl && <>
 <link rel="alternate" hreflang="es" href={esUrl}>
 <link rel="alternate" hreflang="en" href={enUrl}>

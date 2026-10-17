@@ -65,7 +65,7 @@ Podés subir artículos con fecha futura: la web solo muestra los que tienen `pu
 
 ## Después de publicar (2 minutos)
 
-1. **Google Search Console** → Inspección de URLs → pegar la URL del artículo → Solicitar indexación.
+1. **Google Search Console** (opcional): Inspección de URLs → pegar la URL del artículo → Solicitar indexación. Si no lo hacés, Google lo encuentra igual por el sitemap.
 2. **Bing Webmaster Tools**: lo hace solo el workflow de publicación con IndexNow. Si querés asegurarte, URL Submission → pegar la URL → Submit.
 3. Compartirlo en LinkedIn y X con el enlace. Si la vista previa muestra una imagen o un título viejo, pasá la URL por el [Post Inspector de LinkedIn](https://www.linkedin.com/post-inspector/) para que la actualice.
 
@@ -77,7 +77,9 @@ No borrar nunca `public/googleffb23e07d95d9c73.html`: es la verificación de Goo
 - Palabra clave principal en título, H1 y primer párrafo.
 - Subtítulos `##` en forma de pregunta; párrafos de 2–4 frases; tablas y listas cuando sumen.
 - Experiencia en primera persona: lo que hago, no teoría. Sin cifras internas ni clientes con nombre.
-- 3–5 enlaces internos (`/#como`, `/#detras`, `/#criterio`, otros artículos) y enlaces externos solo a fuentes oficiales.
+- 3–5 enlaces internos (`/#como`, `/#detras`, `/#criterio`, otros artículos) y enlaces externos solo a fuentes oficiales. En las traducciones, los links van a la versión en inglés (`/en/#como`, `/en/blog/...`).
+- Nunca enlazar a un artículo que todavía no se publicó: da error hasta su fecha. Cuando sale uno nuevo, sumar el link desde los artículos anteriores que hablan del tema.
+- Si el título pasa de 60 caracteres, sumar `seoTitle` con una versión corta para Google y Bing.
 - Fecha visible; si se actualiza, sumar `updatedDate`.
 - Preguntas frecuentes al final con respuestas autosuficientes.
 
@@ -100,8 +102,13 @@ Todo texto de la web, del blog y de redes pasa este filtro antes de publicarse (
 - Clientes y personas del equipo, siempre anónimos salvo que haya un ok explícito.
 - Frases propias que se respetan cuando suman: "La IA nos da esteroides", "Siempre usé el stack que me dieron. Hoy creo el mío", "Las herramientas se adaptan a las personas".
 
+## Otros archivos
+
+- `src/pages/404.astro`: la página que aparece cuando un link no existe (en español, con acceso a la versión en inglés).
+- `vercel.json`: cabeceras de seguridad y caché para fuentes e imágenes. Si una imagen de redes cambia y no se actualiza, puede tardar hasta un día.
+
 ## Dominio
 
 La web vive en `https://www.emilianomoretti.com` (comprado en Vercel). `emilianomoretti.com` y `emiliano-moretti.vercel.app` redirigen ahí con un 308.
 
-Si algún día cambia el dominio, hay que actualizarlo en `astro.config.mjs` (`site`), `public/robots.txt` (línea `Sitemap:`), `public/rss.xsl`, `src/pages/index.astro` (datos estructurados), `src/layouts/Base.astro` y `.github/workflows/publicar.yml` (`SITE` y `host`). Después, Search Console (Cambio de dirección), Bing (Site Move) y los links de LinkedIn, X y GitHub.
+Si algún día cambia el dominio, hay que actualizarlo en `astro.config.mjs` (`site`), `public/robots.txt` (línea `Sitemap:`), `public/rss.xsl`, `src/pages/index.astro` y `src/pages/en/index.astro` (datos estructurados), `src/layouts/Base.astro` y `.github/workflows/publicar.yml` (`SITE` y `host`). Después, Search Console (Cambio de dirección), Bing (Site Move) y los links de LinkedIn, X y GitHub.

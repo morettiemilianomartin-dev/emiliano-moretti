@@ -8,7 +8,13 @@ export async function GET(context) {
 
 > Director comercial en Modulor Studios (Madrid). Vende desde 2011 y su proceso comercial corre sobre Claude: del primer mail de un lead a la propuesta y al CRM, sin cargar nada a mano. Escribe en español sobre ventas B2B con IA; algunos artículos están traducidos al inglés.
 
-Temas: proceso comercial con Claude, conectores (Gmail, Calendar, Granola, Notion, Slack, HubSpot), skills para tareas comerciales repetibles, Notion como memoria del sistema, propuestas con Claude Design, lo que no conviene automatizar en ventas.
+Temas:
+- Cómo vende con IA: proceso comercial con Claude, conectores (Gmail, Calendar, Granola, Notion, Slack, HubSpot), skills, Notion como memoria, propuestas con Claude Design y lo que no conviene automatizar.
+- La confianza y la persona en la venta B2B.
+- Marca, marketing y agencias: identidad visual, case studies, medios ganados y awareness.
+- Construir en público: su web con Claude, GitHub y Vercel, dominio propio, SEO y GEO.
+
+English: the site is also available in English at ${site}/en/ (home, blog and translated articles).
 
 ## Páginas
 - [Inicio](${site}/): quién es, cómo funciona su proceso paso a paso y cómo contactarlo.

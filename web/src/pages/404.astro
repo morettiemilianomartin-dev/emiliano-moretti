@@ -1,0 +1,19 @@
+---
+// Página para links rotos o viejos. Vercel la muestra en cualquier dirección que no existe, en los dos idiomas.
+import Base from '../layouts/Base.astro';
+---
+<Base title="Página no encontrada · Emiliano Moretti" description="Esta página no existe o cambió de dirección." noindex>
+<main class="blog">
+  <section class="blog-head">
+    <div class="narrow">
+      <p class="eyebrow"><span class="num">404</span>No encontrada</p>
+      <h1 class="statement blog-title">Esta página no existe. <span class="g">Puede que el link esté viejo o mal copiado.</span></h1>
+      <div class="ctas" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:32px">
+        <a class="pill pill-ink" href="/">Ir al inicio</a>
+        <a class="pill pill-soft" href="/blog/">Ver el blog</a>
+      </div>
+      <p class="blog-note" lang="en">Page not found. Go to the <a href="/en/" hreflang="en">English home</a> or the <a href="/en/blog/" hreflang="en">blog in English</a>.</p>
+    </div>
+  </section>
+</main>
+</Base>
