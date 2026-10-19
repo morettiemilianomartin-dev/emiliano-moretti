@@ -31,6 +31,8 @@ Ahí entendí algo que como comercial no tenía tan presente. Yo puedo generar c
 
 Porque es lo único que el cliente tiene para juzgar cuando todavía no habló con nadie. Una identidad visual coherente le muestra que del otro lado hay alguien que cuida los detalles, y es fácil suponer que va a cuidar su proyecto de la misma forma.
 
+Y la confianza pesa en la compra más de lo que parece. Según el [Edelman Trust Barometer 2025](https://www.edelman.com/trust/2025/trust-barometer/special-report-brands), una encuesta en 15 países, la confianza en una marca ya es un factor de compra tan importante como la calidad y el precio.
+
 Con un comercial pasa algo parecido: la primera impresión cuenta, y después todo tiene que confirmarla. Con una marca, eso incluye la web, la propuesta, el trato y el trabajo terminado.
 
 ## ¿Cómo se ve en proyectos reales?

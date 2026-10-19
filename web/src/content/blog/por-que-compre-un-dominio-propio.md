@@ -43,7 +43,11 @@ Lo que Google y Bing aprenden de una web, qué páginas tiene y quién la enlaza
 
 GEO es la misma idea pensada para los asistentes de IA: que cuando alguien le pregunta a ChatGPT, Claude o Perplexity por un tema, la respuesta use tu web como fuente. Cada vez más gente busca así, y me interesa aprender a estar ahí.
 
+Según el [Edelman Trust Barometer 2025](https://www.edelman.com/trust/2025/trust-barometer/special-report-brands), el 55% de los encuestados usa herramientas de IA generativa y, de ellos, el 91% las usa de alguna forma para comprar, por ejemplo para investigar marcas o comparar productos.
+
 Algunas cosas las armé en la web desde el principio. Cada artículo empieza con un resumen corto, tiene los títulos escritos como preguntas y termina con preguntas frecuentes de respuesta directa. También hay un archivo llms.txt que resume el sitio para los modelos de lenguaje, datos estructurados que explican quién soy y de qué trata cada página, y un aviso automático a Bing cada vez que publico un artículo.
+
+Un [estudio presentado en KDD 2024](https://arxiv.org/abs/2311.09735) por investigadores de Princeton y otras instituciones probó qué cambios hacen que un texto aparezca más en las respuestas de los buscadores con IA, y logró mejorar la visibilidad hasta un 40%. Entre lo que mejor funcionó estaban citar fuentes confiables y sumar estadísticas, así que lo voy a empezar a aplicar en lo que escriba.
 
 Todavía no sé si alguna IA me está citando. La web tiene pocas semanas y es pronto para medirlo.
 

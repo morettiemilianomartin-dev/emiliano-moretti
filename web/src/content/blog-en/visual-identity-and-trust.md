@@ -32,6 +32,8 @@ That's when I understood something I hadn't really kept in mind as a salesperson
 
 Because it's the only thing the client has to judge by when they haven't talked to anyone yet. A coherent visual identity shows them there's someone on the other side who takes care of details, and it's easy to assume they'll take care of their project the same way.
 
+And trust weighs on a purchase more than it seems. According to the [2025 Edelman Trust Barometer](https://www.edelman.com/trust/2025/trust-barometer/special-report-brands), a survey across 15 countries, trust in a brand is now as much of a purchase consideration as quality and price.
+
 Something similar happens with a salesperson: first impressions count, and then everything has to confirm them. With a brand, that includes the website, the proposal, how people are treated and the finished work.
 
 ## What does this look like in real projects?

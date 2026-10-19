@@ -44,6 +44,8 @@ For that to work you need someone whose image everyone has in their head. Valder
 
 What struck me most was that many people were arguing about whether the video was made with AI. There was a prosthesis, a hair clipper and his wife next to him, and even so, for many people the first doubt was that one.
 
+It isn't an isolated case. In a [Getty Images study](https://newsroom.gettyimages.com/en/getty-images/nearly-90-of-consumers-want-transparency-on-ai-images-finds-getty-images-report) of more than 30,000 people in 25 countries, 76% said it's getting to the point where they can't tell if an image is real.
+
 I think it's a good sign of where we are. With so much generated content, what's real also has to be proven, and the campaign happens to be about authenticity.
 
 ## What role should an agency play today?

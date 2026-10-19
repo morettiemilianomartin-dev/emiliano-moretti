@@ -26,6 +26,8 @@ faq:
 
 Every conversation with Claude starts without context. Connectors give it access to my tools (Gmail, Calendar, Granola, HubSpot), but someone has to decide where each client's information lives and what shape it takes. That place is Notion.
 
+Organizing where information lives helps people too. In [Atlassian's State of Teams 2025](https://www.atlassian.com/blog/state-of-teams-2025), a survey of 12,000 knowledge workers and 200 executives, teams and leaders said they waste 25% of their time just searching for answers.
+
 One of the [principles I don't compromise on](/en/#criterio) is that context beats the prompt. The quality of what Claude returns depends above all on how well I taught it where to look.
 
 ## What do I keep in Notion?

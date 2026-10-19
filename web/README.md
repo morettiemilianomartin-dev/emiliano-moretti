@@ -82,6 +82,7 @@ No borrar nunca `public/googleffb23e07d95d9c73.html`: es la verificación de Goo
 - Si el título pasa de 60 caracteres, sumar `seoTitle` con una versión corta para Google y Bing.
 - Fecha visible; si se actualiza, sumar `updatedDate`.
 - Preguntas frecuentes al final con respuestas autosuficientes.
+- Datos de fuentes públicas (oct 2026 en adelante): sumar 1 o 2 datos por artículo cuando aporten, de estudios serios (Nielsen, Edelman, Gartner, Getty, Atlassian, papers…). Siempre con link a la fuente original (no a un blog que lo repite), año y fuente escritos en el texto y el número tal cual lo dice el estudio. Si un artículo no necesita un dato, va sin dato.
 
 ## Reglas de escritura (que no suene a IA)
 

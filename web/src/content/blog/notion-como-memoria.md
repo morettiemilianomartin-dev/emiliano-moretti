@@ -25,6 +25,8 @@ faq:
 
 Cada conversación con Claude arranca sin contexto. Los conectores le dan acceso a mis herramientas (Gmail, Calendar, Granola, HubSpot), pero alguien tiene que decidir dónde vive la información de cada cliente y con qué forma. Ese lugar es Notion.
 
+Ordenar dónde vive la información también les sirve a las personas. En el [State of Teams 2025 de Atlassian](https://www.atlassian.com/blog/state-of-teams-2025), una encuesta a 12.000 trabajadores del conocimiento y 200 ejecutivos, los equipos y sus líderes dicen perder el 25% de su tiempo solo buscando respuestas.
+
 Uno de los [criterios que no negocio](/#criterio) es que el contexto vale más que el prompt. La calidad de lo que Claude devuelve depende sobre todo de lo bien que le enseñé dónde buscar.
 
 ## ¿Qué guardo en Notion?

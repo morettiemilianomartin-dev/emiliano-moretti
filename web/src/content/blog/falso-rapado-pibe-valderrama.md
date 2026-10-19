@@ -43,6 +43,8 @@ Para que eso funcione hace falta alguien cuya imagen todo el mundo tenga en la c
 
 Lo que más me llamó la atención fue que mucha gente discutía si el video estaba hecho con IA. Había una prótesis, una máquina de cortar pelo y su esposa al lado, y aun así la primera duda de muchos fue esa.
 
+No es un caso aislado. En un [estudio de Getty Images](https://newsroom.gettyimages.com/en/getty-images/nearly-90-of-consumers-want-transparency-on-ai-images-finds-getty-images-report) con más de 30.000 personas de 25 países, el 76% dijo que está llegando a un punto en el que no puede distinguir si una imagen es real.
+
 Me parece una buena señal de dónde estamos. Con tanto contenido generado, lo real también hay que demostrarlo, y la campaña justo habla de autenticidad.
 
 ## ¿Qué rol tiene que cumplir hoy una agencia?

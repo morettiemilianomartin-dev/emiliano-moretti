@@ -44,7 +44,11 @@ What Google and Bing learn about a website, which pages it has and who links to 
 
 GEO is the same idea, thought out for AI assistants: when someone asks ChatGPT, Claude or Perplexity about a topic, you want the answer to use your website as a source. More and more people search that way, and I'm interested in learning how to be there.
 
+According to the [2025 Edelman Trust Barometer](https://www.edelman.com/trust/2025/trust-barometer/special-report-brands), 55% of respondents use generative AI tools and, of those, 91% use them for shopping in some way, for example to research brands or compare products.
+
 I built some things into the website from the start. Each article opens with a short summary, has its headings written as questions and ends with frequently asked questions with direct answers. There's also an llms.txt file that summarizes the site for language models, structured data that explains who I am and what each page is about, and an automatic notice to Bing every time I publish an article.
+
+A [study presented at KDD 2024](https://arxiv.org/abs/2311.09735) by researchers from Princeton and other institutions tested which changes make a text show up more in AI search engine answers, and improved visibility by up to 40%. Citing credible sources and adding statistics were among what worked best, so I'm going to start applying it to what I write.
 
 I don't know yet whether any AI is citing me. The website is only a few weeks old and it's too early to measure.
 
