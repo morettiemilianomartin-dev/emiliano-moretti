@@ -36,5 +36,9 @@ for (const [es, en] of pairs) {
 export default defineConfig({
   site: SITE,
   trailingSlash: 'ignore',
+  // Astro 7 cambió el manejo de espacios (modo 'jsx') y pegaba palabras como "Escrito por" + nombre. true = el comportamiento de Astro 5.
+  compressHTML: true,
+  // Vite 8 minifica el CSS con sintaxis moderna (p. ej. @media (width<=640px)) que iPhones con iOS anterior a 16.4 no entienden. Esto la baja a la sintaxis clásica.
+  vite: { build: { cssTarget: ['chrome87', 'edge88', 'firefox78', 'safari14'] } },
   integrations: [sitemap({ filter: (page) => !page.includes('/ui-kit/'), serialize(item) { const links = alternates.get(item.url); if (links) item.links = links; if (lastmod.has(item.url)) item.lastmod = lastmod.get(item.url); return item; } })],
 });

@@ -2,6 +2,8 @@
 
 Sitio estático hecho con [Astro](https://astro.build). Vercel lo compila solo en cada cambio.
 
+Versión: Astro 7 con Node 22 (ver `package.json`). En `astro.config.mjs` hay dos ajustes que mantienen la web igual que con Astro 5: `compressHTML: true` (si no, se pegan palabras como "Escrito por" y el nombre) y `cssTarget` (para que el CSS funcione en iPhones con iOS anterior a 16.4). Antes de subir una versión nueva de Astro, compilar y comparar capturas de todas las páginas.
+
 ## Publicar un artículo
 
 1. Creá un archivo en `src/content/blog/` con el nombre del link, por ejemplo `notion-como-memoria.md`
