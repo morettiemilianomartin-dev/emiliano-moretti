@@ -1,6 +1,7 @@
 ---
 title: "Notion as memory: the foundation of my sales process with Claude"
-description: "Everything Claude knows about a client comes from Notion. How I organize client files, call notes and proposals so the AI doesn't start from scratch in every conversation."
+seoTitle: "Notion as memory for my sales process with Claude"
+description: "Everything Claude knows about a client comes from Notion. How I organize client files, call notes and proposals so the AI never starts from scratch."
 pubDate: 2026-11-02T06:00:00Z
 category: "Process"
 es: "notion-como-memoria"

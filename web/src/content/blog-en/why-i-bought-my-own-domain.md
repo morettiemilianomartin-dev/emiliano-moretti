@@ -1,6 +1,6 @@
 ---
 title: "I wanted a free website and ended up buying a domain"
-description: "I built my website on free plans and the domain was the only thing I paid for. Why I didn't stay on .vercel.app, what it has to do with trust and how it connects to SEO and GEO."
+description: "I built my website on free plans and the domain was the only thing I paid for. Why I left .vercel.app and how it relates to trust, SEO and GEO."
 pubDate: 2026-11-05T06:00:00Z
 category: "Process"
 es: "por-que-compre-un-dominio-propio"

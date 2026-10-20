@@ -1,5 +1,6 @@
 ---
 title: "El falso rapado del Pibe Valderrama y el rol de una agencia hoy"
+seoTitle: "El falso rapado del Pibe Valderrama y el rol de una agencia"
 description: "Una marca de cerveza hizo creer que Valderrama se había cortado la melena y los medios lo contaron sin cobrar. Lo que me hace pensar sobre el trabajo de una agencia."
 pubDate: 2026-10-22T06:00:00Z
 category: "Opinión"

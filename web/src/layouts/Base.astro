@@ -88,13 +88,13 @@ const moon = '<svg class="ic-moon" viewBox="0 0 16 16" aria-hidden="true"><path 
   </div>
 </nav>
 {alt && (
-  <div class="langbar" id="langbar" data-page={lang} hidden>
+  <aside class="langbar" id="langbar" data-page={lang} aria-label={lang === 'es' ? 'Idioma' : 'Language'} hidden>
     <div class="wrap" lang={other(lang)}>
       <span>{o.bar}</span>
       <a href={alt} hreflang={other(lang)} data-lang={other(lang)}>{o.barGo}</a>
       <button type="button" id="langbarX" aria-label={o.barClose}><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 2l8 8M10 2l-8 8"/></svg></button>
     </div>
-  </div>
+  </aside>
 )}
 <slot />
 <footer>

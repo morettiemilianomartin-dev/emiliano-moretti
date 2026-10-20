@@ -13,6 +13,7 @@ Temas:
 - La confianza y la persona en la venta B2B.
 - Marca, marketing y agencias: identidad visual, case studies, medios ganados y awareness.
 - Construir en público: su web con Claude, GitHub y Vercel, dominio propio, SEO y GEO.
+- Lo que escucho y leo: episodios de podcast y artículos que recomienda a quien vende, con su lectura de cada uno.
 
 English: the site is also available in English at ${site}/en/ (home, blog and translated articles).
 

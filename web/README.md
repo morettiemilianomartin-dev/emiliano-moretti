@@ -16,7 +16,7 @@ title: "Título con la palabra clave principal (máx. ~65 caracteres)"
 seoTitle: "Versión corta para Google y Bing"      # opcional: solo si el título pasa de 60 caracteres
 description: "Resumen de 140–160 caracteres: es lo que muestran Google y las redes."
 pubDate: 2026-10-21T06:00:00Z
-category: "Proceso"
+category: "Proceso"                                # Proceso, Opinión, Construcción o Lo que escucho y leo (en inglés: Process, Opinion, Building, What I listen to and read)
 tags: ["ventas con IA", "Claude"]
 tldr:
   - "Respuesta directa en una frase."
@@ -33,6 +33,7 @@ draft: false                                       # true = no se publica
 ```
 
 3. Debajo, el texto en Markdown. Subtítulos `##` formulados como preguntas.
+   Para un artículo de "Lo que escucho y leo", sumalo también a la quinta tarjeta de `src/pages/sobre-mi.astro` y `src/pages/en/about.astro` si querés que sea el ejemplo de esa sección.
 4. Subí el archivo a GitHub: el índice del blog, el sitemap, el RSS y `llms.txt` se actualizan solos.
 
 ## Imagen para redes de cada artículo

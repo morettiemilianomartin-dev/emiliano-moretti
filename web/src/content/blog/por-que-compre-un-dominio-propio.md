@@ -1,6 +1,6 @@
 ---
 title: "Quería una web gratis y terminé comprando un dominio"
-description: "Armé mi web con planes gratuitos y el dominio fue lo único que pagué. Por qué no me quedé en .vercel.app, qué tiene que ver con la confianza y cómo se conecta con SEO y GEO."
+description: "Armé mi web con planes gratuitos y el dominio fue lo único que pagué. Por qué dejé .vercel.app y qué tiene que ver con la confianza, el SEO y el GEO."
 pubDate: 2026-11-05T06:00:00Z
 category: "Proceso"
 tags: ["dominio propio", "SEO", "GEO", "marca personal"]

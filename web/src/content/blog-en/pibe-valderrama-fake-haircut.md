@@ -1,5 +1,6 @@
 ---
 title: "Pibe Valderrama's fake haircut and the role of an agency today"
+seoTitle: "Pibe Valderrama's fake haircut and the role of an agency"
 description: "A beer brand made people believe Valderrama had cut off his famous hair, and the media covered it for free. What it makes me think about an agency's job."
 pubDate: 2026-10-22T06:00:00Z
 category: "Opinion"

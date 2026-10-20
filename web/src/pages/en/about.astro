@@ -23,12 +23,13 @@ const ld = {
   }
 };
 const live = new Map((await getPosts('en')).map((p) => [p.id, p.data.title]));
-// The blog's four topics. Each card shows the first published article on its list (or links to the blog if there isn't one yet).
+// The blog's four topics plus the What I listen to and read section (the fifth card spans the full width). Each card shows the first published article on its list (or links to the blog if there isn't one yet).
 const topics = [
   { t: 'How I sell with AI', ids: ['automated-sales-process-with-claude'] },
   { t: 'Trust and the person in a sale', ids: ['you-always-buy-from-people-you-like', 'my-first-two-leads-were-friends'] },
   { t: 'Brand, marketing and agencies', ids: ['pibe-valderrama-fake-haircut', 'visual-identity-and-trust', 'case-studies-when-your-work-isnt-visible'] },
   { t: 'What I build in public, like this website', ids: ['personal-website-with-claude-github-vercel'] },
+  { t: 'What I listen to and read', ids: ['build-the-sales-engine-before-you-scale'] },
 ].map((x) => { const id = x.ids.find((i) => live.has(i)); return { ...x, href: id ? `/en/blog/${id}/` : '/en/blog/', ex: id ? live.get(id) : undefined }; });
 ---
 <Base title="About · Emiliano Moretti" description="Sales director at Modulor Studios. Argentine, based in Madrid, in sales since 2011. My path through media and sales, rugby and how I work with AI today." jsonld={ld} lang="en" alt="/sobre-mi/" type="profile">
@@ -107,7 +108,7 @@ const topics = [
   <section id="what-i-write-about" style="padding-top:0">
     <div class="narrow center stack">
       <h2 class="eyebrow rv"><span class="num">05</span>What do I write about?</h2>
-      <p class="statement rv">On the blog I write about four topics. <span class="g">Mostly in Spanish, and some articles are translated into English.</span></p>
+      <p class="statement rv">On the blog I write about four topics and recommend what I listen to and read. <span class="g">Mostly in Spanish, and some articles are translated into English.</span></p>
     </div>
     <div class="narrow">
       <div class="ab-topics">
