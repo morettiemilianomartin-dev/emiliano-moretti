@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import HomeScript from '../../components/HomeScript.astro';
+import HowFlow from '../../components/HowFlow.astro';
 import { getPosts, fmtDate } from '../../lib/posts';
 // Home en inglés. Si cambiás textos de la home en español, actualizá también este archivo.
 const latest = (await getPosts('en')).slice(0, 3);
@@ -55,7 +56,7 @@ const personLd = {
         <div class="wrap how-grid">
           <div class="how-text">
             <p class="eyebrow"><span class="num">02</span>How it works</p>
-            <h2 class="how-title">My stack, step by step. <span class="g">Each tool comes in when the lead needs it.</span></h2>
+            <h2 class="how-title">My process, step by step. <span class="g">Each step comes in, goes through Claude, lands in Notion and goes out.</span></h2>
             <div class="how-prog" aria-hidden="true"><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span></div>
             <div class="how-steps" aria-live="polite">
               <div class="how-step on" id="how-0"><p class="k">Step 01 / 05</p><h3>The lead</h3><p class="how-say"><b>No lead is left waiting.</b> The form lands in my inbox and I open the case in Claude: within minutes I know who’s writing, what their company does and whether we’ve talked before.</p><p class="before"><b>Before</b><s>A “I’ll get back to you soon” and then digging to find out who they were.</s></p></div>
@@ -66,6 +67,7 @@ const personLd = {
             </div>
             <div class="how-nav"><button type="button" id="howPrev" aria-label="Previous step"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 11V3M3.5 6.5L7 3l3.5 3.5"/></svg></button><button type="button" id="howNext" aria-label="Next step"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 3v8M3.5 7.5L7 11l3.5-3.5"/></svg></button></div>
           </div>
+          <HowFlow lang="en" />
           <div class="stack-grid" id="stackGrid" aria-label="The tools in the process">
               <div class="tool" data-tool="Gmail" data-step="0"><span class="tag"><span>01</span></span><span><strong>Gmail</strong><small>The lead comes in</small></span></div>
               <div class="tool" data-tool="Calendar" data-step="1"><span class="tag"><span>02</span></span><span><strong>Calendar</strong><small>Books the call</small></span></div>

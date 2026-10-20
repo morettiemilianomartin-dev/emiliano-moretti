@@ -114,6 +114,7 @@ La referencia completa está en `/ui-kit/` (página interna: no se indexa y no e
 ## Otros archivos
 
 - `src/pages/sobre-mi.astro` y `src/pages/en/about.astro`: la página "Sobre mí" en los dos idiomas. Si cambiás una, cambiá la otra.
+- `src/components/HowFlow.astro`: la tabla de "Cómo funciona" en escritorio (más de 900 px de ancho), con una fila por paso: entra, Claude, Notion y sale. Tiene los textos en español e inglés. En celular se sigue viendo la grilla de herramientas de `index.astro` y `en/index.astro`; si cambiás un paso, revisá las dos. El scroll las pinta desde `src/components/HomeScript.astro`.
 - `src/pages/404.astro`: la página que aparece cuando un link no existe (en español, con acceso a la versión en inglés).
 - `vercel.json`: cabeceras de seguridad y caché para fuentes e imágenes. Si una imagen de redes cambia y no se actualiza, puede tardar hasta un día.
 

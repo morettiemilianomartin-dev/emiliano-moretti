@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import HomeScript from '../components/HomeScript.astro';
+import HowFlow from '../components/HowFlow.astro';
 import { getPosts, fmtDate } from '../lib/posts';
 const latest = (await getPosts()).slice(0, 3);
 const personLd = {
@@ -54,7 +55,7 @@ const personLd = {
         <div class="wrap how-grid">
           <div class="how-text">
             <p class="eyebrow"><span class="num">02</span>Cómo funciona</p>
-            <h2 class="how-title">Mi stack, paso a paso. <span class="g">Cada herramienta entra cuando el lead la necesita.</span></h2>
+            <h2 class="how-title">Mi proceso, paso a paso. <span class="g">Cada paso entra, pasa por Claude, queda en Notion y sale.</span></h2>
             <div class="how-prog" aria-hidden="true"><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span></div>
             <div class="how-steps" aria-live="polite">
               <div class="how-step on" id="how-0"><p class="k">Paso 01 / 05</p><h3>El lead</h3><p class="how-say"><b>Ningún lead espera.</b> El formulario llega a mi correo y abro el caso en Claude: en minutos sé quién escribe, qué hace su empresa y si ya hablamos.</p><p class="before"><b>Antes</b><s>Un “te escribo pronto” y a investigar quién era.</s></p></div>
@@ -65,6 +66,7 @@ const personLd = {
             </div>
             <div class="how-nav"><button type="button" id="howPrev" aria-label="Paso anterior"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 11V3M3.5 6.5L7 3l3.5 3.5"/></svg></button><button type="button" id="howNext" aria-label="Paso siguiente"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 3v8M3.5 7.5L7 11l3.5-3.5"/></svg></button></div>
           </div>
+          <HowFlow lang="es" />
           <div class="stack-grid" id="stackGrid" aria-label="Las herramientas del proceso">
               <div class="tool" data-tool="Gmail" data-step="0"><span class="tag"><span>01</span></span><span><strong>Gmail</strong><small>Entra el lead</small></span></div>
               <div class="tool" data-tool="Calendar" data-step="1"><span class="tag"><span>02</span></span><span><strong>Calendar</strong><small>Agenda la llamada</small></span></div>

@@ -114,12 +114,28 @@
     var i = Math.min(N - 1, Math.floor(x));
     show(i);
     fills.forEach(function(f, k){ f.style.setProperty('--p', k < i ? 1 : k > i ? 0 : Math.min(1, x - i)); });
+    flow(x);
     tools.forEach(function(t){
       var s = +t.getAttribute('data-step'), v = s < i ? 1 : s > i ? 0 : Math.max(0, Math.min(1, (x - i) / .35));
       t.style.setProperty('--paint', v.toFixed(3));
       t.classList.toggle('painted', v > .5);
       t.classList.toggle('on', use[i].indexOf(t.getAttribute('data-tool')) > -1 && v > 0);
     });
+  }
+  /* Escritorio (HowFlow): la fila del paso actual se pinta de izquierda a derecha y Notion se va llenando hacia abajo */
+  var flowRows = [].slice.call(document.querySelectorAll('.fl-row')).map(function(r){ return { el: r, tin: r.querySelector('.fl-in'), tout: r.querySelector('.fl-out'), line: r.querySelector('.fl-line i') }; });
+  var nFill = document.querySelector('.fl-notion i');
+  function cl(v){ return Math.max(0, Math.min(1, v)); }
+  function flow(x){
+    var i = Math.min(N - 1, Math.floor(x)), f = x - i;
+    flowRows.forEach(function(r, k){
+      var pin = k < i ? 1 : k > i ? 0 : cl(f / .3), pl = k < i ? 1 : k > i ? 0 : cl((f - .2) / .4), pout = k < i ? 1 : k > i ? 0 : cl((f - .5) / .3);
+      r.tin.style.setProperty('--paint', pin.toFixed(3)); r.line.style.setProperty('--p', pl.toFixed(3)); r.tout.style.setProperty('--paint', pout.toFixed(3));
+      r.tin.classList.toggle('on', k === i && pin > 0); r.tout.classList.toggle('on', k === i && pout > 0);
+      r.tin.classList.toggle('painted', k < i); r.tout.classList.toggle('painted', k < i);
+      r.el.classList.toggle('now', k === i); r.el.classList.toggle('done', k < i);
+    });
+    if (nFill) nFill.style.setProperty('--p', ((i + (f > .5 ? 1 : 0)) / N).toFixed(3));
   }
   function howScroll(){
     if (!pinned()) { paint(cur < 0 ? 0.999 : cur + 0.999); return; }
