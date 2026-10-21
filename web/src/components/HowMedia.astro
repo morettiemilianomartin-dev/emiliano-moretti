@@ -1,0 +1,31 @@
+---
+// "Cómo funciona": el video de motion que acompaña los pasos. Reemplaza a la tabla HowFlow y a la grilla de herramientas.
+// Escritorio (más de 900 px): video 1200 × 1080. Celular: video 720 × 720. Mismos tramos en los dos y en los dos idiomas.
+// Los archivos están en src/assets/como-funciona/ y se publican con un nombre con hash: si reemplazás un video
+// por uno nuevo con el mismo nombre, los navegadores bajan el nuevo solos.
+// La lógica (qué tramo se repite en cada paso, pausa, carga diferida) está en src/components/HomeScript.astro. Ver /ui-kit/.
+interface Props { lang?: 'es' | 'en'; }
+const { lang = 'es' } = Astro.props;
+const files = import.meta.glob('../assets/como-funciona/*', { eager: true, query: '?url', import: 'default' }) as Record<string, string>;
+const f = (name: string) => files[`../assets/como-funciona/${name}`];
+const steps = [1, 2, 3, 4, 5];
+const web = steps.map((i) => f(`web-${lang}-${i}.jpg`)), movil = steps.map((i) => f(`movil-${lang}-${i}.jpg`));
+const L = {
+  es: { pause: 'Pausar animación', play: 'Reproducir animación' },
+  en: { pause: 'Pause animation', play: 'Play animation' },
+}[lang];
+---
+<div class="how-media" id="howMedia"
+  data-web={f(`web-${lang}.mp4`)} data-web-poster={f(`web-${lang}-0.jpg`)} data-web-stills={web.join(' ')}
+  data-movil={f(`movil-${lang}.mp4`)} data-movil-poster={f(`movil-${lang}-0.jpg`)} data-movil-stills={movil.join(' ')}
+  data-pause={L.pause} data-play={L.play}>
+  <picture class="hm-still" aria-hidden="true">
+    <source media="(max-width: 900px)" srcset={movil[0]} width="720" height="720" />
+    <img src={web[0]} alt="" width="1200" height="1080" loading="lazy" decoding="async" />
+  </picture>
+  <video class="hm-video" muted playsinline disablepictureinpicture disableremoteplayback preload="none" aria-hidden="true" tabindex="-1"></video>
+  <button class="hm-toggle" type="button" aria-label={L.pause} hidden>
+    <svg class="i-pause" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3.5v7M9 3.5v7"/></svg>
+    <svg class="i-play" viewBox="0 0 14 14" aria-hidden="true"><path d="M4.5 3.2v7.6L10.8 7z"/></svg>
+  </button>
+</div>

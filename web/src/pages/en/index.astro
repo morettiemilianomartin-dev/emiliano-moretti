@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import HomeScript from '../../components/HomeScript.astro';
-import HowFlow from '../../components/HowFlow.astro';
+import HowMedia from '../../components/HowMedia.astro';
 import { getPosts, fmtDate } from '../../lib/posts';
 // Home en inglés. Si cambiás textos de la home en español, actualizá también este archivo.
 const latest = (await getPosts('en')).slice(0, 3);
@@ -67,18 +67,7 @@ const personLd = {
             </div>
             <div class="how-nav"><button type="button" id="howPrev" aria-label="Previous step"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 11V3M3.5 6.5L7 3l3.5 3.5"/></svg></button><button type="button" id="howNext" aria-label="Next step"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 3v8M3.5 7.5L7 11l3.5-3.5"/></svg></button></div>
           </div>
-          <HowFlow lang="en" />
-          <div class="stack-grid" id="stackGrid" aria-label="The tools in the process">
-              <div class="tool" data-tool="Gmail" data-step="0"><span class="tag"><span>01</span></span><span><strong>Gmail</strong><small>The lead comes in</small></span></div>
-              <div class="tool" data-tool="Calendar" data-step="1"><span class="tag"><span>02</span></span><span><strong>Calendar</strong><small>Books the call</small></span></div>
-              <div class="tool" data-tool="Granola" data-step="1"><span class="tag"><span>02</span></span><span><strong>Granola</strong><small>Records and summarizes</small></span></div>
-              <div class="tool" data-tool="Instinct" data-step="4"><span class="tag"><span>05</span></span><span><strong>Instinct</strong><small>WhatsApp alerts</small></span></div>
-              <div class="tool core" data-tool="Claude"><span class="tag"><span>hub</span><span>01–05</span></span><span><strong>claude<span class="cur" aria-hidden="true"></span></strong><small>Connects every step</small></span></div>
-              <div class="tool" data-tool="Notion" data-step="1"><span class="tag"><span>02</span></span><span><strong>Notion</strong><small>The client file</small></span></div>
-              <div class="tool" data-tool="HubSpot" data-step="4"><span class="tag"><span>05</span></span><span><strong>HubSpot</strong><small>The pipeline, up to date</small></span></div>
-              <div class="tool" data-tool="Claude Design" data-step="3"><span class="tag"><span>04</span></span><span><strong>Claude Design</strong><small>Builds the proposal</small></span></div>
-              <div class="tool" data-tool="Slack" data-step="2"><span class="tag"><span>03</span></span><span><strong>Slack</strong><small>Requests the estimate</small></span></div>
-          </div>
+          <HowMedia lang="en" />
         </div>
         </div>
       </div>

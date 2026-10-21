@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import HomeScript from '../components/HomeScript.astro';
-import HowFlow from '../components/HowFlow.astro';
+import HowMedia from '../components/HowMedia.astro';
 import { getPosts, fmtDate } from '../lib/posts';
 const latest = (await getPosts()).slice(0, 3);
 const personLd = {
@@ -66,18 +66,7 @@ const personLd = {
             </div>
             <div class="how-nav"><button type="button" id="howPrev" aria-label="Paso anterior"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 11V3M3.5 6.5L7 3l3.5 3.5"/></svg></button><button type="button" id="howNext" aria-label="Paso siguiente"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 3v8M3.5 7.5L7 11l3.5-3.5"/></svg></button></div>
           </div>
-          <HowFlow lang="es" />
-          <div class="stack-grid" id="stackGrid" aria-label="Las herramientas del proceso">
-              <div class="tool" data-tool="Gmail" data-step="0"><span class="tag"><span>01</span></span><span><strong>Gmail</strong><small>Entra el lead</small></span></div>
-              <div class="tool" data-tool="Calendar" data-step="1"><span class="tag"><span>02</span></span><span><strong>Calendar</strong><small>Agenda la llamada</small></span></div>
-              <div class="tool" data-tool="Granola" data-step="1"><span class="tag"><span>02</span></span><span><strong>Granola</strong><small>Graba y resume</small></span></div>
-              <div class="tool" data-tool="Instinct" data-step="4"><span class="tag"><span>05</span></span><span><strong>Instinct</strong><small>Avisos por WhatsApp</small></span></div>
-              <div class="tool core" data-tool="Claude"><span class="tag"><span>hub</span><span>01–05</span></span><span><strong>claude<span class="cur" aria-hidden="true"></span></strong><small>Conecta cada paso</small></span></div>
-              <div class="tool" data-tool="Notion" data-step="1"><span class="tag"><span>02</span></span><span><strong>Notion</strong><small>La ficha del cliente</small></span></div>
-              <div class="tool" data-tool="HubSpot" data-step="4"><span class="tag"><span>05</span></span><span><strong>HubSpot</strong><small>El pipeline al día</small></span></div>
-              <div class="tool" data-tool="Claude Design" data-step="3"><span class="tag"><span>04</span></span><span><strong>Claude Design</strong><small>Arma la propuesta</small></span></div>
-              <div class="tool" data-tool="Slack" data-step="2"><span class="tag"><span>03</span></span><span><strong>Slack</strong><small>Pide la estimación</small></span></div>
-          </div>
+          <HowMedia lang="es" />
         </div>
         </div>
       </div>
