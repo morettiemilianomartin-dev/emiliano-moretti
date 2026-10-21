@@ -173,10 +173,22 @@
     }, { threshold: [0, .3] }).observe(box);
     document.addEventListener('visibilitychange', play);
     function onLayout(){
+      fit();
       if (want() && kind) { kind = ''; if (near) { load(); go(step, false); } }
       else if (!want()) still();
     }
     if (mob.addEventListener) mob.addEventListener('change', onLayout); else if (mob.addListener) mob.addListener(onLayout);
+    /* Celular: el video ocupa el alto que dejan libre el texto y la barra de progreso, así el bloque nunca se corta (el alto del texto cambia con la fuente, el idioma y el ancho) */
+    var stage = box.closest('.how-stage'), grid = box.parentElement, fitQ = 0;
+    function fit(){
+      box.style.removeProperty('--mh');
+      if (!mob.matches || !pinMQ.matches) return;
+      var avail = stage.clientHeight - (grid.offsetHeight - box.offsetHeight) - 32;
+      box.style.setProperty('--mh', Math.max(180, Math.floor(avail)) + 'px');
+    }
+    fit();
+    addEventListener('resize', function(){ cancelAnimationFrame(fitQ); fitQ = requestAnimationFrame(fit); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
     if (!want()) still();
     ui();
     var closed = false;
