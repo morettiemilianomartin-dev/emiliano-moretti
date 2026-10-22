@@ -112,8 +112,8 @@
     var box = document.getElementById('howMedia'), noop = { step: function(){}, close: function(){} };
     if (!box || !window.matchMedia) return noop;
     var vid = box.querySelector('video'), pic = box.querySelector('.hm-still'), img = pic.querySelector('img'), srcEl = pic.querySelector('source'), btn = box.querySelector('.hm-toggle');
-    /* Tiempos en segundos de los videos (27,27 cuadros por segundo). Si cambia el video, se actualizan acá: ver el README */
-    var START = [0, 5.5, 12.467, 17.967, 25.3], END = [5.5, 12.467, 17.967, 25.3], CLOSE = 31.167, HOLD = { web: [33.44, 34.54], movil: [33.44, 34.65] };
+    /* Tiempos en segundos de los videos (24,79 cuadros por segundo). Si cambia el video, se actualizan acá: ver el README */
+    var START = [0, 6.05, 13.714, 19.764, 27.83], END = [6.05, 13.714, 19.764, 27.83], CLOSE = 34.284, HOLD = { web: [36.784, 37.994], movil: [36.784, 38.115] };
     var mob = matchMedia('(max-width: 900px)');
     var lite = reduce || !!(navigator.connection && navigator.connection.saveData) || !('IntersectionObserver' in window);
     var paused = false, blocked = false; try { paused = sessionStorage.getItem('em-howpause') === '1'; } catch (e) {}
