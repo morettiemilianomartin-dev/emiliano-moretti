@@ -112,7 +112,8 @@
     var box = document.getElementById('howMedia'), noop = { step: function(){}, close: function(){} };
     if (!box || !window.matchMedia) return noop;
     var vid = box.querySelector('video'), pic = box.querySelector('.hm-still'), img = pic.querySelector('img'), srcEl = pic.querySelector('source'), btn = box.querySelector('.hm-toggle');
-    var START = [0, 5, 11.333, 16.333, 23], END = [5, 11.333, 16.333, 23], HOLD = { web: [30.4, 31.4], movil: [30.4, 31.5] };
+    /* Tiempos en segundos de los videos (27,27 cuadros por segundo). Si cambia el video, se actualizan acá: ver el README */
+    var START = [0, 5.5, 12.467, 17.967, 25.3], END = [5.5, 12.467, 17.967, 25.3], CLOSE = 31.167, HOLD = { web: [33.44, 34.54], movil: [33.44, 34.65] };
     var mob = matchMedia('(max-width: 900px)');
     var lite = reduce || !!(navigator.connection && navigator.connection.saveData) || !('IntersectionObserver' in window);
     var paused = false, blocked = false; try { paused = sessionStorage.getItem('em-howpause') === '1'; } catch (e) {}
@@ -200,8 +201,8 @@
     /* Al final del recorrido (último cuarto del paso 5), si el video todavía no llegó al cierre, salta al cierre: así lo ve también quien scrollea rápido */
     close: function(){
       if (closed || step !== 4 || !want() || !kind || !seg) return; closed = true;
-      if (vid.currentTime >= 28.2) return;
-      clearTimeout(tmr); seg = [28.333, HOLD[kind][1], HOLD[kind][0]]; clearTimeout(swapT);
+      if (vid.currentTime >= CLOSE - .15) return;
+      clearTimeout(tmr); seg = [CLOSE, HOLD[kind][1], HOLD[kind][0]]; clearTimeout(swapT);
       box.classList.add('swap'); swapT = setTimeout(function(){ vid.currentTime = seg[0]; play(); }, 180);
     } };
   })();
